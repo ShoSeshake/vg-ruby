@@ -26,9 +26,10 @@ class Country < ActiveHash::Base
       {id: 70, name: 'Grenada'}, {id: 71, name: 'Guatemala'}, {id: 72, name: 'Guinea'}, 
       {id: 73, name: 'Guinea-Bissau'}, {id: 74, name: 'Guyana'}, {id: 75, name: 'Haiti'}, 
       {id: 76, name: 'Honduras'}, {id: 77, name: 'Hungary'}, {id: 78, name: 'Iceland'}, 
-      {id: 79, name: 'India'}, {id: 80, name: 'Indonesia'}, {id: 81, name: 'Iran (Islamic Republic of)'}, {id: 82, name: 'Iraq'}, 
-      {id: 82, name: 'Ireland'}, {id: 83, name: 'Israel'}, {id: 84, name: 'Italy'}, 
-      {id: 85, name: 'Jamaica'}, {id: 86, name: 'Japan'}, {id: 87, name: 'Jordan'}, 
+      {id: 79, name: 'India'}, {id: 80, name: 'Indonesia'}, {id: 81, name: 'Iran (Islamic Republic of)'}, 
+      {id: 82, name: 'Iraq'}, 
+      {id: 83, name: 'Ireland'}, {id: 84, name: 'Israel'}, {id: 85, name: 'Italy'}, 
+      {id: 86, name: 'Jamaica'}, {id: 87, name: 'Jordan'}, 
       {id: 88, name: 'Kazakhstan'}, {id: 89, name: 'Kenya'}, {id: 90, name: 'Kiribati'}, 
       {id: 91, name: 'Kuwait'}, {id: 92, name: 'Kyrgyzstan'}, {id: 93, name: 'Lao People\'s Democratic Republic'}, 
       {id: 94, name: 'Latvia'}, {id: 95, name: 'Lebanon'}, {id: 96, name: 'Lesotho'}, 
@@ -65,6 +66,6 @@ class Country < ActiveHash::Base
       {id: 187, name: 'United Republic of Tanzania'}, {id: 188, name: 'United States of America'}, {id: 189, name: 'Uruguay'}, 
       {id: 190, name: 'Uzbekistan'}, {id: 191, name: 'Vanuatu'}, {id: 192, name: 'Venezuela (Bolivarian Republic of)'}, 
       {id: 193, name: 'Viet Nam'}, {id: 194, name: 'Yemen'}, {id: 195, name: 'Zambia'}, 
-      {id: 196, name: 'Zimbabwe'}
+      {id: 196, name: 'Zimbabwe'}, {id: 197, name: 'Japan/日本'}
   ]
   end

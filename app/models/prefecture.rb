@@ -1,6 +1,6 @@
 class Prefecture < ActiveHash::Base
   self.data = [
-      {id: 1, name: 'Hokkaido'}, {id: , name: 'Aomori'}, {id: 3, name: 'Iwate'},
+      {id: 1, name: 'Hokkaido'}, {id: 2, name: 'Aomori'}, {id: 3, name: 'Iwate'},
       {id: 4, name: 'Miyagi'}, {id: 5, name: 'Akita'}, {id: 6, name: 'Yamagata'},
       {id: 7, name: 'Fukushima'}, {id: 8, name: 'Ibaraki'}, {id: 9, name: 'Tochigi'},
       {id: 10, name: 'Gunma'}, {id: 11, name: 'Saitama'}, {id: 12, name: 'Chiba'},
