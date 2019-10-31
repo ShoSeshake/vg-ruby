@@ -1,0 +1,37 @@
+.menu-btn#menu-btn
+  = fa_icon 'bars', class: 'icons'
+.menu#modal-menu
+%ul.menu__bar#modal-menu-bar
+  %li.menu__bar__box#menu-back
+    <
+  =link_to root_path do
+    %li.menu__bar__box
+      TOP PAGE
+  %li.menu__bar__box#user-menu
+    USER
+  -if user_signed_in?
+    =link_to user_path(current_user) do
+      %li.menu__bar__box.user-hidden-menu
+        MY PAGE
+    =link_to destroy_user_session_path(current_user) do 
+      %li.menu__bar__box.user-hidden-menu
+        LOG OUT
+  -else
+    =link_to new_user_registration_path, class:"user-link" do
+      %li.menu__bar__box.user-hidden-menu
+        SIGUN UP
+    =link_to new_user_session_path, class:"user-link" do
+      %li.menu__bar__box.user-hidden-menu
+        LOG IN
+  %li.menu__bar__box#recipe-menu
+    RECIPE
+  %li.menu__bar__box.recipe-hidden-menu
+    CATEGORY
+  %li.menu__bar__box.recipe-hidden-menu
+    INGREDIENT
+  %li.menu__bar__box
+    MESSAGE
+  %li.menu__bar__box
+    FOLLOW
+  %li.menu__bar__box
+    LIKE

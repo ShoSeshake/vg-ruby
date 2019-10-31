@@ -1,7 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#  = Category.create(name:"")
+#  = Ingredient.create(name:"")
+salad = Category.create(name:"salad")
+pasta = Category.create(name:"pasta")
+noodle = Category.create(name:"noodle")
+deepfried= Category.create(name:"deepfried")
+soup = Category.create(name:"soup")
+stew = Category.create(name:"stew/nabe")
+donburi = Category.create(name:"donburi")
+curry = Category.create(name:"curry")
+bread = Category.create(name:"bread")
+hamburger = Category.create(name:"hamburger")
+sauce = Category.create(name:"dressing/sauce")
+dessert = Category.create(name:"dessert")
+drink = Category.create(name:"drink")
+
+vegetable = Ingredient.create(name:"vegetable")
+vegetable.children.create([{name:"carrot"},])
+bean = Ingredient.create(name:"bean")
+bean.children.create([{name:"soy bean"},{name:"edamame"},{name:"green pea"},{name:""},])
+mushroom = Ingredient.create(name:"mushrooms")
+mushroom.children.create([{name:"shiitake"},{name:"shimeji"},{name:"eringi"},{name:""},])
+potato = Ingredient.create(name:"potato")
+potato.children.create([{name:"potato"},{name:"sweet potato"},{name:"yum potato"},{name:"satoimo"},])
+noodle = Ingredient.create(name:"noodle")
+noodle.children.create([{name:"udon"},{name:"soba"},{name:"ramen"},])
+fruit = Ingredient.create(name:"fruit")
+fruit.children.create([{name:"strawberry"},{name:"blueberry"},{name:"raspberry"},
+  {name:"kiwi"},{name:"orange"},{name:"lemon"},{name:"yuzu"},{name:"lime"},{name:"mango"},
+  {name:"pineapple"},{name:"apple"},{name:"pear"},{name:"papaya"}])
+nuts = Ingredient.create(name:"nut")
+nuts.children.create([{name:"peanuts"},{name:"almonds"},{name:"cashewnuts"}])
+seasoning = Ingredient.create(name:"seasoning")
+seasoning.children.create([{name:"salt"},{name:"blackpepper"},{name:"mayonaise"},{name:"ketchup"}])

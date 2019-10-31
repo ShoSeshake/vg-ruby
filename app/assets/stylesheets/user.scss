@@ -1,0 +1,64 @@
+.user-field,
+#user_prefecture_id,
+#user_country_id {
+    width: 350px;
+    border: none;
+    background-color: $darkgreen;
+    border-bottom: 1px $white solid;
+    margin: 10px 0 30px;
+    height: 30px;
+    padding: 5px 0;
+    color: $white;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#user_prefecture_id,
+#user_country_id {
+    height: 40px;
+}
+
+.user-field:focus,
+select:focus {
+    outline: none;
+}
+
+h2.sign_up,
+h2.log_in {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    color: $white;
+}
+
+.user_form {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: $darkgreen;
+    form {
+        top: 50px;
+        margin-left: 200px;
+        display: none;
+    }
+    label {
+        color: $white;
+        font-weight: bold;
+    }
+    em {
+        color: $white;
+    }
+}
+
+#user_remember_me {
+    margin-bottom: 30px;
+}
+
+.submit {
+    border-radius: 4px;
+    border-bottom: 1px $white solid;
+    background-color: $darkgreen;
+    padding: 8px;
+    color: $white;
+}
