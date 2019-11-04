@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
     @categories = Category.all
     @recipe = Recipe.new
     @recipe.images.build
+    @recipe.instructions.build
     @recipe.categories_recipes.build
     @recipe.ingredients_recipes.build
   end
@@ -45,6 +46,7 @@ class RecipesController < ApplicationController
     :text,
     :serving,
     images_attributes: [:url],
+    instructions_attributes: [:text],
     categories_recipes_attributes: [:category_id],
     ingredients_recipes_attributes: [:ingredient_id,:quantity]
     )

@@ -47,7 +47,16 @@
         =f.fields_for :ingredients_recipes do |ing|
           #recipe-ingredient
       .form-title
-        Text
+        Instructions
+      =f.fields_for :instructions do |ins|
+        .flex-box
+          .instruction-number{"data-number":1}
+            %span 1.
+          %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text"}
+      .add-button
+        Add more instructions
+      .form-title
+        Note
       .form-box
         =f.text_area :text
       = f.submit 'POST',class:"submit-btn"

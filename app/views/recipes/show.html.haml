@@ -24,9 +24,20 @@
                   =i.ingredient.name
                 %span.ingredient-quantity
                   =i.quantity
-    .recipe-show__description
-      %span.recipe-title Instruction
-      .recipe-show__description__box
+    .recipe-show__instructions
+      %span.recipe-title Instructions
+      -n=1
+      -@recipe.instructions.each do |i|
+        .recipe-show__instructions__box
+          %span.instruction-number
+            = n
+            \.
+          .recipe-show__instructions__box__text
+            =simple_format(i.text)
+          -n+=1
+    .recipe-show__note
+      %span.recipe-title Note
+      .recipe-show__note__box
         =simple_format(@recipe.text)
     .recipe-show__category
       %span.recipe-title Category
@@ -35,4 +46,22 @@
           =link_to category_path(c.id), class:"category-link" do
             =c.name
           \/
-
+      -if @recipe.user == current_user
+        .recipe-icons
+          =link_to edit_recipe_path(@recipe), class:"recipe-link" do
+            =fa_icon "edit", class:"icon"
+          =fa_icon "trash", class:"icon", id:"delete-icon"
+.delete-modal
+  .delete-modal__box
+    Are you sure that
+    %br
+    %br
+    you would like to 
+    %br
+    %br
+    delete this recipe?
+    .delete-modal__box__confirmation
+      =link_to recipe_path(@recipe), method: :delete, class:"recipe-link" do
+        YES
+      .delete-modal__box__confirmation__cancel
+        NO
