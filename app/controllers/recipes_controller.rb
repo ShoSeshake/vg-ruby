@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
+      @categories = Category.all
       @recipe.images = []
       @recipe.images.build
       render :new

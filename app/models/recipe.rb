@@ -13,7 +13,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :categories_recipes
   accepts_nested_attributes_for :ingredients_recipes
 
-  validates :images, length: {maximum: 5, minimum: 1}
+  validates :images, length: {maximum: 10, minimum: 1}
 
   validates :name, :text, :serving, presence: :ture
 

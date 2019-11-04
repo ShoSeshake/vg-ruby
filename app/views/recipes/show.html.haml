@@ -1,1 +1,38 @@
 .container
+  .recipe-show
+    .flex-box
+      .recipe-show__left
+        .recipe-show__left__main
+          =image_tag "#{@recipe.images.first.url}",class:"image-main"
+        %ul.recipe-show__left__subs
+          -@recipe.images.each do |i|
+            %li.recipe-show__left__subs__image
+              =image_tag "#{i.url}",class:"image-sub"
+      .recipe-show__right
+        .recipe-show__right__title
+          =@recipe.name
+        .recipe-show__right__ingredient
+          %span.recipe-title
+            Ingredients
+          (Serving for 
+          =@recipe.serving
+          )
+          %ul.recipe-show__right__ingredient__all
+            -@recipe.ingredients_recipes.each do |i|
+              %li.recipe-show__right__ingredient__all__list
+                %span.ingredient-name
+                  =i.ingredient.name
+                %span.ingredient-quantity
+                  =i.quantity
+    .recipe-show__description
+      %span.recipe-title Instruction
+      .recipe-show__description__box
+        =simple_format(@recipe.text)
+    .recipe-show__category
+      %span.recipe-title Category
+      .recipe-show__category__all
+        -@recipe.categories.each do |c|
+          =link_to category_path(c.id), class:"category-link" do
+            =c.name
+          \/
+
