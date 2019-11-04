@@ -36,4 +36,17 @@ $(function() {
         }
         setTimeout(action, 1000);
     })
+    $('#menu-category').on('click', function() {
+        $('#dark-background').fadeIn(500);
+        $('#category-list').fadeIn(500);
+    })
+    $('#menu-ingredient').on('click', function() {
+        $('#dark-background').fadeIn(500);
+        $('#ingredient-list').fadeIn(500);
+    })
+    $('#dark-background').on('click', function() {
+        $('#dark-background').fadeOut(500);
+        $('#category-list').fadeOut(500);
+        $('#ingredient-list').fadeOut(500);
+    })
 })

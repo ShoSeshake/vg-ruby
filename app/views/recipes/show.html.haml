@@ -51,6 +51,8 @@
           =link_to edit_recipe_path(@recipe), class:"recipe-link" do
             =fa_icon "edit", class:"icon"
           =fa_icon "trash", class:"icon", id:"delete-icon"
+    .recipe-show__like
+      = render partial:"shared/like", locals: { recipe: @recipe }
 .delete-modal
   .delete-modal__box
     Are you sure that

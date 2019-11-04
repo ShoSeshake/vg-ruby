@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_044152) do
+ActiveRecord::Schema.define(version: 2019_11_04_104045) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2019_11_04_044152) do
     t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_likes_on_recipe_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "serving", null: false
@@ -110,5 +119,7 @@ ActiveRecord::Schema.define(version: 2019_11_04_044152) do
   add_foreign_key "ingredients_recipes", "ingredients"
   add_foreign_key "ingredients_recipes", "recipes"
   add_foreign_key "instructions", "recipes"
+  add_foreign_key "likes", "recipes"
+  add_foreign_key "likes", "users"
   add_foreign_key "recipes", "users"
 end

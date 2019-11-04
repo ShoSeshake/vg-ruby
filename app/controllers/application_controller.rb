@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :prefecture_id, :country_id])
   end
 
+  def menubar
+    @categories = Category.all.where(ancestry: nil)
+    @ingredients = Ingredient.all.where(ancestry: nil)
+  end
+
 end

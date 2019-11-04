@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :user_check, only: [:edit, :update, :destroy]
+  before_action :menubar
 
   def index
   end
@@ -37,6 +39,11 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    if @recipe.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private
@@ -55,5 +62,9 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def user_check
+    redirect_to recipe_path(@recipe) unless @recipe.user == current_user
   end
 end

@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :recipes
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:show]
+  resources :ingredients, only: [:show]
 
   namespace :api do
     resources :recipes, only: :index
   end
+
+  post '/recipe/:recipe_id/likes' => "likes#create"
+  delete '/recipe/:recipe_id/likes' => "likes#destroy"
 end

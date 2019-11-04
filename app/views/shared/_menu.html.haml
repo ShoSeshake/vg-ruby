@@ -13,6 +13,9 @@
     =link_to user_path(current_user) do
       %li.menu__bar__box.user-hidden-menu
         MY PAGE
+    =link_to new_recipe_path do
+      %li.menu__bar__box.user-hidden-menu
+        POST RECIPE
     =link_to destroy_user_session_path(current_user) do 
       %li.menu__bar__box.user-hidden-menu
         LOG OUT
@@ -25,9 +28,9 @@
         LOG IN
   %li.menu__bar__box#recipe-menu
     RECIPE
-  %li.menu__bar__box.recipe-hidden-menu
+  %li.menu__bar__box.recipe-hidden-menu#menu-category
     CATEGORY
-  %li.menu__bar__box.recipe-hidden-menu
+  %li.menu__bar__box.recipe-hidden-menu#menu-ingredient
     INGREDIENT
   %li.menu__bar__box
     MESSAGE
@@ -35,3 +38,18 @@
     FOLLOW
   %li.menu__bar__box
     LIKE
+#dark-background
+#category-list
+  .category__all
+    .category__all__title
+      Category
+    -@categories.each do |c|
+      =link_to category_path(c.id), class:"category__all__list" do
+        =c.name
+#ingredient-list
+  .ingredient__all
+    .ingredient__all__title
+      Ingredient
+    -@ingredients.each do |i|
+      =link_to ingredient_path(i.id),class:"ingredient__all__list" do
+        =i.name
