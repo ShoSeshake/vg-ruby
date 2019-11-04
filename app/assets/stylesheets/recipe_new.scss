@@ -1,0 +1,286 @@
+.container {
+    width: 700px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
+.recipe-new {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 80vh;
+    input,
+    textarea {
+        color: $darkgreen;
+        background-color: white;
+        border-radius: 4px;
+        padding: 10px 10px;
+        font-size: 20px;
+        line-height: 20px;
+        border: 1px solid $green;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    input:focus,
+    textarea:focus {
+        border: 2px solid $darkgreen;
+        box-sizing: border-box;
+    }
+    textarea {
+        height: 500px;
+    }
+    .submit-btn {
+        width: 70%;
+        margin: 0 auto;
+        color: $darkgreen;
+        border-radius: 4px;
+    }
+    .submit-btn:hover {
+        color: white;
+        background-color: $darkgreen;
+        cursor: pointer;
+    }
+}
+
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    #ing-box,
+    #category-box {
+        width: 60%;
+        .category-btn {
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            color: $darkgreen;
+            border-radius: 4px;
+            width: 100%;
+            border: 1px solid $green;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .category-btn:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+    }
+    #quantity-box,
+    #serving-box,
+    .quantity-field {
+        width: 25%;
+    }
+}
+
+.form-title {
+    margin-bottom: 10px;
+}
+
+#category-modal {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+    padding-top: 80px;
+    .category-list {
+        width: 700px;
+        margin: 0 auto;
+        z-index: 100;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: $white;
+        color: $darkgreen;
+        font-weight: bold;
+        height: 80vh;
+        &__select {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            input {
+                display: none;
+            }
+        }
+        &__select:nth-child(even) {
+            margin-left: 60px;
+        }
+        &__select:hover {
+            color: white;
+            background-color: rgb(87, 152, 87);
+        }
+        .category-selected {
+            display: block;
+            margin: 20px auto 0;
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            color: $darkgreen;
+            border-radius: 4px;
+            width: 60%;
+            border: 1px solid $green;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .category-selected:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+    }
+}
+
+#search-result {
+    display: none;
+    position: relative;
+    margin-top: -10px;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    overflow: scroll;
+    margin-bottom: -400px;
+    cursor: pointer;
+    .ingredient-list {
+        padding: 5px 10px;
+        font-size: 18px;
+        background-color: white;
+        color: $darkgreen;
+    }
+    .ingredient-list:hover {
+        color: white;
+        background-color: $darkgreen;
+    }
+}
+
+.delete-btn {
+    margin: 10px 0 0 10px;
+    top: 0;
+    left: 10px;
+    bottom: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(172, 46, 46);
+    cursor: pointer;
+}
+
+.ingredients-box {
+    color: $darkgreen;
+    padding: 10px 30px;
+    font-size: 20px;
+    line-height: 20px;
+    border-bottom: 1px solid $green;
+    display: block;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.ing-form {
+    margin-top: 10px;
+}
+
+#quantity-box>.form-title {
+    margin-top: 50px;
+}
+
+#quantity-box {
+    opacity: 0;
+}
+
+.target-box {
+    width: 640px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.upload-item {
+    margin: 20px 0;
+    box-sizing: border-box;
+    width: 112px;
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    &__image {
+        height: 140px;
+        width: 110px;
+    }
+    &__delete {
+        position: absolute;
+        display: block;
+        color: white;
+        top: 5px;
+        right: 5px;
+        height: 15px;
+        width: 15px;
+        background-color: rgb(172, 46, 46);
+        border-radius: 50%;
+        line-height: 15px;
+        text-align: center;
+        z-index: 5;
+        border: white solid 1px;
+    }
+}
+
+.dropbox {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    margin: 20px 0;
+    height: 140px;
+    width: 615px;
+    min-height: 142px;
+    background: #bcf2c2;
+    border: 1px dashed rgb(179, 255, 198);
+    font-size: 14px;
+    font-family: monospace, monospace;
+    text-align: center;
+    cursor: pointer;
+    .camera-image {
+        display: none;
+        margin-top: 60px;
+    }
+    p.inner_text {
+        font-size: 14px;
+        font-family: monospace, monospace;
+        margin-top: 30px;
+    }
+    &--fileform {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+.upload-item:not(:last-child) {
+    margin-right: 10px;
+}

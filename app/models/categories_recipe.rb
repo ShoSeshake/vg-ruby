@@ -1,6 +1,4 @@
 class CategoriesRecipe < ApplicationRecord
   belongs_to :recipe
-  belogns_to :ingredient
-
-  validates :quantity
+  belongs_to :category
 end

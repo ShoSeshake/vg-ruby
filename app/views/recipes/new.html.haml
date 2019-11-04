@@ -1,0 +1,53 @@
+.container
+  .recipe-new
+    =form_for @recipe, method: :post do |f|
+      .form-title
+        Images
+      .target-box{id: "item-append-target"}
+        = f.fields_for :images do |i|
+          =i.label :url, for: nil , class: "dropbox", id:"dropbox" do
+            %p.inner_text
+              please upload photos of your dish
+              %br
+              %br
+              by drag and drop, or just click.
+            = fa_icon 'camera', class: 'mark fa-3x camera-image'
+            =i.file_field :url, multiple: true, type: 'file', name: "recipe[images_attributes][][url]", class: "dropbox--fileform", id: "item-drop-zone"
+      .form-title
+        Title
+      =f.text_field :name 
+      =f.fields_for :categories_recipes do |c|
+        #category-modal
+          .category-list
+            -@categories.each do |category|
+              %label.category-list__select
+                %input{type:"checkbox", name: "recipe[categories_recipes_attributes][][category_id]", value:category.id, class:"category-checkbox",multiple:"true"}
+                =category.name
+            .category-selected SELECT
+        .flex-box
+          #category-box
+            .form-title
+              Category
+            .form-box
+              .category-btn Select Category
+          #serving-box
+            .form-title
+              Serving for
+            .form-box
+              =f.number_field :serving
+        .flex-box
+          #ing-box
+            .form-title
+              Ingredients
+            %input{type:"text", id:"ing-field",autocomplete:"off"}
+            #search-result
+          #quantity-box
+            .form-title
+              Quantity
+        =f.fields_for :ingredients_recipes do |ing|
+          #recipe-ingredient
+      .form-title
+        Text
+      .form-box
+        =f.text_area :text
+      = f.submit 'POST',class:"submit-btn"

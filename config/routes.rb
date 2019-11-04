@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
 
-  resources :recipe
+  resources :recipes
+
+  namespace :api do
+    resources :recipes, only: :index
+  end
 end

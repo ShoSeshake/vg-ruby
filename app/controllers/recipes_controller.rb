@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
 
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
@@ -10,8 +10,11 @@ class RecipeController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @recipe = Recipe.new
     @recipe.images.build
+    @recipe.categories_recipes.build
+    @recipe.ingredients_recipes.build
   end
 
   def create
@@ -40,7 +43,9 @@ class RecipeController < ApplicationController
     :name,
     :text,
     :serving,
-    images_attributes: [:url]
+    images_attributes: [:url],
+    categories_recipes_attributes: [:category_id],
+    ingredients_recipes_attributes: [:ingredient_id,:quantity]
     )
     .merge(user_id: current_user.id)
   end

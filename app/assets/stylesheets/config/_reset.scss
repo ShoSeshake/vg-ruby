@@ -163,7 +163,9 @@ legend {
 
 a:focus,
 a:checked,
-button:focus {
+button:focus,
+input:focus,
+textarea:focus {
     outline: none;
 }
 
