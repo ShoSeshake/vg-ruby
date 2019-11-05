@@ -1,13 +1,11 @@
-//ユーザーがいいねをしているかしていないかをif文で確認
-
 - if user_signed_in?
-  - if Like.find_by(user_id: current_user.id, recipe_id: @recipe.id)
-    = link_to "/recipe/#{@recipe.id}/likes", class: "favorite", method: :delete, remote: true do
+  - if Like.find_by(user_id: current_user.id, recipe_id: recipe.id)
+    = link_to "/recipe/#{recipe.id}/likes", class: "favorite", method: :delete, remote: true do
       = fa_icon 'heart', class: "icon-red"
       %span.count 
         = recipe.likes.count
   - else
-    = link_to "/recipe/#{@recipe.id}/likes", class: "unfavorite", method: :post, remote: true do
+    = link_to "/recipe/#{recipe.id}/likes", class: "unfavorite", method: :post, remote: true do
       =fa_icon 'heart', class:"icon-grey"
       %span.unlike__uncount
         = recipe.likes.count

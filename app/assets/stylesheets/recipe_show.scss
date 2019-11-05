@@ -82,7 +82,6 @@
     }
     &__instructions {
         padding: 10px;
-        width: 100%;
         background: #fafafa;
         margin-bottom: 10px;
         span.recipe-title {
@@ -91,7 +90,6 @@
         &__box {
             margin-top: 15px;
             padding-bottom: 15px;
-            width: 100%;
             border-bottom: 1px dashed rgb(65, 135, 65);
             span.instruction-number {
                 font-size: 18px;
@@ -109,7 +107,6 @@
         }
     }
     &__note {
-        width: 100%;
         padding: 10px;
         background: #fafafa;
         span.recipe-title {
@@ -122,6 +119,8 @@
     &__category {
         margin-top: 10px;
         font-size: 0;
+        background: #fafafa;
+        padding: 10px;
         span.recipe-title {
             font-size: 20px;
             display: block;
@@ -130,7 +129,7 @@
             margin-top: 10px;
             font-size: 18px;
             display: inline-block;
-            width: 90%;
+            width: 85%;
             .category-link {
                 color: $darkgreen;
             }
@@ -141,20 +140,29 @@
         .recipe-icons {
             font-size: 20px;
             display: inline-block;
-            width: 10%;
+            width: 15%;
             text-align: right;
-            justify-content: space-between;
             .icon {
+                display: inline-block;
                 cursor: pointer;
             }
             .recipe-link {
                 color: $darkgreen;
+                display: inline-block;
+                margin-right: 20px;
             }
         }
     }
+    &__comment {
+        display: inline-block;
+        margin: 10px 10px 0;
+        right: 0;
+        font-size: 20px;
+    }
     &__like {
+        display: inline-block;
         margin: 10px 0 0;
-        text-align: right;
+        right: 0;
         font-size: 20px;
         .unlike__uncount,
         .icon-grey {
@@ -163,6 +171,73 @@
         .count,
         .icon-red {
             color: rgb(255, 42, 124);
+        }
+    }
+    &__comment-form {
+        margin-top: 20px;
+        &__title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+            width: 79%;
+        }
+        .comment-review {
+            width: 20%;
+            display: inline-block;
+            color: $darkgreen;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px 10px;
+            font-size: 20px;
+            line-height: 20px;
+            border: 1px solid $green;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .comment-review:hover {
+            border: 2px solid $darkgreen;
+            box-sizing: border-box;
+        }
+        &__box {
+            width: 100%;
+            .comment-form {
+                display: block;
+                margin: 0 auto;
+                width: 100%;
+                height: 150px;
+                color: $darkgreen;
+                background-color: white;
+                border-radius: 4px;
+                padding: 10px 10px;
+                font-size: 20px;
+                line-height: 20px;
+                border: 1px solid $green;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            .comment-form:focus {
+                border: 2px solid $darkgreen;
+                box-sizing: border-box;
+            }
+        }
+        .comment-btn {
+            display: block;
+            margin: 10px auto;
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            color: $darkgreen;
+            border-radius: 4px;
+            width: 60%;
+            border: 1px solid $green;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .comment-btn:hover {
+            color: white;
+            background-color: $darkgreen;
         }
     }
 }

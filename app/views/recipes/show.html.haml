@@ -50,9 +50,23 @@
         .recipe-icons
           =link_to edit_recipe_path(@recipe), class:"recipe-link" do
             =fa_icon "edit", class:"icon"
-          =fa_icon "trash", class:"icon", id:"delete-icon"
+          =fa_icon "trash-o", class:"icon", id:"delete-icon"
+    .recipe-show__comment
+      = fa_icon 'comment-o',class:"icon-grey"
+      =@recipe.comments.count
     .recipe-show__like
       = render partial:"shared/like", locals: { recipe: @recipe }
+    -if user_signed_in?
+      .recipe-show__comment-form
+        =form_for [@recipe, @comment], method: :post do |f|
+          .recipe-show__comment-form__title
+            Comment
+          .recipe-show__comment-form__box
+            =f.text_area :text, class:"comment-form"
+          .recipe-show__comment-form__title
+            Review
+          =f.number_field :review,class:"comment-review"
+          =f.submit 'COMMENT', class:"comment-btn"
 .delete-modal
   .delete-modal__box
     Are you sure that

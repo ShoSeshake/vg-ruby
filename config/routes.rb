@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
 
-  resources :recipes
-  resources :categories, only: [:show]
+  resources :recipes do
+    resources :comments, only: [:create]
+  end
+    resources :categories, only: [:show]
   resources :ingredients, only: [:show]
-
   namespace :api do
     resources :recipes, only: :index
   end
