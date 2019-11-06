@@ -16,7 +16,7 @@
     =link_to new_recipe_path do
       %li.menu__bar__box.user-hidden-menu
         POST RECIPE
-    =link_to destroy_user_session_path(current_user) do 
+    =link_to destroy_user_session_path(current_user), method: :delete do
       %li.menu__bar__box.user-hidden-menu
         LOG OUT
   -else
