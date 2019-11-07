@@ -1,0 +1,12 @@
+.container
+  .index_recipe
+    .index_recipe__title
+      New Recipes
+    .index_recipe__box
+      -@recipes.each do |r|
+        =link_to recipe_path(r) do
+          .index_recipe__box__card
+            .index_recipe__box__card__name
+              =r.name
+            =image_tag "#{r.images.first.url}", alt:r.name, class:"index_recipe__box__card__image"
+

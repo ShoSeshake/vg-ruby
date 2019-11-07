@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
   before_action :user_check, only: [:edit, :update, :destroy]
 
   def index
+    @recipes = Recipe.order("created_at DESC").limit(10)
   end
 
   def show
@@ -11,7 +12,6 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @categories = Category.all
     @recipe = Recipe.new
     @recipe.images.build
     @recipe.instructions.build
@@ -24,7 +24,6 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
-      @categories = Category.all
       @recipe.images = []
       @recipe.images.build
       render :new

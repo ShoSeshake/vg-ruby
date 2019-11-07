@@ -73,6 +73,7 @@
                 width: 100%;
                 padding: 10px;
                 &__list {
+                    cursor: default;
                     display: flex;
                     justify-content: space-between;
                     margin-top: 5px;
@@ -86,6 +87,9 @@
                         font-size: 15px;
                     }
                 }
+                &__list.grey {
+                    color: rgb(189, 189, 189);
+                }
             }
         }
     }
@@ -97,6 +101,7 @@
             font-size: 20px;
         }
         &__box {
+            cursor: default;
             margin-top: 15px;
             padding-bottom: 15px;
             border-bottom: 1px dashed rgb(65, 135, 65);
@@ -113,6 +118,9 @@
         }
         &__box:last-child {
             margin-bottom: 15px;
+        }
+        &__box.grey {
+            color: rgb(189, 189, 189);
         }
     }
     &__note {
@@ -187,6 +195,10 @@
     }
     &__comment-form {
         margin-top: 20px;
+        &__title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
         &__review {
             display: flex;
             justify-content: space-between;
