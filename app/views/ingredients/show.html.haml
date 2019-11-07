@@ -8,8 +8,4 @@
     .ingredient__recipes
       .ingredient__recipes__box
         -@ingredient.recipes.each do |r|  
-          =link_to recipe_path(r.id) do
-            .recipe-card
-              =image_tag "#{r.images.first.url}", alt:r.name, class:"recipe-card__image"
-              .recipe-card__name
-                =r.name
+          = render partial:"shared/recipe", locals: { r: r }

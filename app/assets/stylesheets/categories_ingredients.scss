@@ -1,8 +1,13 @@
 .category,
-.ingredient {
+.ingredient,
+.user {
     width: 700px;
     &__siblings {
+        background-color: $white;
+        border-radius: 5px;
         font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
         &__link {
             color: $darkgreen;
         }
@@ -10,11 +15,34 @@
             text-decoration: underline;
         }
     }
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        &__button {
+            padding: 10px 20px;
+            margin-right: 30px;
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            color: $darkgreen;
+            border-radius: 4px;
+            border: 1px solid $green;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        &__button:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+        &__button:last-child {
+            margin-right: 0;
+        }
+    }
     &__recipes {
-        padding: 20px;
+        padding: 20px 0;
         width: 700px;
         &__box {
-            //     width: 700px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px 12px;
@@ -48,4 +76,9 @@
 
 .recipe-card:hover {
     opacity: 0.8;
+}
+
+#liked_recipes,
+#commented_recipes {
+    display: none;
 }

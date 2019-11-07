@@ -1,0 +1,25 @@
+.container
+  .user
+    .user__menu
+      %button.user__menu__button#user-recipes
+        -if @user == current_user
+          My Recipes
+        -else
+          =@user.name
+          's recipes
+      %button.user__menu__button#user-likes
+        Liked Recipes
+      %button.user__menu__button#user-comments
+        Commented Recipes
+    .user__recipes#my_recipes
+      .user__recipes__box
+        -@user.recipes.each do |r|  
+          = render partial:"shared/recipe", locals: { r: r }
+    .user__recipes#liked_recipes
+      .user__recipes__box
+        -@user.likes.each do |l|  
+          = render partial:"shared/recipe", locals: { r: l.recipe }
+    .user__recipes#commented_recipes
+      .user__recipes__box
+        -@commented_recipes.uniq.each do |c|
+          = render partial:"shared/recipe", locals: { r: c }
