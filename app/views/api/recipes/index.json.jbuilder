@@ -1,4 +1,5 @@
-json.array! @ingredients do |i|
-  json.id i.id
-  json.name i.name
+
+json.array! @children do |c|
+  json.id c.id
+  json.name c.name
 end

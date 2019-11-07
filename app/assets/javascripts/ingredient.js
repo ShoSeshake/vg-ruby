@@ -35,7 +35,7 @@ $(function() {
         if (inputIngredients.length) {
             $.ajax({
                     type: 'GET',
-                    url: '/api/recipes',
+                    url: '/api/recipes/new',
                     data: { keyword: inputIngredients },
                     dataType: 'json'
                 })

@@ -52,7 +52,7 @@
             =fa_icon "edit", class:"icon"
           =fa_icon "trash-o", class:"icon", id:"delete-icon"
     .recipe-show__comment
-      = fa_icon 'comment-o',class:"icon-grey"
+      = fa_icon 'comment-o',class:"icon-grey", id:"comment-icon"
       =@recipe.comments.count
     .recipe-show__like
       = render partial:"shared/like", locals: { recipe: @recipe }
@@ -81,3 +81,14 @@
         YES
       .delete-modal__box__confirmation__cancel
         NO
+.comment-modal
+  .comment-modal__cancel
+    ×
+  -@comments.each do |c|
+    .comment-modal__box
+      .comment-modal__box__name
+        =c.user.name
+      .comment-modal__box__text
+        =c.text
+      .comment-modal__box__time
+        =c.created_at

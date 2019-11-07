@@ -44,12 +44,13 @@
     .category__all__title
       Category
     -@categories.each do |c|
-      =link_to category_path(c.id), class:"category__all__list" do
+      =link_to category_path(c.id), class:"category__all__parent" do
         =c.name
 #ingredient-list
   .ingredient__all
     .ingredient__all__title
       Ingredient
     -@ingredients.each do |i|
-      =link_to ingredient_path(i.id),class:"ingredient__all__list" do
+      .ingredient__all__parent{"data-id":"#{i.id}"}
         =i.name
+  .ingredient__child

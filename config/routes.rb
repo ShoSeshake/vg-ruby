@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:show]
   resources :ingredients, only: [:show]
   namespace :api do
-    resources :recipes, only: :index
+    resources :recipes, only: [:index,:new]
   end
 
   post '/recipe/:recipe_id/likes' => "likes#create"

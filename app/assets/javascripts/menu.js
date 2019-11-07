@@ -43,10 +43,15 @@ $(function() {
     $('#menu-ingredient').on('click', function() {
         $('#dark-background').fadeIn(500);
         $('#ingredient-list').fadeIn(500);
+        $('#ingredient-list').css({
+            'display': 'flex'
+        })
     })
     $('#dark-background').on('click', function() {
         $('#dark-background').fadeOut(500);
         $('#category-list').fadeOut(500);
         $('#ingredient-list').fadeOut(500);
+        $('.ingredient__child').empty('');
+        $('.ingredient__child').hide();
     })
 })
