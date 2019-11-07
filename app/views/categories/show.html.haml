@@ -1,0 +1,15 @@
+.container
+  .category
+    .category__siblings
+      -@category.siblings.each do |s|
+        =link_to category_path(s.id), class:"category__siblings__link" do
+          =s.name
+        \/
+    .category__recipes
+      .category__recipes__box
+        -@category.recipes.each do |r|  
+          =link_to recipe_path(r.id) do
+            .recipe-card
+              =image_tag "#{r.images.first.url}", alt:r.name, class:"recipe-card__image"
+              .recipe-card__name
+                =r.name

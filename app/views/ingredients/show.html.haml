@@ -1,0 +1,15 @@
+.container
+  .ingredient
+    .ingredient__siblings
+      -@ingredient.siblings.each do |s|
+        =link_to ingredient_path(s.id), class:"ingredient__siblings__link" do
+          =s.name
+        \/
+    .ingredient__recipes
+      .ingredient__recipes__box
+        -@ingredient.recipes.each do |r|  
+          =link_to recipe_path(r.id) do
+            .recipe-card
+              =image_tag "#{r.images.first.url}", alt:r.name, class:"recipe-card__image"
+              .recipe-card__name
+                =r.name
