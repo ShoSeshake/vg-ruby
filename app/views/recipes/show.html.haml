@@ -7,10 +7,14 @@
         %ul.recipe-show__left__subs
           -@recipe.images.each do |i|
             %li.recipe-show__left__subs__image
-              =image_tag "#{i.url}",class:"image-sub"
+              =image_tag "#{i.url}",class:"image-sub","data-image":i.url
       .recipe-show__right
         .recipe-show__right__title
           =@recipe.name
+          %span.recipe-show__right__title__user
+            Recipe by:
+            =link_to user_path(@recipe.user), class:"recipe-show__right__title__user__link" do
+              =@recipe.user.name
         .recipe-show__right__ingredient
           %span.recipe-title
             Ingredients
@@ -63,9 +67,15 @@
             Comment
           .recipe-show__comment-form__box
             =f.text_area :text, class:"comment-form"
-          .recipe-show__comment-form__title
-            Review
-          =f.number_field :review,class:"comment-review"
+          .recipe-show__comment-form__review
+            .recipe-show__comment-form__review__title
+              Review
+            -# =f.number_field :review,class:"comment-review"
+            .recipe-show__comment-form__review__leaves
+              -10.times do |n|
+                -n+=1
+                =fa_icon 'leaf', class:"icon-leaf", "data-id":n
+          =f.hidden_field :review
           =f.submit 'COMMENT', class:"comment-btn"
 .delete-modal
   .delete-modal__box
@@ -84,11 +94,18 @@
 .comment-modal
   .comment-modal__cancel
     ×
-  -@comments.each do |c|
-    .comment-modal__box
-      .comment-modal__box__name
-        =c.user.name
-      .comment-modal__box__text
-        =c.text
-      .comment-modal__box__time
-        =c.created_at
+  -if @recipe.comments.present?
+    -@recipe.comments.each do |c|
+      .comment-modal__box
+        .comment-modal__box__name
+          =c.user.name
+          %span.comment-modal__box__name__review
+            -c.review.times do
+              =fa_icon 'leaf', class:"icon"
+        .comment-modal__box__text
+          =c.text
+        .comment-modal__box__time
+          =c.created_at
+  -else
+    .comment-modal__no-comment
+      No comments 

@@ -52,6 +52,15 @@
             font-size: 30px;
             font-weight: bold;
             text-align: center;
+            &__user {
+                margin-top: 10px;
+                display: block;
+                text-align: right;
+                font-size: 15px;
+                &__link {
+                    color: $darkgreen;
+                }
+            }
         }
         &__ingredient {
             padding: 10px;
@@ -169,7 +178,7 @@
         font-size: 20px;
         .unlike__uncount,
         .icon-grey {
-            color: grey;
+            color: rgb(128, 128, 128);
         }
         .count,
         .icon-red {
@@ -178,28 +187,26 @@
     }
     &__comment-form {
         margin-top: 20px;
-        &__title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            display: inline-block;
-            width: 79%;
-        }
-        .comment-review {
-            width: 20%;
-            display: inline-block;
-            color: $darkgreen;
-            background-color: white;
-            border-radius: 4px;
-            padding: 10px 10px;
-            font-size: 20px;
-            line-height: 20px;
-            border: 1px solid $green;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-        .comment-review:hover {
-            border: 2px solid $darkgreen;
-            box-sizing: border-box;
+        &__review {
+            display: flex;
+            justify-content: space-between;
+            &__title {
+                font-size: 20px;
+                margin-bottom: 10px;
+                display: inline-block;
+            }
+            &__leaves {
+                background-color: white;
+                border: solid 1px $green;
+                border-radius: 4px;
+                padding: 10px 10px;
+                color: grey;
+                text-align: right;
+                font-size: 20px;
+                margin-bottom: 10px;
+                display: inline-block;
+                cursor: pointer;
+            }
         }
         &__box {
             width: 100%;
@@ -312,6 +319,12 @@
         &__name {
             padding-bottom: 5px;
             border-bottom: 1px dashed $darkgreen;
+            &__review {
+                color: rgb(35, 136, 35);
+                display: block;
+                text-align: right;
+                font-size: 13px;
+            }
         }
         &__text {
             margin: 10px;
@@ -336,5 +349,17 @@
         color: $white;
         z-index: 50;
         cursor: pointer;
+    }
+    &__no-comment {
+        margin-left: 150px;
+        width: 300px;
+        z-index: 100;
+        border-radius: 20px;
+        background-color: $white;
+        color: $darkgreen;
+        font-weight: bold;
+        padding: 30px 30px;
+        line-height: 20px;
+        font-size: 20px;
     }
 }
