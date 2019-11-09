@@ -129,14 +129,14 @@ ActiveRecord::Schema.define(version: 2019_11_09_064428) do
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "text", null: false
-    t.string "lunch_price"
-    t.string "dinner_price"
+    t.integer "lunch_price_id"
+    t.integer "dinner_price_id"
     t.integer "review", null: false
     t.string "visited_time", null: false
     t.string "url"
     t.string "hp"
     t.string "address"
-    t.integer "telephone"
+    t.string "telephone"
     t.integer "vegan_friendly_id", null: false
     t.integer "prefecture_id"
     t.bigint "user_id", null: false

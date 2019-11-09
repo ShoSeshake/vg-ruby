@@ -16,12 +16,22 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      @restaurant.images = []
+      @restaurant.images.build
+      redirect_to new_recipe_path
+    end
   end
 
   def edit
+    @genres = Genre.all
   end
 
   def update
+
   end
 
   def destroy
@@ -44,6 +54,25 @@ class RestaurantsController < ApplicationController
       :telephone,
       :vegan_friendly_id,
       genres_restaurants_attributes: [:genre_id]
+      )
+      .merge(user_id: current_user.id)
+  end
+
+  def edit_params
+    params.require(:restaurant).permit(
+      :name,
+      :text,
+      :lunch_price,
+      :dinner_price,
+      :review,
+      :visited_time,
+      :url,
+      :hp,
+      :address,
+      :prefecture_id,
+      :telephone,
+      :vegan_friendly_id,
+      genres_restaurants_attributes: [:id,:_destroy,:genre_id]
       )
       .merge(user_id: current_user.id)
   end

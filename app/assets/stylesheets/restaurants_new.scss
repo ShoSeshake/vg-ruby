@@ -120,8 +120,8 @@
 #restaurant_prefecture_id,
 #restaurant_vegan_friendly_id,
 .restaurant__review,
-#restaurant_lunch_price,
-#restaurant_dinner_price {
+#restaurant_lunch_price_id,
+#restaurant_dinner_price_id {
     color: $darkgreen;
     background-color: white;
     border-radius: 4px;
@@ -137,8 +137,8 @@
     margin-top: 10px;
 }
 
-#restaurant_lunch_price,
-#restaurant_dinner_price {
+#restaurant_lunch_price_id,
+#restaurant_dinner_price_id {
     letter-spacing: 3px;
 }
 

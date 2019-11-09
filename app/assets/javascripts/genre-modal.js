@@ -17,12 +17,4 @@ $(function() {
             checkbox.prop('checked', true);
         }
     })
-    var deleteModal = $('.delete-modal');
-    $('#delete-icon').on('click', function() {
-        deleteModal.fadeIn(500);
-    })
-    $('.delete-modal__box__confirmation__cancel').on('click', function() {
-        deleteModal.fadeOut(500);
-    })
-
 })

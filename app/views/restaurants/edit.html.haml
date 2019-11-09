@@ -1,0 +1,77 @@
+.container
+  .restaurants-new
+    =form_for @restaurant, method: :post do |f|
+      .flex-box
+        .form-title
+          Name
+          =f.text_field :name
+        .form-title
+          Genre
+          .genre-btn
+            Select Genre
+      =f.fields_for :genres_restaurants do |g|
+        #genre-modal
+          .genre-list
+            -@genres.each do |genre|
+              -if @restaurant.genres.include?(genre)
+                -g_r = GenresRestaurant.find_by(genre_id: genre.id, restaurant_id:@restaurant.id)
+                .genre-list__select.checked
+                  =genre.genre
+                  %input{type:"checkbox", name: "restaurant[genres_restaurants_attributes][][genre_id]", value:genre.id, class:"edit-genre-checked",multiple:"true", checked:"checked"}
+                  %input{type:"checkbox", value:"1", name:"restaurant[genres_restaurants_attributes][][_destroy]", class:"genre-checkbox"}
+                  %input{type:"hidden",value:g_r.id, name:"restaurant[genres_restaurants_attributes][][id]" }
+              -else
+                .genre-list__select
+                  %input{type:"checkbox", name: "restaurant[genres_restaurants_attributes][][genre_id]", value:genre.id, class:"genre-checkbox",multiple:"true"}
+                  =genre.genre
+            .genre-selected SELECT
+      .form-title
+        Website
+      =f.text_field :hp
+      .flex-box
+        .form-title
+          Prefecture
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"---"}
+        .form-title
+          Telephone
+          =f.telephone_field :telephone, maxlength:"11"
+      .form-title
+        Address
+      =f.text_field :address
+      .flex-box
+        .form-title
+          Price Lunch
+          = f.collection_select :lunch_price_id, LunchPrice.all, :id, :name,{prompt:"---"}
+        .form-title
+          Price Dinner
+          = f.collection_select :dinner_price_id, DinnerPrice.all, :id, :name,{prompt:"---"}
+      .flex-box
+        .form-title
+          Visited Time
+          =f.text_field :visited_time
+        .form-title
+          Photo
+          =f.label :url,class:"photo-btn" do
+            Upload Photo
+            = f.file_field :url
+      .form-title
+        Text
+      =f.text_area :text
+      .flex-box
+        .form-title
+          Vegan Friendly
+          = f.collection_select :vegan_friendly_id, VeganFriendly.all, :id, :name,{prompt:"---"}
+        .form-title
+          Review
+          .restaurant__review
+            -number=0
+            -@restaurant.review.times do 
+              -number+=1
+              =fa_icon 'apple', class:"icon-apple", "data-id":number,style:"color:rgb(247, 48, 48);"
+            - newNumber = 10 - number
+            - n=0
+            -newNumber.times do
+              -n+=1
+              =fa_icon 'apple', class:"icon-apple", "data-id":(n + number)
+          =f.hidden_field :review
+      =f.submit 'POST', class:"submit-btn"  

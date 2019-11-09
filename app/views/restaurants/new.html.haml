@@ -33,10 +33,10 @@
       .flex-box
         .form-title
           Price Lunch
-          = f.select :lunch_price ,[["---"],["0 ~ ¥ 1,000"],["¥ 1,000 ~ ¥ 2,000"],["¥ 2,000 ~ ¥ 3,000"],["¥ 3,000 ~ ¥ 4,000"],["¥ 4,000 ~ ¥ 5,000"],["¥ 5,000 ~ ¥ 8,000"],["¥ 8,000 ~ "]]
+          = f.collection_select :lunch_price_id, LunchPrice.all, :id, :name,{prompt:"---"}
         .form-title
           Price Dinner
-          = f.select :dinner_price ,[["---"],["0 ~ ¥ 1,000"],["¥ 1,000 ~ ¥ 2,000"],["¥ 2,000 ~ ¥ 3,000"],["¥ 3,000 ~ ¥ 4,000"],["¥ 4,000 ~ ¥ 5,000"],["¥ 5,000 ~ ¥ 8,000"],["¥ 8,000 ~ "]]
+          = f.collection_select :dinner_price_id, DinnerPrice.all, :id, :name,{prompt:"---"}
       .flex-box
         .form-title
           Visited Time
