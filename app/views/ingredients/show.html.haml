@@ -7,5 +7,5 @@
         \/
     .ingredient__recipes
       .ingredient__recipes__box
-        -@ingredient.recipes.each do |r|  
+        -@ingredient.recipes.uniq.each do |r|  
           = render partial:"shared/recipe", locals: { r: r }
