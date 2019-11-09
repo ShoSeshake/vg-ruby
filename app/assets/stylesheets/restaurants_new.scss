@@ -18,10 +18,15 @@
         display: block;
         width: 100%;
         margin-bottom: 10px;
+        margin-top: 10px;
         box-sizing: border-box;
     }
     input {
         height: 45px;
+    }
+    textarea {
+        height: 200px;
+        font-size: 16px;
     }
     input:focus,
     textarea:focus {
@@ -29,7 +34,7 @@
     }
     .submit-btn {
         width: 70%;
-        margin: 0 auto;
+        margin: 20px auto 0;
         color: $darkgreen;
         border-radius: 4px;
     }
@@ -38,4 +43,163 @@
         background-color: $darkgreen;
         cursor: pointer;
     }
+    .form-title {
+        width: 45%;
+    }
+}
+
+#genre-modal {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+    padding-top: 80px;
+    .genre-list {
+        width: 700px;
+        margin: 0 auto;
+        z-index: 100;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: $white;
+        color: $darkgreen;
+        font-weight: bold;
+        height: 80vh;
+        overflow: scroll;
+        &__select {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            input {
+                display: none;
+            }
+        }
+        &__select:nth-child(even) {
+            margin-left: 60px;
+        }
+        &__select:hover {
+            color: white;
+            background-color: rgb(87, 152, 87);
+        }
+        &__select.checked {
+            color: white;
+            background-color: rgb(15, 53, 24);
+        }
+        .genre-selected {
+            display: block;
+            margin: 20px auto 0;
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            color: $darkgreen;
+            border-radius: 4px;
+            width: 60%;
+            border: 1px solid $green;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .genre-selected:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+    }
+}
+
+#restaurant_prefecture_id,
+#restaurant_vegan_friendly_id,
+.restaurant__review,
+#restaurant_lunch_price,
+#restaurant_dinner_price {
+    color: $darkgreen;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 17px;
+    line-height: 20px;
+    border: 1px solid $green;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    height: 45px;
+    margin-top: 10px;
+}
+
+#restaurant_lunch_price,
+#restaurant_dinner_price {
+    letter-spacing: 3px;
+}
+
+.restaurant__review {
+    padding: 10px 20px;
+    justify-content: space-between;
+    display: flex;
+    .icon-apple {
+        display: block;
+        color: grey;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+.genre-btn {
+    color: $darkgreen;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 25px;
+    border: 1px solid $green;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    height: 45px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.genre-btn:hover {
+    color: white;
+    background-color: $darkgreen;
+}
+
+#restaurant_url {
+    display: none;
+}
+
+.photo-btn {
+    color: $darkgreen;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 25px;
+    border: 1px solid $green;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    height: 45px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.photo-btn:hover {
+    color: white;
+    background-color: $darkgreen;
 }

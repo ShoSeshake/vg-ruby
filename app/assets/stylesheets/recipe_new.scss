@@ -106,6 +106,7 @@
         color: $darkgreen;
         font-weight: bold;
         height: 80vh;
+        overflow: scroll;
         &__select {
             display: inline-block;
             width: 45%;

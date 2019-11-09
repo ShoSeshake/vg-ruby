@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @genres = Genre.all
     @restaurant = Restaurant.new
     @restaurant.genres_restaurants.build
   end
@@ -29,7 +30,22 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-
+    params.require(:restaurant).permit(
+      :name,
+      :text,
+      :lunch_price,
+      :dinner_price,
+      :review,
+      :visited_time,
+      :url,
+      :hp,
+      :address,
+      :prefecture_id,
+      :telephone,
+      :vegan_friendly_id,
+      genres_restaurants_attributes: [:genre_id]
+      )
+      .merge(user_id: current_user.id)
   end
 
   def set_restaurant

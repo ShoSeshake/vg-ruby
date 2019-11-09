@@ -1,6 +1,63 @@
 .container
   .restaurants-new
     =form_for @restaurant, method: :post do |f|
+      .flex-box
+        .form-title
+          Name
+          =f.text_field :name
+        .form-title
+          Genre
+          .genre-btn
+            Select Genre
+      =f.fields_for :genres_restaurants do |g|
+        #genre-modal
+          .genre-list
+            -@genres.each do |genre|
+              .genre-list__select
+                %input{type:"checkbox", name: "restaurant[genres_restaurants_attributes][][genre_id]", value:genre.id, class:"genre-checkbox",multiple:"true"}
+                =genre.genre
+            .genre-selected SELECT
       .form-title
-        Name
-      
+        Website
+      =f.text_field :hp
+      .flex-box
+        .form-title
+          Prefecture
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"---"}
+        .form-title
+          Telephone
+          =f.telephone_field :telephone, maxlength:"11"
+      .form-title
+        Address
+      =f.text_field :address
+      .flex-box
+        .form-title
+          Price Lunch
+          = f.select :lunch_price ,[["---"],["0 ~ ¥ 1,000"],["¥ 1,000 ~ ¥ 2,000"],["¥ 2,000 ~ ¥ 3,000"],["¥ 3,000 ~ ¥ 4,000"],["¥ 4,000 ~ ¥ 5,000"],["¥ 5,000 ~ ¥ 8,000"],["¥ 8,000 ~ "]]
+        .form-title
+          Price Dinner
+          = f.select :dinner_price ,[["---"],["0 ~ ¥ 1,000"],["¥ 1,000 ~ ¥ 2,000"],["¥ 2,000 ~ ¥ 3,000"],["¥ 3,000 ~ ¥ 4,000"],["¥ 4,000 ~ ¥ 5,000"],["¥ 5,000 ~ ¥ 8,000"],["¥ 8,000 ~ "]]
+      .flex-box
+        .form-title
+          Visited Time
+          =f.text_field :visited_time
+        .form-title
+          Photo
+          =f.label :url,class:"photo-btn" do
+            Upload Photo
+            = f.file_field :url
+      .form-title
+        Text
+      =f.text_area :text
+      .flex-box
+        .form-title
+          Vegan Friendly
+          = f.collection_select :vegan_friendly_id, VeganFriendly.all, :id, :name,{prompt:"---"}
+        .form-title
+          Review
+          .restaurant__review
+            -10.times do |n|
+              -n+=1
+              =fa_icon 'apple', class:"icon-apple", "data-id":n
+          =f.hidden_field :review
+      =f.submit 'POST', class:"submit-btn"  
