@@ -30,15 +30,13 @@
                   =i.quantity
     .recipe-show__instructions
       %span.recipe-title Instructions
-      -n=1
-      -@recipe.instructions.each do |i|
+      -@recipe.instructions.order(position: 'ASC').each do |i|
         .recipe-show__instructions__box
           %span.instruction-number
-            = n
+            = i.position
             \.
           .recipe-show__instructions__box__text
             =simple_format(i.text)
-          -n+=1
     .recipe-show__note
       %span.recipe-title Note
       .recipe-show__note__box

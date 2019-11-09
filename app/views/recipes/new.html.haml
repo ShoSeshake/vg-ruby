@@ -20,7 +20,7 @@
         #category-modal
           .category-list
             -@categories.each do |category|
-              %label.category-list__select
+              .category-list__select
                 %input{type:"checkbox", name: "recipe[categories_recipes_attributes][][category_id]", value:category.id, class:"category-checkbox",multiple:"true"}
                 =category.name
             .category-selected SELECT
@@ -49,10 +49,14 @@
       .form-title
         Instructions
       =f.fields_for :instructions do |ins|
-        .flex-box
-          .instruction-number{"data-number":1}
-            %span 1.
-          %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text"}
+        #instruction_box
+          .flex-box.instructions
+            .instruction-number
+              .ins-delete-btn ×
+              %br
+              %input{type:"text",readonly:"readonly" ,name:"recipe[instructions_attributes][][position]", value:1, class:"instruction-number__form"}
+              \.
+            %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text"}
       .add-button
         Add more instructions
       .form-title

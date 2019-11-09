@@ -148,8 +148,9 @@ body {}
         }
     }
     .ingredient__child {
+        position: fixed;
         display: none;
-        margin-left: 50px;
+        margin-left: 300px;
         padding: 25px;
         height: 70vh;
         width: 250px;

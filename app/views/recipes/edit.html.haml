@@ -1,0 +1,111 @@
+.container
+  .recipe-new
+    =form_for @recipe, method: :patch do |f|
+      .form-title
+        Images
+      .target-box{id: "item-append-target"}
+        - files = 0
+        - @recipe.images.each do |image|
+          - files += 1
+          %li.upload-item
+            =link_to'#',class:"upload-item__delete pict-delete-edit",id:"pict-delete-edit","data-img":"#{image.id}" do
+              ×
+            =image_tag "#{image.url}", alt:"#{@recipe.name}",class:"upload-item__image"
+          .edit_hidden_box
+            %input{type:"checkbox", value:"1", name:"recipe[images_attributes][][_destroy]", id:"img-checkbox-#{image.id}"}
+            %input{type:"hidden",value:image.id, name:"recipe[images_attributes][][id]" }
+        = f.fields_for :image do |i|
+          - if files == 10
+            = i.label :url, for: nil , class: "dropbox", id:"dropbox", style: "display:none;" do
+              %p.inner_text
+                please upload photos of your dish
+                %br
+                %br
+                by drag and drop, or just click.
+              = fa_icon 'camera', class: 'mark fa-3x camera-image'
+              = i.file_field :url, multiple: true, type: 'file', name: "recipe[images_attributes][][url]", class: "dropbox--fileform", id: "item-drop-zone"
+          -else
+            -if files > 4
+              - files = files - 5
+            = i.label :url, for: nil , class: "dropbox", id:"dropbox", style: "width: #{615 - files * 126}px;" do
+              %p.inner_text{style:"#{(files == 4)? 'display:none;' : 'display:block;'}"}
+                please upload photos of your dish
+                %br
+                %br
+                by drag and drop, or just click.
+              = fa_icon 'camera',class:'mark fa-3x camera-image', style:"#{(files != 4)? "display:none;": "display:block;"}"
+              = i.file_field :url, multiple: true, type: 'file', name: "recipe[images_attributes][][url]", class: "dropbox--fileform", id: "item-drop-zone"
+      .form-title
+        Title
+      =f.text_field :name 
+      #category-modal
+        .category-list
+          =f.fields_for :categories_recipe do |c|
+            -@categories.each do |category|
+              -if @recipe.categories.include?(category)
+                -c_r = CategoriesRecipe.find_by(category_id: category.id, recipe_id:@recipe.id)
+                .category-list__select.checked
+                  =category.name
+                  %input{type:"checkbox", name: "recipe[categories_recipes_attributes][][category_id]", value:category.id, class:"edit-category-checked",multiple:"true", checked:"checked"}
+                  %input{type:"checkbox", value:"1", name:"recipe[categories_recipes_attributes][][_destroy]", class:"category-checkbox"}
+                  %input{type:"hidden",value:c_r.id, name:"recipe[categories_recipes_attributes][][id]" }
+              -else
+                .category-list__select
+                  %input{type:"checkbox", name: "recipe[categories_recipes_attributes][][category_id]", value:category.id, class:"category-checkbox",multiple:"true"}
+                  =category.name
+          .category-selected SELECT
+      .flex-box
+        #category-box
+          .form-title
+            Category
+          .form-box
+            .category-btn Select Category
+        #serving-box
+          .form-title
+            Serving for
+          .form-box
+            =f.number_field :serving
+      .flex-box
+        #ing-box
+          .form-title
+            Ingredients
+          %input{type:"text", id:"ing-field",autocomplete:"off"}
+          #search-result
+        #quantity-box{"style":"opacity:1;"}
+          .form-title
+            Quantity
+      #recipe-ingredient
+        =f.fields_for :ingredients_recipe do |ing|
+          -@recipe.ingredients_recipes.each do |i_r|
+            .flex-box.ing-form
+              %input{type:"hidden", name:"recipe[ingredients_recipes_attributes][][ingredient_id]", id:"recipe_ingredients_recipes_ingredient_id", value:"#{i_r.ingredient_id}"}
+              .edit-delete-btn{"data-ing":"#{i_r.id}"} ×
+              .ingredients-box
+                =i_r.ingredient.name
+              %input{class:"quantity-field", type:"text", name:"recipe[ingredients_recipes_attributes][][quantity]", id:"recipe_ingredients_recipes_quantity",value:"#{i_r.quantity}"}
+            .edit_hidden_box
+              %input{type:"checkbox", value:"1", name:"recipe[ingredients_recipes_attributes][][_destroy]", id:"ing-checkbox-#{i_r.id}"}
+              %input{type:"hidden",value:i_r.id, name:"recipe[ingredients_recipes_attributes][][id]" }
+      .form-title
+        Instructions
+      =f.fields_for :instruction do |ins|
+        #instruction_box
+          -@recipe.instructions.order(position: 'ASC').each do |instruction|
+            .flex-box.instructions
+              .instruction-number
+                .edit-ins-delete-btn ×
+                %br
+                %input{type:"text",readonly:"readonly" ,name:"recipe[instructions_attributes][][position]", value:instruction.position, class:"instruction-number__form"}
+                \.
+              %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text"}
+                =instruction.text
+              .edit_hidden_box
+                %input{type:"checkbox", value:"1", name:"recipe[instructions_attributes][][_destroy]", class:"instruction-checkbox"}
+                %input{type:"hidden",value:instruction.id, name:"recipe[instructions_attributes][][id]" }
+      .add-button
+        Add more instructions
+      .form-title
+        Note
+      .form-box
+        =f.text_area :text
+      = f.submit 'POST',class:"submit-btn"

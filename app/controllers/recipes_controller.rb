@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
     else
       @recipe.images = []
       @recipe.images.build
-      render :new
+      redirect_to new_recipe_path
     end
   end
 
@@ -34,6 +34,11 @@ class RecipesController < ApplicationController
   end
 
   def update
+    if @recipe.update(edit_params)
+      redirect_to recipe_path(params[:id])
+    else
+      redirect_to edit_recipe_path(@recipe)
+    end
   end
 
   def destroy
@@ -51,9 +56,22 @@ class RecipesController < ApplicationController
     :text,
     :serving,
     images_attributes: [:url],
-    instructions_attributes: [:text],
+    instructions_attributes: [:text,:position],
     categories_recipes_attributes: [:category_id],
     ingredients_recipes_attributes: [:ingredient_id,:quantity]
+    )
+    .merge(user_id: current_user.id)
+  end
+
+  def edit_params
+    params.require(:recipe).permit(
+    :name,
+    :text,
+    :serving,
+    images_attributes: [:url, :_destroy, :id],
+    instructions_attributes: [:text,:position, :_destroy, :id],
+    categories_recipes_attributes: [:category_id, :_destroy, :id],
+    ingredients_recipes_attributes: [:ingredient_id,:quantity, :_destroy, :id]
     )
     .merge(user_id: current_user.id)
   end

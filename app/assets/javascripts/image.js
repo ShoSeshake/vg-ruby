@@ -41,8 +41,8 @@ $(function() {
                     var loadedImageUri = e.target.result;
                     var html = `<li class="upload-item">
                                 <a class="upload-item__delete" href="#" data-pict="${file.name}" id="pict-delete">×</a>
-                              <img alt="test" src="${loadedImageUri}" class="upload-item__image">
-                              </li>`;
+                                <img alt="" src="${loadedImageUri}" class="upload-item__image">
+                                </li>`;
                     if (count < 5) {
                         var num = input.files.length
                         num += edit_num
@@ -134,7 +134,11 @@ $(function() {
     $(document).on("click", "#pict-delete-edit", function(e) {
         e.preventDefault();
         var target = $(e.target);
-        var pict_id = target.data('delete');
+        var pict_id = target.data('img');
+        var src = $(this).next('img').attr('src');
+        var checkbox = $("#img-checkbox-" + pict_id);
+        checkbox.parent().append(`<input type="hidden" name="recipe[images_attributes][][url]" value="${src}">`);
+        checkbox.prop('checked', true);
         count = $('.upload-item').length
         target.parent().remove();
 
@@ -152,11 +156,5 @@ $(function() {
             camera.css('display', `none`)
             innerText.css('display', `block`)
         }
-
-
-        hidden_form = `<input type="hidden", name="[delete_ids][]", value="${pict_id}">`
-        $('.target-box').append(hidden_form)
-
     })
-
 });

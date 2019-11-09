@@ -43,7 +43,6 @@ $(function() {
                     searchResult.show();
                     searchResult.empty();
                     if (ings.length !== 0) {
-
                         ings.forEach(function(ing) {
                             listIngredients(ing);
                         });
@@ -70,6 +69,19 @@ $(function() {
     })
     $(document).on("click", ".delete-btn", function() {
         $(this).parent().remove();
+        if ($('.ing-form').length == 0) {
+            $('#quantity-box').css({ 'opacity': '0' })
+        }
+    });
+
+    $(document).on("click", ".edit-delete-btn", function() {
+
+        var number = $(this).data('ing');
+        var ingBox = $(this).parent();
+        var checkbox = $("#ing-checkbox-" + number);
+        checkbox.parent().append(ingBox);
+        $(this).unwrap();
+        checkbox.prop('checked', true);
         if ($('.ing-form').length == 0) {
             $('#quantity-box').css({ 'opacity': '0' })
         }

@@ -1,4 +1,5 @@
 class Instruction < ApplicationRecord
   belongs_to :recipe
-  validates :text, presence: true
+  # acts_as_list scope: :recipe
+  validates :text, :position, presence: true
 end

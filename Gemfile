@@ -70,7 +70,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data'
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -90,7 +90,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'rubocop'
 # スクレイピング(デプロイ用？)
-gem 'nokogiri', ">= 1.10.4"
+gem 'nokogiri', ">= 1.10.5"
 # 検索機能
 gem 'ransack'
 # パンくず
@@ -108,3 +108,5 @@ gem 'active_hash'
 gem 'jquery-rails'
 # ページネーション用
 gem 'kaminari'
+# 順番という概念をいれるために
+gem 'acts_as_list'
