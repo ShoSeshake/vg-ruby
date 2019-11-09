@@ -50,3 +50,5 @@ seasoning.children.create([{name:"Salt"},{name:"Blackpepper"},{name:"Vegan Mayon
 oil = Ingredient.create(name:"Oil")
 oil.children.create([{name:"Canola oil"},{name:"Olive oil"},{name:"Grapeseed oil"},{name:"Coconut oil"},
   {name:"Raspseed oil"}])
+
+Genre.create([{genre:""},])

@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
 
-    has_many :comments,   dependent: :destroy
-    has_many :recipes,    dependent: :destroy
-    has_many :likes,      dependent: :destroy
+    has_many :comments,              dependent: :destroy
+    has_many :recipes,               dependent: :destroy
+    has_many :likes,                 dependent: :destroy
+    has_many :restaurants,           dependent: :destroy
+    has_many :restaurant_comments,   dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :prefecture

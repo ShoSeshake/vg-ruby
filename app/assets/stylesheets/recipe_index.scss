@@ -65,6 +65,14 @@ body {}
         background-color: $lightgreen;
         color: $darkgreen;
     }
+    .restaurant-hidden-menu {
+        display: none;
+        background-color: rgb(32, 73, 42);
+    }
+    .restaurant-hidden-menu:hover {
+        background-color: $lightgreen;
+        color: $darkgreen;
+    }
 }
 
 #dark-background {

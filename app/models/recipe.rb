@@ -3,7 +3,6 @@ class Recipe < ApplicationRecord
   has_many :comments,                                  dependent: :destroy
   has_many :images,                                    dependent: :destroy
   has_many :instructions,                              dependent: :destroy
-  # has_many :instructions, -> { order(position: :asc) },dependent: :destroy
   has_many :likes,                                     dependent: :destroy
 
   has_many :ingredients_recipes

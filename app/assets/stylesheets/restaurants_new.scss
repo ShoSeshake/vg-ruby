@@ -1,0 +1,41 @@
+.restaurants-new {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 80vh;
+    input,
+    textarea {
+        color: $darkgreen;
+        background-color: white;
+        border-radius: 4px;
+        padding: 10px 10px;
+        font-size: 20px;
+        line-height: 20px;
+        border: 1px solid $green;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    input {
+        height: 45px;
+    }
+    input:focus,
+    textarea:focus {
+        border: 2px solid $darkgreen;
+    }
+    .submit-btn {
+        width: 70%;
+        margin: 0 auto;
+        color: $darkgreen;
+        border-radius: 4px;
+    }
+    .submit-btn:hover {
+        color: white;
+        background-color: $darkgreen;
+        cursor: pointer;
+    }
+}

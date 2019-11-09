@@ -23,6 +23,11 @@ $(function() {
     $('#recipe-menu').on('click', function() {
         $('.recipe-hidden-menu').slideToggle(500);
     })
+    $('#restaurant-menu').on('click', function() {
+        $('.restaurant-hidden-menu').slideToggle(500);
+    })
+
+
     $('.user-link').on('click', function(e) {
         e.preventDefault();
         var linkUrl = $(this).attr('href');

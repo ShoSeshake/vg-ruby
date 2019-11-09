@@ -32,8 +32,12 @@
     CATEGORY
   %li.menu__bar__box.recipe-hidden-menu#menu-ingredient
     INGREDIENT
-  %li.menu__bar__box
+  %li.menu__bar__box#restaurant-menu
     RESTAURANTS
+  =link_to restaurants_path do
+    %li.menu__bar__box.restaurant-hidden-menu
+      REVIEWS
+  -# %li.menu__bar__box
   %li.menu__bar__box
     MESSAGE
   %li.menu__bar__box

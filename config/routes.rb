@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   resources :recipes do
     resources :comments, only: [:create]
   end
-    resources :categories, only: [:show]
+  resources :categories, only: [:show]
   resources :ingredients, only: [:show]
+
+  resources :restaurants
+
   namespace :api do
     resources :recipes, only: [:index,:new]
   end
