@@ -11,7 +11,7 @@ $(function() {
     }
 
     function appendErrMsgToHTML(msg) {
-        var html = `<div class="ingredient-list">${ msg }
+        var html = `<div class="error-message">${ msg }
                 </div>`
         searchResult.append(html);
     }

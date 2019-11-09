@@ -155,7 +155,7 @@
 }
 
 #search-result {
-    z-index: 30;
+    z-index: 2;
     display: none;
     position: relative;
     margin-top: -10px;
@@ -166,16 +166,22 @@
     border-bottom-right-radius: 4px;
     overflow: scroll;
     margin-bottom: -400px;
-    cursor: pointer;
     .ingredient-list {
         padding: 5px 10px;
         font-size: 18px;
         background-color: white;
         color: $darkgreen;
+        cursor: pointer;
     }
     .ingredient-list:hover {
         color: white;
         background-color: $darkgreen;
+    }
+    .error-message {
+        padding: 5px 10px;
+        font-size: 18px;
+        background-color: white;
+        color: $darkgreen;
     }
 }
 

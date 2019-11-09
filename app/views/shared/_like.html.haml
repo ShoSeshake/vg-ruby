@@ -6,7 +6,7 @@
         = recipe.likes.count
   - else
     = link_to "/recipe/#{recipe.id}/likes", class: "unfavorite", method: :post, remote: true do
-      =fa_icon 'heart', class:"icon-grey"
+      =fa_icon 'heart-o', class:"icon-grey"
       %span.unlike__uncount
         = recipe.likes.count
 - else
