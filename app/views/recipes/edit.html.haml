@@ -8,12 +8,9 @@
         - @recipe.images.each do |image|
           - files += 1
           %li.upload-item
-            =link_to'#',class:"upload-item__delete pict-delete-edit",id:"pict-delete-edit","data-img":"#{image.id}" do
+            =link_to'#',class:"upload-item__delete pict-delete-edit",id:"pict-delete-edit","data-img":"#{image.id}","data-url":"#{image.url}" do
               ×
             =image_tag "#{image.url}", alt:"#{@recipe.name}",class:"upload-item__image"
-          .edit_hidden_box
-            %input{type:"checkbox", value:"1", name:"recipe[images_attributes][][_destroy]", id:"img-checkbox-#{image.id}"}
-            %input{type:"hidden",value:image.id, name:"recipe[images_attributes][][id]" }
         = f.fields_for :image do |i|
           - if files == 10
             = i.label :url, for: nil , class: "dropbox", id:"dropbox", style: "display:none;" do
@@ -78,14 +75,14 @@
         =f.fields_for :ingredients_recipe do |ing|
           -@recipe.ingredients_recipes.each do |i_r|
             .flex-box.ing-form
-              %input{type:"hidden", name:"recipe[ingredients_recipes_attributes][][ingredient_id]", id:"recipe_ingredients_recipes_ingredient_id", value:"#{i_r.ingredient_id}"}
               .edit-delete-btn{"data-ing":"#{i_r.id}"} ×
               .ingredients-box
                 =i_r.ingredient.name
               %input{class:"quantity-field", type:"text", name:"recipe[ingredients_recipes_attributes][][quantity]", id:"recipe_ingredients_recipes_quantity",value:"#{i_r.quantity}"}
-            .edit_hidden_box
-              %input{type:"checkbox", value:"1", name:"recipe[ingredients_recipes_attributes][][_destroy]", id:"ing-checkbox-#{i_r.id}"}
-              %input{type:"hidden",value:i_r.id, name:"recipe[ingredients_recipes_attributes][][id]" }
+              .edit_hidden_box
+                %input{type:"hidden", name:"recipe[ingredients_recipes_attributes][][ingredient_id]", id:"recipe_ingredients_recipes_ingredient_id", value:"#{i_r.ingredient_id}"}
+                %input{type:"checkbox", value:"1", name:"recipe[ingredients_recipes_attributes][][_destroy]", class:"ing-checkbox"}
+                %input{type:"hidden",value:i_r.id, name:"recipe[ingredients_recipes_attributes][][id]" }
       .form-title
         Instructions
       =f.fields_for :instruction do |ins|

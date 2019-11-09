@@ -134,11 +134,14 @@ $(function() {
     $(document).on("click", "#pict-delete-edit", function(e) {
         e.preventDefault();
         var target = $(e.target);
-        var pict_id = target.data('img');
-        var src = $(this).next('img').attr('src');
-        var checkbox = $("#img-checkbox-" + pict_id);
-        checkbox.parent().append(`<input type="hidden" name="recipe[images_attributes][][url]" value="${src}">`);
-        checkbox.prop('checked', true);
+        var id = target.data('img');
+        var url = target.data('url');
+        var html = `<div class="edit_hidden_box">
+                        <input name="recipe[images_attributes][][_destroy]" value=1 checked="checked">
+                        <input name="recipe[images_attributes][][id]" value="${id}">
+                        <input name="recipe[images_attributes][][url]" value="${url}">
+                    </div>`
+        $('#item-append-target').prepend(html);
         count = $('.upload-item').length
         target.parent().remove();
 

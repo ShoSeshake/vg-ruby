@@ -75,13 +75,13 @@ $(function() {
     });
 
     $(document).on("click", ".edit-delete-btn", function() {
-
-        var number = $(this).data('ing');
-        var ingBox = $(this).parent();
-        var checkbox = $("#ing-checkbox-" + number);
-        checkbox.parent().append(ingBox);
-        $(this).unwrap();
+        var hiddenBox = $(this).siblings('.edit_hidden_box');
+        var quantity = $('#recipe_ingredients_recipes_quantity')
+        var checkbox = hiddenBox.find(".ing-checkbox");
         checkbox.prop('checked', true);
+        hiddenBox.append(quantity);
+        $('#recipe-ingredient').prepend(hiddenBox);
+        $(this).parent().remove();
         if ($('.ing-form').length == 0) {
             $('#quantity-box').css({ 'opacity': '0' })
         }
