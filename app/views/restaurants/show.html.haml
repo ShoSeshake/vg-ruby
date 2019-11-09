@@ -71,6 +71,28 @@
     .restaurant-show__comment
       -@restaurant.restaurant_comments.each do |c|
         =c.name
-      .restaurant-show__comment_form
-        =form_for [@restaurant, @restaurant_comment], method: :post do |f|
+      -if user_signed_in?
+        .restaurant-show__comment_form
+          =form_for [@restaurant, @restaurant_comment], method: :post do |f|
+            %span.comment-title
+              Title :
+            =f.text_field :title
+            %span.comment-title
+              Text :
+            =f.text_area :text
+            .restaurant-show__comment__form__box
+              .restaurant-show__comment__form__box__visit
+                %span.comment-title
+                  Visited Time :
+                =f.text_field :visited_time
+              .restaurant-show__comment__form__box__review
+                %span.comment-title
+                  Review :
+                  .restaurant-show__comment__form__box__review__icons
+                    -n=0
+                    -10.times do
+                      -n+=1
+                      =fa_icon 'apple', class:"icon-apple-review","data-id":n
+            =f.hidden_field :review
+            =f.submit 'COMMENT', id:"comment-btn"
 

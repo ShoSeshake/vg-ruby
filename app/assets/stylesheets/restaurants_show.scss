@@ -125,6 +125,7 @@
         }
     }
     &__detail {
+        display: none;
         font-size: 18px;
         width: auto;
         border-radius: 8px;
@@ -152,15 +153,77 @@
         border-radius: 8px;
         background: #fafafa;
         padding: 10px 20px;
+        &__form__box {
+            display: flex;
+            justify-content: space-between;
+            &__visit {
+                width: 100%;
+            }
+            &__review {
+                margin-left: 20px;
+                &__icons {
+                    cursor: default;
+                    width: 210px;
+                    color: $darkgreen;
+                    background-color: white;
+                    border-radius: 4px;
+                    padding: 10px 10px;
+                    font-size: 20px;
+                    line-height: 25px;
+                    border: 1px solid $green;
+                    margin: 10px 0;
+                }
+            }
+        }
+        input,
+        textarea {
+            color: $darkgreen;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px 10px;
+            font-size: 20px;
+            line-height: 20px;
+            border: 1px solid $green;
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        input {
+            height: 45px;
+        }
+        textarea {
+            height: 150px;
+        }
+        input:focus,
+        textarea:focus {
+            border: 2px solid $darkgreen;
+            box-sizing: border-box;
+        }
+        #comment-btn {
+            width: 70%;
+            margin: 0 auto 20px;
+            cursor: pointer;
+        }
+        #comment-btn:hover {
+            background-color: $darkgreen;
+            color: white;
+        }
     }
     .icon-apple-red {
         color: rgb(247, 48, 48);
     }
-    .icon-apple {
+    .icon-apple,
+    .icon-apple-review {
         color: grey;
     }
     span.restaurant-title {
         color: rgb(86, 105, 86);
+        font-size: 18px;
+    }
+    span.comment-title {
+        color: $darkgreen;
         font-size: 18px;
     }
 }
