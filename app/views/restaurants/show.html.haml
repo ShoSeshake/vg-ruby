@@ -1,1 +1,76 @@
 .container
+  .restaurant-show
+    .restaurant-show__name
+      =@restaurant.name
+    .restaurant-show__photo
+      =image_tag "#{@restaurant.url}", class:"restaurant-photo"
+    .restaurant-show__review
+      .restaurant-show__review__name
+        %span.restaurant-title
+          Review :
+      .restaurant-show__review__icons
+        -@restaurant.review.times do
+          =fa_icon 'apple', class:"icon-apple-red"
+        -(10- @restaurant.review).times do
+          =fa_icon 'apple', class:"icon-apple"
+    .restaurant-show__price
+      .restaurant-show__price__lunch
+        -if@restaurant.lunch_price
+          %span.restaurant-title
+            Lunch :
+          =@restaurant.lunch_price.name
+      .restaurant-show__price__dinner
+        -if @restaurant.dinner_price
+          %span.restaurant-title
+            Dinner :
+          =@restaurant.dinner_price.name
+    .restaurant-show__text
+      =@restaurant.text
+      .restaurant-show__text__user
+        by
+        =link_to user_path(@restaurant.user) do
+          =@restaurant.user.name
+        \/
+        =@restaurant.created_at
+    .restaurant-show__box
+      .restaurant-show__box__visit
+        -if @restaurant.visited_time
+          %span.restaurant-title
+            Visited at :
+          =@restaurant.visited_time
+      .restaurant-show__box__level
+        %span.restaurant-title
+          Vegan Friendly Level :
+        -(5- @restaurant.vegan_friendly.id).times do
+          =fa_icon 'apple', class:"icon-apple-red"
+        -@restaurant.vegan_friendly.id.times do
+          =fa_icon 'apple', class:"icon-apple"
+    .restaurant-show__choice
+      .restaurant-show__choice__box
+        Restaurant Detail
+      .restaurant-show__choice__box
+        Comments
+    .restaurant-show__detail
+      -if (@restaurant.prefecture || @restaurant.address)
+        .restaurant-show__detail__address
+          %span.restaurant-title
+            Address :
+          =@restaurant.prefecture.name
+          =@restaurant.address
+      -if @restaurant.telephone
+        .restaurant-show__detail__tel
+          %span.restaurant-title
+            Telephone :
+          =@restaurant.telephone
+      -if @restaurant.hp
+        .restaurant-show__detail__website
+          %span.restaurant-title
+            Website :
+          =link_to "#{@restaurant.hp}" do
+            =@restaurant.hp
+    .restaurant-show__comment
+      -@restaurant.restaurant_comments.each do |c|
+        =c.name
+      .restaurant-show__comment_form
+        =form_for [@restaurant, @restaurant_comment], method: :post do |f|
+

@@ -1,6 +1,6 @@
 .container
   .restaurants-new
-    =form_for @restaurant, method: :post do |f|
+    =form_for @restaurant, method: :patch do |f|
       .flex-box
         .form-title
           Name
@@ -9,7 +9,7 @@
           Genre
           .genre-btn
             Select Genre
-      =f.fields_for :genres_restaurants do |g|
+      =f.fields_for :genres_restaurant do |g|
         #genre-modal
           .genre-list
             -@genres.each do |genre|

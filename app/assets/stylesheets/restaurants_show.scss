@@ -1,0 +1,166 @@
+.restaurant-show {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 80vh;
+    &__name {
+        border-radius: 8px;
+        background: #fafafa;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+    &__photo {
+        position: relative;
+        margin: 20px auto 0;
+        height: 350px;
+        width: 640px;
+        border-radius: 8px;
+        background: #fafafa;
+        .restaurant-photo {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            margin: auto auto;
+            max-width: 600px;
+            max-height: 300px;
+        }
+    }
+    &__review {
+        border-radius: 8px;
+        background: #fafafa;
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px 0;
+        display: flex;
+        &__name {
+            margin-left: 20px;
+            width: 200px;
+        }
+        .icon-apple-red {
+            color: rgb(247, 48, 48);
+        }
+        .icon-apple {
+            color: grey;
+        }
+    }
+    &__price {
+        width: auto;
+        border-radius: 8px;
+        background: #fafafa;
+        padding: 10px 20px;
+        font-size: 20px;
+        margin-bottom: 10px;
+        display: flex;
+        letter-spacing: 1px;
+        ;
+        &__lunch {
+            width: 100%;
+        }
+        &__dinner {
+            width: 100%;
+        }
+    }
+    &__text {
+        width: auto;
+        border-radius: 8px;
+        background: #fafafa;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        &__user {
+            font-size: 16px;
+            text-align: right;
+            padding: 10px 10px;
+            width: auto;
+            a {
+                color: $darkgreen;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__box {
+        display: flex;
+        width: auto;
+        border-radius: 8px;
+        background: #fafafa;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        font-size: 20px;
+        &__visit {
+            width: 50%;
+        }
+        &__level {
+            width: 50%;
+            cursor: pointer;
+        }
+    }
+    &__choice {
+        display: flex;
+        width: auto;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        &__box {
+            width: 40%;
+            border-radius: 8px;
+            background: #fafafa;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border: 1px solid $darkgreen;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        &__box:hover {
+            background-color: $darkgreen;
+            color: white;
+        }
+    }
+    &__detail {
+        font-size: 18px;
+        width: auto;
+        border-radius: 8px;
+        background: #fafafa;
+        padding: 10px 20px;
+        &__address {
+            margin-bottom: 10px;
+        }
+        &__tel {
+            margin-bottom: 10px;
+        }
+        &__website {
+            margin-bottom: 10px;
+            a {
+                color: $darkgreen;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__comment {
+        font-size: 16px;
+        width: auto;
+        border-radius: 8px;
+        background: #fafafa;
+        padding: 10px 20px;
+    }
+    .icon-apple-red {
+        color: rgb(247, 48, 48);
+    }
+    .icon-apple {
+        color: grey;
+    }
+    span.restaurant-title {
+        color: rgb(86, 105, 86);
+        font-size: 18px;
+    }
+}

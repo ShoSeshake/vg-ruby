@@ -20,8 +20,6 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
-      @restaurant.images = []
-      @restaurant.images.build
       redirect_to new_recipe_path
     end
   end
@@ -31,7 +29,11 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-
+    if @restaurant.update(edit_params)
+      redirect_to restaurant_path(@restaurant)
+    else
+      redirect_to edit_restaurant_path(@restaurant)
+    end
   end
 
   def destroy
@@ -43,8 +45,8 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(
       :name,
       :text,
-      :lunch_price,
-      :dinner_price,
+      :lunch_price_id,
+      :dinner_price_id,
       :review,
       :visited_time,
       :url,
@@ -62,8 +64,8 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(
       :name,
       :text,
-      :lunch_price,
-      :dinner_price,
+      :lunch_price_id,
+      :dinner_price_id,
       :review,
       :visited_time,
       :url,
