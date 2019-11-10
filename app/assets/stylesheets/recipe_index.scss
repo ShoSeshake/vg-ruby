@@ -87,7 +87,8 @@ body {}
 }
 
 #category-list,
-#ingredient-list {
+#ingredient-list,
+#genre-list {
     display: none;
     position: absolute;
     top: 50px;
@@ -101,7 +102,8 @@ body {}
     overflow: scroll;
     height: 80vh;
     z-index: 40;
-    .category__all {
+    .category__all,
+    .genre__all {
         &__title {
             width: 100%;
             font-size: 30px;

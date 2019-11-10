@@ -45,6 +45,8 @@
   =link_to restaurants_path do
     %li.menu__bar__box.restaurant-hidden-menu
       ALL REVIEWS
+  %li.menu__bar__box.restaurant-hidden-menu#menu-genre
+    GENRE
   -# %li.menu__bar__box
   -#   MESSAGE
   -# %li.menu__bar__box
@@ -67,3 +69,10 @@
       .ingredient__all__parent{"data-id":"#{i.id}"}
         =i.name
   .ingredient__child
+#genre-list
+  .genre__all
+    .genre__all__title
+      Genre
+    -@genres.each do |g|
+      =link_to genre_path(g.id), class:"genre__all__parent" do
+        =g.genre
