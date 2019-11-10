@@ -1,4 +1,5 @@
 .restaurant-show {
+    position: relative;
     padding: 30px;
     border-radius: 20px;
     background-color: $white;
@@ -114,7 +115,7 @@
             background: #fafafa;
             margin-bottom: 10px;
             padding: 10px 20px;
-            border: 1px solid $darkgreen;
+            border: 1px solid $green;
             text-align: center;
             font-size: 20px;
             cursor: pointer;
@@ -148,6 +149,7 @@
         }
     }
     &__comment {
+        display: none;
         font-size: 16px;
         width: auto;
         border-radius: 8px;
@@ -215,6 +217,7 @@
         color: rgb(247, 48, 48);
     }
     .icon-apple,
+    .icon-apple-grey,
     .icon-apple-review {
         color: grey;
     }
@@ -225,5 +228,31 @@
     span.comment-title {
         color: $darkgreen;
         font-size: 18px;
+    }
+    #vf-level-modal {
+        display: none;
+        right: 20px;
+        padding: 20px;
+        position: absolute;
+        background-color: #fafafa;
+        border-radius: 10px;
+        border: 1px solid $green;
+        #delete-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .vf-level__box {
+            border-bottom: 1px dashed $green;
+            &__icons {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+            &__text {
+                margin-top: 8px;
+                font-size: 18px;
+                padding-bottom: 5px;
+            }
+        }
     }
 }
