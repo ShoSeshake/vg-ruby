@@ -27,6 +27,9 @@ $(function() {
     $('#restaurant-menu').on('click', function() {
         $('.restaurant-hidden-menu').slideToggle(500);
     })
+    $('#chat-menu').on('click', function() {
+        $('.chat-hidden-menu').slideToggle(500);
+    })
 
 
     $('.user-link').on('click', function(e) {

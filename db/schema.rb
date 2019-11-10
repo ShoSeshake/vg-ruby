@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_102348) do
+ActiveRecord::Schema.define(version: 2019_11_10_140235) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 2019_11_10_102348) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_recipes_on_category_id"
     t.index ["recipe_id"], name: "index_categories_recipes_on_recipe_id"
+  end
+
+  create_table "chat_members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "chat_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_chat_members_on_chat_id"
+    t.index ["user_id"], name: "index_chat_members_on_user_id"
+  end
+
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_chats_on_name"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,6 +115,17 @@ ActiveRecord::Schema.define(version: 2019_11_10_102348) do
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_likes_on_recipe_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.string "url"
+    t.bigint "chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -173,6 +200,8 @@ ActiveRecord::Schema.define(version: 2019_11_10_102348) do
 
   add_foreign_key "categories_recipes", "categories"
   add_foreign_key "categories_recipes", "recipes"
+  add_foreign_key "chat_members", "chats"
+  add_foreign_key "chat_members", "users"
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
   add_foreign_key "genres_restaurants", "genres"
@@ -183,6 +212,8 @@ ActiveRecord::Schema.define(version: 2019_11_10_102348) do
   add_foreign_key "instructions", "recipes"
   add_foreign_key "likes", "recipes"
   add_foreign_key "likes", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "users"
   add_foreign_key "recipes", "users"
   add_foreign_key "restaurant_comments", "restaurants"
   add_foreign_key "restaurant_comments", "users"

@@ -2,13 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'recipes#index'
   
-  resources :users, only: [:show] do
-    member do
-      get :following, :followers, :users_tweets
-    end
-  end
-  resources :relationships, only: [:create, :destroy]
-
+  resources :users, only: [:show]
+  resources :chats, only: [:new,:create]
+  resources :messages, only:[:index,:show,:new,:create]
 
   resources :recipes do
     collection do
@@ -16,6 +12,7 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:create]
   end
+
   resources :categories, only: [:show]
   resources :ingredients, only: [:show]
   resources :genres, only: [:show]
@@ -23,11 +20,12 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :restaurant_comments, only: [:create]
   end
-
+  
   namespace :api do
     resources :recipes, only: [:index,:new]
   end
-
+  
+  resources :relationships, only: [:create, :destroy]
   post '/recipe/:recipe_id/likes' => "likes#create"
   delete '/recipe/:recipe_id/likes' => "likes#destroy"
 end

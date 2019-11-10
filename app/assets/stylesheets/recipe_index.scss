@@ -49,27 +49,17 @@ body {}
         background-color: $lightgreen;
         color: $darkgreen;
     }
-    .user-hidden-menu {
+    .user-hidden-menu,
+    .recipe-hidden-menu,
+    .restaurant-hidden-menu,
+    .chat-hidden-menu {
         display: none;
         background-color: rgb(32, 73, 42);
     }
-    .user-hidden-menu:hover {
-        background-color: $lightgreen;
-        color: $darkgreen;
-    }
-    .recipe-hidden-menu {
-        display: none;
-        background-color: rgb(32, 73, 42);
-    }
-    .recipe-hidden-menu:hover {
-        background-color: $lightgreen;
-        color: $darkgreen;
-    }
-    .restaurant-hidden-menu {
-        display: none;
-        background-color: rgb(32, 73, 42);
-    }
-    .restaurant-hidden-menu:hover {
+    .user-hidden-menu:hover,
+    .recipe-hidden-menu:hover,
+    .restaurant-hidden-menu:hover,
+    .chat-hidden-menu:hover {
         background-color: $lightgreen;
         color: $darkgreen;
     }
@@ -88,7 +78,8 @@ body {}
 
 #category-list,
 #ingredient-list,
-#genre-list {
+#genre-list,
+#chat-list {
     display: none;
     position: absolute;
     top: 50px;
@@ -183,6 +174,101 @@ body {}
         &__list:hover {
             color: white;
             background-color: rgb(87, 152, 87);
+        }
+    }
+}
+
+#chat-list {
+    display: block;
+    text-align: center;
+    .chat__all {
+        margin-top: 30px;
+        &__text {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        &__name {
+            margin: 0 auto;
+            font-size: 20px;
+            width: 360px;
+            text-align: left;
+        }
+        #chat_name,
+        #friend-search,
+        #chat-create {
+            color: $darkgreen;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px 10px;
+            font-size: 20px;
+            line-height: 20px;
+            border: 1px solid $green;
+            display: block;
+            width: 360px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            height: 45px;
+        }
+        #chat_name:focus,
+        #friend-search:focus {
+            border: 2px solid $darkgreen;
+            box-sizing: border-box;
+        }
+        #chat-create:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+        #chat_name {
+            margin-bottom: 20px;
+        }
+        #friend_result {
+            left: 150px;
+            position: absolute;
+            z-index: 10;
+            display: none;
+            width: 360px;
+            height: 50vh;
+            background-color: #fafafa;
+            .search_result_name {
+                text-align: left;
+                padding: 10px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+            .search_result_name:hover {
+                color: white;
+                background-color: $darkgreen;
+            }
+        }
+        #append_field {
+            min-height: 300px;
+            margin-bottom: 20px;
+            .member-box {
+                border-bottom: 1px solid $darkgreen;
+                position: relative;
+                margin: 20px auto;
+                font-size: 20px;
+                height: 50px;
+                width: 60%;
+                line-height: 50px;
+                text-align: right;
+                &__delete {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    font-weight: bold;
+                    margin: 10px 0 0 10px;
+                    height: 25px;
+                    width: 25px;
+                    line-height: 25px;
+                    border-radius: 50%;
+                    text-align: center;
+                    font-weight: bold;
+                    color: $darkgreen;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
