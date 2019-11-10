@@ -20,4 +20,11 @@ $(function() {
         commentBox.fadeIn(500);
         detailBox.hide();
     })
+
+    var commentForm = $('.restaurant-show__form');
+    var formBtn = $('.restaurant-show__comment__form-btn');
+    formBtn.on('click', function() {
+        commentForm.fadeIn(500);
+        formBtn.hide();
+    })
 })

@@ -155,7 +155,67 @@
         border-radius: 8px;
         background: #fafafa;
         padding: 10px 20px;
-        &__form__box {
+        &__box {
+            border-bottom: 1px dashed $darkgreen;
+            padding: 10px 0;
+            &__title {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            &__text {
+                margin-bottom: 8px;
+            }
+            &__visit {
+                margin-bottom: 8px;
+            }
+            &__review {
+                width: 48%;
+                margin-bottom: 8px;
+                display: inline-block;
+            }
+            &__name {
+                width: 48%;
+                display: inline-block;
+                text-align: right;
+                a {
+                    color: $darkgreen;
+                    font-size: 18px;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+            span.review_title {
+                color: rgb(86, 105, 86);
+            }
+        }
+        &__form-btn {
+            margin: 20px auto;
+            width: 70%;
+            background-color: white;
+            text-align: center;
+            color: $darkgreen;
+            border-radius: 4px;
+            border: 1px solid $green;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        &__form-btn:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+    }
+    &__form {
+        margin-top: 20px;
+        display: none;
+        font-size: 16px;
+        width: auto;
+        border-radius: 8px;
+        background: #fafafa;
+        padding: 10px 20px;
+        &__box {
             display: flex;
             justify-content: space-between;
             &__visit {
@@ -229,30 +289,32 @@
         color: $darkgreen;
         font-size: 18px;
     }
-    #vf-level-modal {
-        display: none;
-        right: 20px;
-        padding: 20px;
-        position: absolute;
-        background-color: #fafafa;
-        border-radius: 10px;
-        border: 1px solid $green;
-        #delete-btn {
-            float: right;
-            cursor: pointer;
-            font-size: 20px;
+}
+
+#vf-level-modal {
+    display: none;
+    right: 20px;
+    bottom: 0px;
+    padding: 20px;
+    position: absolute;
+    background-color: #fafafa;
+    border-radius: 10px;
+    border: 1px solid $green;
+    #delete-btn {
+        float: right;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .vf-level__box {
+        border-bottom: 1px dashed $green;
+        &__icons {
+            font-size: 18px;
+            margin-top: 10px;
         }
-        .vf-level__box {
-            border-bottom: 1px dashed $green;
-            &__icons {
-                font-size: 18px;
-                margin-top: 10px;
-            }
-            &__text {
-                margin-top: 8px;
-                font-size: 18px;
-                padding-bottom: 5px;
-            }
+        &__text {
+            margin-top: 8px;
+            font-size: 18px;
+            padding-bottom: 5px;
         }
     }
 }
