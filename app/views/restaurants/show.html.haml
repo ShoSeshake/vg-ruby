@@ -25,7 +25,7 @@
             Dinner :
           =@restaurant.dinner_price.name
     .restaurant-show__text
-      =@restaurant.text
+      =simple_format(@restaurant.text)
       .restaurant-show__text__user
         by
         =link_to user_path(@restaurant.user) do
@@ -114,7 +114,7 @@
           .restaurant-show__comment__box__title
             =c.title
           .restaurant-show__comment__box__text
-            =c.text
+            =simple_format(c.text)
           .restaurant-show__comment__box__visit
             %span.review_title
               Visited at:

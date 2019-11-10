@@ -1,4 +1,5 @@
 $(function() {
+    $('input').attr('autocomplete', 'off');
     $('#menu-btn').on('click', function() {
         $('#modal-menu-bar').animate({
             "left": "0"

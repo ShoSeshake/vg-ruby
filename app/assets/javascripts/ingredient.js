@@ -25,7 +25,7 @@ $(function() {
                     <div class='ingredients-box'>
                     ${ing.name}
                     </div>
-                    <input class="quantity-field" type="text" name="recipe[ingredients_recipes_attributes][][quantity]" id="recipe_ingredients_recipes_quantity" />
+                    <input class="quantity-field" type="text" name="recipe[ingredients_recipes_attributes][][quantity]" id="recipe_ingredients_recipes_quantity" autocomplete="off" />
                     </div>`
         recipeIngredient.append(html);
     }

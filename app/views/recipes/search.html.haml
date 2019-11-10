@@ -1,0 +1,6 @@
+.container
+  .search-recipe
+    .search-recipe__recipes
+      .search-recipe__recipes__box
+        -@recipes.each do |r|  
+          = render partial:"shared/recipe", locals: { r: r }

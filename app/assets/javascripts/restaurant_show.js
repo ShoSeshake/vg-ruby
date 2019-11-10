@@ -25,6 +25,6 @@ $(function() {
     var formBtn = $('.restaurant-show__comment__form-btn');
     formBtn.on('click', function() {
         commentForm.fadeIn(500);
-        formBtn.hide();
+        formBtn.parent().hide();
     })
 })

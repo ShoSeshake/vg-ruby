@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :recipes do
+    collection do
+      get 'search'
+    end
     resources :comments, only: [:create]
   end
   resources :categories, only: [:show]

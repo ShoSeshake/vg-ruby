@@ -29,6 +29,9 @@
     =link_to new_recipe_path do
       %li.menu__bar__box.recipe-hidden-menu
         POST RECIPE
+  =link_to search_recipes_path do
+    %li.menu__bar__box.recipe-hidden-menu
+      ALL RECIPES
   %li.menu__bar__box.recipe-hidden-menu#menu-category
     CATEGORY
   %li.menu__bar__box.recipe-hidden-menu#menu-ingredient
@@ -41,7 +44,7 @@
         POST REVIEW
   =link_to restaurants_path do
     %li.menu__bar__box.restaurant-hidden-menu
-      REVIEWS
+      ALL REVIEWS
   -# %li.menu__bar__box
   -#   MESSAGE
   -# %li.menu__bar__box

@@ -100,7 +100,7 @@
             -c.review.times do
               =fa_icon 'leaf', class:"icon"
         .comment-modal__box__text
-          =c.text
+          =simple_format(c.text)
         .comment-modal__box__time
           =c.created_at
   -else

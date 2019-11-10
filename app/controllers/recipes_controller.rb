@@ -50,6 +50,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+    @recipes = Recipe.order("created_at DESC")
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit(

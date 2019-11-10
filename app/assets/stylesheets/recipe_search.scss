@@ -1,0 +1,12 @@
+.search-recipe {
+    width: 700px;
+    &__recipes {
+        padding: 20px 0;
+        width: 700px;
+        &__box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px 12px;
+        }
+    }
+}

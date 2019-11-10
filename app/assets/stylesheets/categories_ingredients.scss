@@ -60,6 +60,7 @@
         top: 99%;
         border: 2px white solid;
         border-radius: 5px;
+        box-sizing: border-box;
     }
     &__image:hover {
         border: 2px solid $darkgreen;

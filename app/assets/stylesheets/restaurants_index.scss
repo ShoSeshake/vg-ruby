@@ -1,0 +1,61 @@
+.restaurants-index {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 80vh;
+    &__box {
+        background-color: #fafafa;
+        padding: 20px 0;
+        display: flex;
+        margin-bottom: 20px;
+        border: 1px dashed $darkgreen;
+        color: $darkgreen;
+        box-sizing: border-box;
+        &__left {
+            margin: 0 20px;
+            height: 200px;
+            width: 200px;
+            position: relative;
+            &__photo {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                max-height: 200px;
+                max-width: 200px;
+            }
+        }
+        &__right {
+            width: 400px;
+            position: relative;
+            &__name {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            &__review {
+                text-align: right;
+                padding-right: 20px;
+                .icon-apple-red {
+                    color: rgb(247, 48, 48);
+                }
+                .icon-apple-grey {
+                    color: grey;
+                }
+            }
+            &__text {}
+            &__time {
+                position: absolute;
+                bottom: 0;
+                right: 10px;
+            }
+        }
+    }
+    &__box:hover {
+        opacity: 0.7;
+        border: 1px solid $darkgreen;
+    }
+}
