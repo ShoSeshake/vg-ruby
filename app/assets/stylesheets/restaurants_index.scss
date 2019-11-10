@@ -1,4 +1,5 @@
-.restaurants-index {
+.restaurants-index,
+.genre-show {
     padding: 30px;
     border-radius: 20px;
     background-color: $white;
@@ -6,6 +7,15 @@
     font-weight: bold;
     overflow: scroll;
     height: 80vh;
+    &__siblings {
+        &__link {
+            color: $darkgreen;
+        }
+        &__link:hover {
+            text-decoration: underline;
+        }
+        margin-bottom: 20px;
+    }
     &__box {
         background-color: #fafafa;
         padding: 20px 0;

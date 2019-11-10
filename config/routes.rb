@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:show]
   resources :ingredients, only: [:show]
+  resources :genres, only: [:show]
 
   resources :restaurants do
     resources :restaurant_comments, only: [:create]

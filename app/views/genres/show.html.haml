@@ -1,0 +1,26 @@
+.container
+  .genre-show
+    .genre-show__siblings
+      -Genre.all.each do |g|
+        =link_to genre_path(g), class:"genre-show__siblings__link" do
+          =g.genre
+        \/
+    -@genre.restaurants.each do |r|
+      =link_to restaurant_path(r) do
+        .genre-show__box
+          .genre-show__box__left
+            =image_tag "#{r.url}",alt:r.name, class:"genre-show__box__left__photo"
+          .genre-show__box__right
+            .genre-show__box__right__name
+              =r.name
+            .genre-show__box__right__review
+              -r.review.times do
+                =fa_icon 'apple', class:"icon-apple-red"
+              -(10- r.review).times do
+                =fa_icon 'apple', class:"icon-apple-grey"
+            .genre-show__box__right__text
+              =simple_format(r.text)
+            .genre-show__box__right__time
+              =r.created_at
+              \/ By
+              =r.user.name
