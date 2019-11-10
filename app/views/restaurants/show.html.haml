@@ -84,6 +84,14 @@
           =fa_icon 'apple', class:"icon-apple-red"
         .vf-level__box__text
           Completely vegan
+    .restaurant-show__genres
+      %span.restaurant-title
+        Genre :
+      %br
+      -@restaurant.genres.each do |g|
+        =link_to genre_path(g),class:"restaurant-show__genres__link" do
+          =g.genre
+        \/
     .restaurant-show__choice
       .restaurant-show__choice__box#detail-btn
         Restaurant Detail

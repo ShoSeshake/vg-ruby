@@ -1,0 +1,35 @@
+.sidebar
+  -if @user == current_user
+    .sidebar__name.short
+      My Page
+  -else
+    -if (@user.name.length > 14)
+      .sidebar__name
+        =@user.name
+    -else
+      .sidebar__name.short
+        =@user.name
+  .sidebar__menu#user-page-recipe
+    RECIPE
+  .sidebar__menu.hidden-user-recipe#user-recipes
+    -if @user == current_user
+      MY RECIPES
+    -else
+      =@user.name
+      's RECIPES
+  .sidebar__menu.hidden-user-recipe#user-likes
+    LIKED RECIPES
+  .sidebar__menu.hidden-user-recipe#user-comments
+    COMMENTED RECIPES
+  .sidebar__menu#user-page-review
+    REVIEW
+  .sidebar__menu.hidden-user-review#users-review-btn
+    -if @user == current_user
+      MY REVIEWS
+    -else
+      =@user.name
+      's REVIEWS
+  .sidebar__menu.hidden-user-review#commented-review-btn
+    COMMENTED REVIEWS
+  .sidebar__menu
+    FOLLOW

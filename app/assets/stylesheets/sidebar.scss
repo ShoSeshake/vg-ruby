@@ -1,0 +1,43 @@
+.sidebar {
+    color: $darkgreen;
+    position: fixed;
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(209, 255, 212, 0.7);
+    z-index: 1;
+    border-right: 2px solid $darkgreen;
+    font-weight: bold;
+    box-sizing: border-box;
+    overflow: scroll;
+    &__name {
+        padding: 10px 10px 10px 100px;
+        height: 70px;
+        width: 190px;
+        font-size: 25px;
+        border-bottom: 2px dashed $darkgreen;
+        vertical-align: center;
+        word-break: break-all;
+    }
+    &__name.short {
+        line-height: 70px;
+    }
+    &__menu {
+        padding: 10px 0 10px 20px;
+        color: $darkgreen;
+        cursor: pointer;
+    }
+    &__menu:hover {
+        color: $white;
+        background-color: $darkgreen;
+    }
+    .hidden-user-recipe,
+    .hidden-user-review {
+        background-color: rgba(255, 255, 255, 0.4);
+        display: none;
+    }
+    .hidden-user-recipe:hover,
+    .hidden-user-review:hover {
+        color: $white;
+        background-color: $darkgreen;
+    }
+}

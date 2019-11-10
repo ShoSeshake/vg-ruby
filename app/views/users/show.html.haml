@@ -1,16 +1,6 @@
+= render "shared/sidebar"
 .container
   .user
-    .user__menu
-      %button.user__menu__button#user-recipes
-        -if @user == current_user
-          My Recipes
-        -else
-          =@user.name
-          's recipes
-      %button.user__menu__button#user-likes
-        Liked Recipes
-      %button.user__menu__button#user-comments
-        Commented Recipes
     .user__recipes#my_recipes
       .user__recipes__box
         -@user.recipes.each do |r|  
@@ -23,3 +13,9 @@
       .user__recipes__box
         -@commented_recipes.uniq.each do |c|
           = render partial:"shared/recipe", locals: { r: c }
+    .user__restaurants#my_reviews
+      -@user.restaurants.each do |r|
+        = render partial:"shared/restaurant", locals: { r: r }
+    .user__restaurants#commented_reviews
+      -@commented_reviews.uniq.each do |r|
+        = render partial:"shared/restaurant", locals: { r: r }

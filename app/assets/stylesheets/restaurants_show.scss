@@ -122,6 +122,19 @@
             cursor: pointer;
         }
     }
+    &__genres {
+        border-radius: 8px;
+        background: #fafafa;
+        margin-bottom: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        &__link {
+            color: $darkgreen;
+        }
+        &__link:hover {
+            text-decoration: underline;
+        }
+    }
     &__choice {
         display: flex;
         width: auto;

@@ -1,21 +1,5 @@
 .container
   .restaurants-index
     -@restaurants.each do |r|
-      =link_to restaurant_path(r) do
-        .restaurants-index__box
-          .restaurants-index__box__left
-            =image_tag "#{r.url}",alt:r.name, class:"restaurants-index__box__left__photo"
-          .restaurants-index__box__right
-            .restaurants-index__box__right__name
-              =r.name
-            .restaurants-index__box__right__review
-              -r.review.times do
-                =fa_icon 'apple', class:"icon-apple-red"
-              -(10- r.review).times do
-                =fa_icon 'apple', class:"icon-apple-grey"
-            .restaurants-index__box__right__text
-              =simple_format(r.text)
-            .restaurants-index__box__right__time
-              =r.created_at
-              \/ By
-              =r.user.name
+      = render partial:"shared/restaurant", locals: { r: r }
+

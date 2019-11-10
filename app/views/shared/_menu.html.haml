@@ -13,7 +13,7 @@
     =link_to user_path(current_user) do
       %li.menu__bar__box.user-hidden-menu
         MY PAGE
-    =link_to destroy_user_session_path(current_user), method: :delete do
+    =link_to destroy_user_session_path, method: :delete do
       %li.menu__bar__box.user-hidden-menu
         LOG OUT
   -else
@@ -24,7 +24,7 @@
       %li.menu__bar__box.user-hidden-menu
         LOG IN
   %li.menu__bar__box#recipe-menu
-    RECIPE
+    RECIPES
   -if user_signed_in?
     =link_to new_recipe_path do
       %li.menu__bar__box.recipe-hidden-menu
