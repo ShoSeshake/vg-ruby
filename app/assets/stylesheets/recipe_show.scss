@@ -291,11 +291,13 @@
             display: flex;
             justify-content: space-between;
             width: 60%;
-            a.recipe-link {
+            a.recipe-link,
+            a.restaurant-link {
                 display: block;
                 color: $darkgreen;
             }
-            a.recipe-link:hover {
+            a.recipe-link:hover,
+            a.restaurant-link:hover {
                 text-decoration: underline;
             }
             &__cancel:hover {

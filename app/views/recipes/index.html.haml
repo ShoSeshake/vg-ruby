@@ -2,6 +2,9 @@
   .index_recipe
     .index_recipe__title
       New Recipes
+      =link_to'/',class:"index_recipe__title__link" do
+        more
+        =fa_icon 'angle-double-right'
     .index_recipe__box
       -@recipes.each do |r|
         =link_to recipe_path(r) do
@@ -9,4 +12,17 @@
             .index_recipe__box__card__name
               =r.name
             =image_tag "#{r.images.first.url}", alt:r.name, class:"index_recipe__box__card__image"
+  .index_restaurant
+    .index_restaurant__title
+      New Reviews
+      =link_to restaurants_path,class:"index_restaurant__title__link" do
+        more
+        =fa_icon 'angle-double-right'
+    .index_restaurant__box
+      -@restaurants.each do |r|
+        =link_to restaurant_path(r) do
+          .index_restaurant__box__card
+            .index_restaurant__box__card__name
+              =r.name
+            =image_tag "#{r.url}", alt:r.name, class:"index_restaurant__box__card__image"
 

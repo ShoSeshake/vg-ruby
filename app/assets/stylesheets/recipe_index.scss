@@ -185,15 +185,30 @@ body {}
     }
 }
 
-.index_recipe {
+.index_recipe,
+.index_restaurant {
     padding: 20px;
     border-radius: 20px;
     background-color: $white;
     color: $darkgreen;
     font-weight: bold;
+    margin-bottom: 30px;
     &__title {
+        width: 100%;
         font-size: 25px;
         margin-bottom: 10px;
+        position: relative;
+        &__link {
+            position: absolute;
+            text-align: right;
+            display: inline-block;
+            font-size: 20px;
+            color: $darkgreen;
+            right: 0;
+        }
+        &__link:hover {
+            text-decoration: underline;
+        }
     }
     &__box {
         overflow: scroll;

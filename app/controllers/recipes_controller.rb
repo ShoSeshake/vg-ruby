@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.order("created_at DESC").limit(10)
+    @restaurants = Restaurant.order("created_at DESC").limit(10)
   end
 
   def show

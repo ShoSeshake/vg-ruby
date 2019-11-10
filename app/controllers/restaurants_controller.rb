@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
   before_action :user_check, only: [:edit, :update, :destroy]
   
   def index
+    @restaurants = Restaurant.order("created_at DESC")
   end
 
   def show
@@ -38,6 +39,11 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
+    if @restaurant.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private

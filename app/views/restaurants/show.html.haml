@@ -32,6 +32,11 @@
           =@restaurant.user.name
         \/
         =@restaurant.created_at
+      -if @restaurant.user == current_user
+        .restaurant-show__text__icons
+          =link_to edit_restaurant_path(@restaurant), class:"restaurant-link" do
+            =fa_icon "edit", class:"icon"
+          =fa_icon "trash-o", class:"icon", id:"delete-icon"
     .restaurant-show__box
       .restaurant-show__box__visit
         -if @restaurant.visited_time
@@ -152,5 +157,17 @@
                     =fa_icon 'apple', class:"icon-apple-review","data-id":n
           =f.hidden_field :review
           =f.submit 'COMMENT', id:"comment-btn"
-
-
+.delete-modal
+  .delete-modal__box
+    Are you sure that
+    %br
+    %br
+    you would like to 
+    %br
+    %br
+    delete this review?
+    .delete-modal__box__confirmation
+      =link_to restaurant_path(@restaurant), method: :delete, class:"recipe-link" do
+        YES
+      .delete-modal__box__confirmation__cancel
+        NO

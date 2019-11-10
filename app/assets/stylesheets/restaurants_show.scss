@@ -87,6 +87,24 @@
                 text-decoration: underline;
             }
         }
+        &__icons {
+            font-size: 20px;
+            display: inline-block;
+            width: 100%;
+            text-align: right;
+            .icon {
+                display: inline-block;
+                cursor: pointer;
+            }
+            .icon:hover {
+                color: grey;
+            }
+            a.restaurant-link {
+                color: $darkgreen;
+                display: inline-block;
+                margin-right: 20px;
+            }
+        }
     }
     &__box {
         display: flex;

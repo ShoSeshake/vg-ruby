@@ -13,9 +13,6 @@
     =link_to user_path(current_user) do
       %li.menu__bar__box.user-hidden-menu
         MY PAGE
-    =link_to new_recipe_path do
-      %li.menu__bar__box.user-hidden-menu
-        POST RECIPE
     =link_to destroy_user_session_path(current_user), method: :delete do
       %li.menu__bar__box.user-hidden-menu
         LOG OUT
@@ -28,22 +25,29 @@
         LOG IN
   %li.menu__bar__box#recipe-menu
     RECIPE
+  -if user_signed_in?
+    =link_to new_recipe_path do
+      %li.menu__bar__box.recipe-hidden-menu
+        POST RECIPE
   %li.menu__bar__box.recipe-hidden-menu#menu-category
     CATEGORY
   %li.menu__bar__box.recipe-hidden-menu#menu-ingredient
     INGREDIENT
   %li.menu__bar__box#restaurant-menu
     RESTAURANTS
+  -if user_signed_in?
+    =link_to new_restaurant_path do
+      %li.menu__bar__box.restaurant-hidden-menu
+        POST REVIEW
   =link_to restaurants_path do
     %li.menu__bar__box.restaurant-hidden-menu
       REVIEWS
   -# %li.menu__bar__box
-  %li.menu__bar__box
-    MESSAGE
-  %li.menu__bar__box
-    FOLLOW
-  %li.menu__bar__box
-    LIKE
+  -#   MESSAGE
+  -# %li.menu__bar__box
+  -#   FOLLOW
+  -# %li.menu__bar__box
+  -#   LIKE
 #dark-background
 #category-list
   .category__all

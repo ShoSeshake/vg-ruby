@@ -3,8 +3,7 @@ class Restaurant < ApplicationRecord
   mount_uploader :url, ImageUploader
 
   has_many :restaurant_comments,   dependent: :destroy
-
-  has_many :genres_restaurants
+  has_many :genres_restaurants,    dependent: :destroy
   has_many :genres, through: :genres_restaurants
 
   extend ActiveHash::Associations::ActiveRecordExtensions
