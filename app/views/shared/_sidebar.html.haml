@@ -31,5 +31,12 @@
       's REVIEWS
   .sidebar__menu.hidden-user-review#commented-review-btn
     COMMENTED REVIEWS
-  .sidebar__menu
-    FOLLOW
+  -if (@user != current_user && user_signed_in?)
+    .sidebar__menu#user-follow
+      -if current_user.following?(@user)
+        UNFOLLOW
+      -else
+        FOLLOW
+#dark-background-follow
+#follow-confirmation.follow-confirmation
+  = render 'shared/follow_form', user: @user if signed_in?

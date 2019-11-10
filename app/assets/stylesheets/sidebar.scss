@@ -41,3 +41,54 @@
         background-color: $darkgreen;
     }
 }
+
+#dark-background-follow {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 30;
+}
+
+.follow-confirmation {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 400px;
+    padding: 40px;
+    width: 500px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 25vh;
+    z-index: 40;
+    text-align: center;
+    font-size: 25px;
+    #new_relationship,
+    .edit_relationship {
+        display: inline-block;
+        font-weight: bold;
+        width: 50%;
+        margin-top: 70px;
+        #follow-unfollow-btn {
+            border: none;
+            background-color: $white;
+            font-weight: bold;
+            color: $darkgreen;
+            cursor: pointer;
+        }
+    }
+    &__cancel {
+        display: inline-block;
+        width: 50%;
+        margin-top: 70px;
+        &__btn {
+            cursor: pointer;
+        }
+    }
+}

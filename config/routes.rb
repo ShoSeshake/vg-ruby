@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'recipes#index'
   
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :following, :followers, :users_tweets
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
+
 
   resources :recipes do
     collection do

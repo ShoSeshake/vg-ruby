@@ -4,8 +4,9 @@ $(function() {
     var likedRecipe = $('#liked_recipes');
     var commentedRecipe = $('#commented_recipes');
     var myReview = $('#my_reviews');
-    var commentedReview = $('#commented_reviews')
-
+    var commentedReview = $('#commented_reviews');
+    var darkBackground = $('#dark-background-follow');
+    var confirmation = $('#follow-confirmation');
     $('#user-page-recipe').on('click', function() {
         $('.hidden-user-recipe').slideToggle(500);
     })
@@ -49,5 +50,25 @@ $(function() {
         myRecipe.hide();
         myReview.hide();
         commentedRecipe.hide();
+    })
+    $('#user-follow').on('click', function() {
+        confirmation.fadeIn(500);
+        darkBackground.fadeIn(500);
+    })
+    darkBackground.on('click', function() {
+        confirmation.fadeOut(500);
+        darkBackground.fadeOut(500);
+    })
+    $(document).on('click', '.follow-confirmation__cancel__btn', function() {
+        confirmation.fadeOut(500);
+        darkBackground.fadeOut(500);
+    })
+    $(document).on('click', '#new_relationship', function() {
+        confirmation.hide();
+        darkBackground.hide();
+    })
+    $(document).on('click', '.edit_relationship', function() {
+        confirmation.hide();
+        darkBackground.hide();
     })
 })

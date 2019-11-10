@@ -1,0 +1,18 @@
+-unless current_user.id == user.id
+  -if current_user.following?(user)
+    Would like to unfollow?
+    %br
+    = form_for(current_user.following_relationships.find_by(following_id: user.id),html: { method: :delete },remote: true) do |f|
+      = f.submit "YES", id:"follow-unfollow-btn"
+    .follow-confirmation__cancel
+      %span.follow-confirmation__cancel__btn
+        No
+  -else
+    Would like to follow?
+    %br
+    = form_for(current_user.following_relationships.build(following_id: user.id),remote: true) do |f|
+      = f.hidden_field :following_id
+      = f.submit "YES", id:"follow-unfollow-btn"
+    .follow-confirmation__cancel
+      %span.follow-confirmation__cancel__btn
+        No
