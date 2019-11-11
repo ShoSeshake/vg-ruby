@@ -1,0 +1,22 @@
+-chat.messages.each do |m|
+  .chat__main__body__message.clearfix
+    -if m.user == current_user
+      .chat__main__body__message__my-box
+        .chat__main__body__message__my-box__detail
+          %span.message-user-name
+            =m.user.name
+          %span.message-time
+            =m.created_at
+        .chat__main__body__message__my-box__text
+          =m.content
+          =image_tag"#{m.url}",class:"chat__main__body__message__my-box__text__image"
+    -else
+      .chat__main__body__message__other-box
+        .chat__main__body__message__other-box__detail
+          %span.message-user-name
+            =m.user.name
+          %span.message-time
+            =m.created_at
+        .chat__main__body__message__other-box__text
+          =m.content
+          =image_tag"#{m.url}",class:"chat__main__body__message__other-box__text__image"

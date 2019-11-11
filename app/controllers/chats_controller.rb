@@ -11,10 +11,8 @@ class ChatsController < ApplicationController
 
   def create
     @chat = Chat.new(chat_params)
-    # @chat.users << current_user
-    binding.pry
     if @chat.save
-      redirect_to root_path
+      redirect_to messages_path
     else
       redirect_to root_path
     end

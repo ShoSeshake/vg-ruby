@@ -180,3 +180,12 @@ a {
 .inline-block {
     display: inline-block;
 }
+
+.clearfix {
+    *zoom: 1;
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

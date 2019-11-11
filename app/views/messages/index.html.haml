@@ -1,0 +1,12 @@
+.chat
+  .chat__sidebar
+    .chat__sidebar__title
+      CHAT ROOM
+    -@chats.each do |c|
+      =link_to chat_api_messages_path(c.id), remote:"true" do
+        .chat__sidebar__menu
+          .chat__sidebar__menu__name
+            =c.name
+          .chat__sidebar__menu__message
+            =c.show_last_message
+  .chat__main#chat-main

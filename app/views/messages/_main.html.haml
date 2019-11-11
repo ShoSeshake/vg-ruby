@@ -1,0 +1,11 @@
+.chat__main__body#chat-main-body
+  = render partial:"messages/body", locals: { chat: chat }
+.chat__main__form
+  =form_for(current_user.messages.build(user_id: current_user.id),remote: true) do |f|
+    .chat__main__form__box
+      =f.text_field :content, class:"chat__main__form__box__text", placeholder: 'type a message', autocomplete: "off"
+      = f.label :url, class: 'chat__main__form__box__image' do
+        = fa_icon 'picture-o', class: 'icon'
+        = f.file_field :url, class: 'hidden'
+      =f.hidden_field :chat_id, value:chat.id
+      =f.submit 'SEND', class:"chat__main__form__box__send"

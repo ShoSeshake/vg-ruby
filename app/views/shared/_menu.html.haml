@@ -50,10 +50,11 @@
   -if user_signed_in?
     %li.menu__bar__box#chat-menu
       CHAT
-    %li.menu__bar__box.chat-hidden-menu
+    %li.menu__bar__box.chat-hidden-menu#menu-new-chat
       NEW CHAT
-    %li.menu__bar__box.chat-hidden-menu
-      ALL CHAT
+    =link_to messages_path do
+      %li.menu__bar__box.chat-hidden-menu
+        ALL CHAT
 #dark-background
 #category-list
   .category__all
@@ -77,23 +78,22 @@
     -@genres.each do |g|
       =link_to genre_path(g.id), class:"genre__all__parent" do
         =g.genre
-#chat-list
-  .chat__all
-    .chat__all__text
-      Please choose your friend who you would like to talk to.
-      %br
-      %br
-      You can only talk to you frined who follow each other.
-    =form_for(Chat.new) do |f|
-      .chat__all__name
-        Name:
-      =f.text_field :name
-      .chat__all__name
-        Member:
-      %input{type:"text", id:"friend-search"}
-      #friend_result 
-      #append_field     
-      =f.hidden_field :user,id:"current_user_id", value:current_user.id ,name:"chat[chat_members_attributes][][user_id]"
-      =f.submit 'CREATE', id:"chat-create"
-      -# -if user_signed_in?
-        -# %input{type:"hidden",id:"current_user_id", value:current_user.id}
+-if user_signed_in?
+  #chat-list
+    .chat__all
+      .chat__all__text
+        Please choose your friend who you would like to talk to.
+        %br
+        %br
+        You can only talk to you frined who follow each other.
+      =form_for(Chat.new) do |f|
+        .chat__all__name
+          Name:
+        =f.text_field :name
+        .chat__all__name
+          Member:
+        %input{type:"text", id:"friend-search"}
+        #friend_result 
+        #append_field     
+        =f.hidden_field :user,id:"current_user_id", value:current_user.id ,name:"chat[chat_members_attributes][][user_id]"
+        =f.submit 'CREATE', id:"chat-create"

@@ -60,10 +60,15 @@ $(function() {
             'display': 'flex'
         })
     })
+    $('#menu-new-chat').on('click', function() {
+        $('#dark-background').fadeIn(500);
+        $('#chat-list').fadeIn(500);
+    })
     $('#dark-background').on('click', function() {
         $('#dark-background').fadeOut(500);
         $('#category-list').fadeOut(500);
-        $('#genre-list').fadeIn(500);
+        $('#chat-list').fadeOut(500);
+        $('#genre-list').fadeOut(500);
         $('#ingredient-list').fadeOut(500);
         $('.ingredient__child').empty('');
         $('.ingredient__child').hide();

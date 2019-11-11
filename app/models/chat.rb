@@ -6,4 +6,12 @@ class Chat < ApplicationRecord
   
   accepts_nested_attributes_for :chat_members, allow_destroy: true
   validates :name, presence: true
+
+  def show_last_message
+    if (last_message = messages.last).present?
+      last_message.content? ? last_message.content : 'Image has sent.'
+    else
+      'No messages'
+    end
+  end
 end

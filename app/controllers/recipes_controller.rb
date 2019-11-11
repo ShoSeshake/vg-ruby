@@ -6,9 +6,6 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.order("created_at DESC").limit(10)
     @restaurants = Restaurant.order("created_at DESC").limit(10)
-    # if user_signed_in?
-    #   @users = follow_exchange(current_user)
-    # end
   end
 
   def show
