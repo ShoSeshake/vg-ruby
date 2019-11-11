@@ -31,7 +31,7 @@
         =link_to user_path(@restaurant.user) do
           =@restaurant.user.name
         \/
-        =@restaurant.created_at
+        =@restaurant.created_at.to_s(:datetime)
       -if @restaurant.user == current_user
         .restaurant-show__text__icons
           =link_to edit_restaurant_path(@restaurant), class:"restaurant-link" do

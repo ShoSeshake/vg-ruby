@@ -6,7 +6,7 @@
           %span.message-user-name
             =m.user.name
           %span.message-time
-            =m.created_at
+            =m.created_at.to_s(:datetime)
         .chat__main__body__message__my-box__text
           =m.content
           =image_tag"#{m.url}",class:"chat__main__body__message__my-box__text__image"
@@ -16,7 +16,7 @@
           %span.message-user-name
             =m.user.name
           %span.message-time
-            =m.created_at
+            =m.created_at.to_s(:datetime)
         .chat__main__body__message__other-box__text
           =m.content
           =image_tag"#{m.url}",class:"chat__main__body__message__other-box__text__image"

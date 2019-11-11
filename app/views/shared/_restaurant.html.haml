@@ -13,6 +13,6 @@
       .restaurants__box__right__text
         =simple_format(r.text)
       .restaurants__box__right__time
-        =r.created_at
+        =r.created_at.to_s(:datetime)
         \/ By
         =r.user.name

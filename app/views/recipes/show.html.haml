@@ -102,7 +102,7 @@
         .comment-modal__box__text
           =simple_format(c.text)
         .comment-modal__box__time
-          =c.created_at
+          =c.created_at.to_s(:datetime)
   -else
     .comment-modal__no-comment
       No comments 
