@@ -1,5 +1,4 @@
-#  = Category.create(name:"")
-#  = Ingredient.create(name:"")
+
 salad = Category.create(name:"Salad")
 pasta = Category.create(name:"Pasta")
 noodle = Category.create(name:"Noodle")
@@ -14,8 +13,6 @@ sauce = Category.create(name:"Dressing/Sauce")
 dessert = Category.create(name:"Dessert")
 drink = Category.create(name:"Drink")
 
-# vegetable = Ingredient.create(name:"vegetable")
-# vegetable.children.create([{name:"carrot"},])
 bulbs = Ingredient.create(name:"Bulbs")
 bulbs.children.create([{name:"Fennel"},{name:"Garlic"},{name:"Leeks"},{name:"Red Onions"},{name:"White Onions"},{name:"Shallots"},{name:"Spring onions"}])
 flowers = Ingredient.create(name:"Flowers")
@@ -53,6 +50,6 @@ oil.children.create([{name:"Canola oil"},{name:"Olive oil"},{name:"Grapeseed oil
 
 Genre.create([{genre:"Japanese"},{genre:"Chinese"},{genre:"American"},{genre:"Korean"},{genre:"Mexican"},{genre:"Filipino"},{genre:"British"},{genre:"French"},{genre:"Italian"},{genre:"Spanish"},{genre:"German"},{genre:"Brazilian"},{genre:"Thai"},{genre:"Vietnamese"},{genre:"Indian"},{genre:"Russian"},{genre:"African"},{genre:"Australian"},{genre:"Turkish"},{genre:"Moroccan"},{genre:"Sushi"},{genre:"BBQ"},{genre:"Nabe"},{genre:"Izakaya"},{genre:"Bar"},{genre:"Cafe"},{genre:"Buffet"},{genre:"Bento"}])
 
-User.create([{name:"test1",prefecture_id:"1",country_id:"1",email:"abc@abc.com",encrypted_password:"12345678"},{name:"test2",prefecture_id:"1",country_id:"1",email:"abcd@abc.com",encrypted_password:"12345678"},{name:"test3",prefecture_id:"1",country_id:"1",email:"abc3@abc.com",encrypted_password:"12345678"},{name:"test4",prefecture_id:"1",country_id:"1",email:"abc5@abc.com",encrypted_password:"12345678"},{name:"test5",prefecture_id:"1",country_id:"1",email:"abc1@abc.com",encrypted_password:"12345678"},{name:"test6",prefecture_id:"1",country_id:"1",email:"abfc@abc.com",encrypted_password:"12345678"}])
+# User.create([{name:"test1",prefecture_id:"1",country_id:"1",email:"abc@abc.com",encrypted_password:"12345678"},{name:"test2",prefecture_id:"1",country_id:"1",email:"abcd@abc.com",encrypted_password:"12345678"},{name:"test3",prefecture_id:"1",country_id:"1",email:"abc3@abc.com",encrypted_password:"12345678"},{name:"test4",prefecture_id:"1",country_id:"1",email:"abc5@abc.com",encrypted_password:"12345678"},{name:"test5",prefecture_id:"1",country_id:"1",email:"abc1@abc.com",encrypted_password:"12345678"},{name:"test6",prefecture_id:"1",country_id:"1",email:"abfc@abc.com",encrypted_password:"12345678"}])
 
-Relationship.create([{follower_id:1,following_id:2},{follower_id:2,following_id:1},{follower_id:1,following_id:3},{follower_id:2,following_id:3},{follower_id:1,following_id:4},{follower_id:4,following_id:1}])
+# Relationship.create([{follower_id:1,following_id:2},{follower_id:2,following_id:1},{follower_id:1,following_id:3},{follower_id:2,following_id:3},{follower_id:1,following_id:4},{follower_id:4,following_id:1}])
