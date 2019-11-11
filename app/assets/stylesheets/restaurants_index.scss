@@ -42,11 +42,14 @@
         }
     }
     &__right {
-        width: 400px;
+        width: 380px;
         position: relative;
+        padding-right: 20px;
         &__name {
             font-size: 20px;
             margin-bottom: 10px;
+            padding-right: 20px;
+            overflow: hidden;
         }
         &__review {
             text-align: right;
@@ -58,7 +61,10 @@
                 color: grey;
             }
         }
-        &__text {}
+        &__text {
+            height: 130px;
+            overflow: hidden;
+        }
         &__time {
             position: absolute;
             bottom: 0;

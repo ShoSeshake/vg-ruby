@@ -1,3 +1,4 @@
 $(".chat__main__body").html("<%= j(render partial: 'messages/body',locals: {chat: @chat}) %>")
 $('#new_message')[0].reset();
 $('.chat__main__body').animate({ scrollTop: $('.chat__main__body')[0].scrollHeight });
+$('.message-<%= @chat.id %>').html("<%= @chat.show_last_message %>");

@@ -7,6 +7,6 @@
         .chat__sidebar__menu
           .chat__sidebar__menu__name
             =c.name
-          .chat__sidebar__menu__message
-            =c.show_last_message
+          .chat__sidebar__menu__message{class:"message-#{c.id}"}
+            =c.show_last_message.truncate(30)
   .chat__main#chat-main
