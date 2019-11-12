@@ -1,17 +1,28 @@
-# class Chat < ApplicationRecord
-#   has_many :chat_members
-#   has_many :users, through: :chat_members
+require 'rails_helper'
+describe Chat do
+  describe '#create' do
+    it "is valid with a name, 2 chat_members" do
+      chat = build(:chat)
+      expect(chat).to be_valid
+    end
 
-#   has_many :messages, dependent: :destroy
-  
-#   accepts_nested_attributes_for :chat_members, allow_destroy: true
-#   validates :name, presence: true
-#   validates :chat_members, length: {minimum: 2}
-#   def show_last_message
-#     if (last_message = messages.last).present?
-#       last_message.content? ? last_message.content : 'Image has sent.'
-#     else
-#       'No messages'
-#     end
-#   end
-# end
+    it "is invalid without a name" do
+      chat = build(:chat, name: nil)
+      chat.valid?
+      expect(chat.errors[:name]).to include("can't be blank")
+    end
+
+    it "is invalid without 2 chat_members" do
+      chat = build(:chat, chat_members: [])
+      # expect(chat).to be_valid
+      chat.valid?
+      expect(chat.errors[:chat_members]).to include("is too short (minimum is 2 characters)")
+    end
+
+    it "is invalid without 2 chat_members" do
+      chat = build(:chat, chat_members: [FactoryBot.build(:chat_member, chat: nil)])
+      chat.valid?
+      expect(chat.errors[:chat_members]).to include("is too short (minimum is 2 characters)")
+    end
+  end
+end
