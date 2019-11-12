@@ -35,9 +35,16 @@ describe User do
       expect(user.errors[:password]).to include("can't be blank")
     end
 
+    # passwordとpassword_confirmationが別であると登録できないこと
+    it "is invalid if password and password_confirmation are not same" do
+      user = build(:user, password: "aaaaaaaa", password_confirmation: "bbbbbbbb")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+    end
+    
     # passwordが存在してもpassword_confirmationが空では登録できないこと
     it "is invalid without a password_confirmation although with a password" do
-      user = build(:user, password_confirmation: "")
+      user = build(:user, password_confirmation: "",)
       user.valid?
       expect(user.errors[:password_confirmation]).to include("doesn't match Password")
     end

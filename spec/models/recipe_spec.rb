@@ -36,6 +36,24 @@ describe Recipe do
       expect(recipe.errors[:images]).to include("is too short (minimum is 1 character)")
     end
 
+    it "is invalid with 11 images" do
+      recipe = build(:recipe, images:[
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil),
+        FactoryBot.build(:image, recipe: nil)
+      ])
+      recipe.valid?
+      expect(recipe.errors[:images]).to include("is too long (maximum is 10 characters)")
+    end
+
     it "is invalid without a instruction" do
       recipe = build(:recipe, instructions:[])
       recipe.valid?

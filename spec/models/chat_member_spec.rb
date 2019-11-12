@@ -1,7 +1,3 @@
-# class ChatMember < ApplicationRecord
-#   belongs_to :chat
-#   belongs_to :user
-# end
 require 'rails_helper'
 describe ChatMember do
   describe '#create' do
