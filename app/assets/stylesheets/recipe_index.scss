@@ -321,6 +321,10 @@ body {}
             &__name {
                 top: 5px;
                 left: 5px;
+                max-width: 150px;
+                max-height: 30px;
+                word-break: break-all;
+                overflow: hidden;
                 background-color: rgba(255, 255, 255, 0.7);
                 position: absolute;
                 padding: 10px;
