@@ -1,6 +1,6 @@
 FactoryBot.define do
 
-  factory :categorues_recipe, class: CategoriesRecipe do
+  factory :categories_recipe, class: CategoriesRecipe do
     category
     recipe
   end
