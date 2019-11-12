@@ -1,10 +1,20 @@
-# class Like < ApplicationRecord
-#   belongs_to :recipe
-#   belongs_to :user
-  
-#   # ransacker :likes_count do
-#   #   query = '(SELECT COUNT(likes.item_id) FROM likes where likes.item_id = items.id GROUP BY likes.item_id)'
-#   #   Arel.sql(query)
-#   # end
+require 'rails_helper'
+describe Like do
+  describe '#create' do
+    it "is valid with a recipe, user" do
+      like = build(:like)
+      expect(like).to be_valid
+    end
+    it "is invalid without a user" do
+      like = build(:like, user: nil)
+      like.valid?
+      expect(like.errors[:user]).to include("must exist")
+    end
 
-# end
+    it "is invalid without a recipe" do
+      like = build(:like, recipe: nil)
+      like.valid?
+      expect(like.errors[:recipe]).to include("must exist")
+    end
+  end
+end

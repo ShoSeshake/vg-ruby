@@ -47,5 +47,11 @@ describe Restaurant do
       restaurant.valid?
       expect(restaurant.errors[:visited_time]).to include("can't be blank")
     end
+
+    it "is invalid without a genres_restaurant" do
+      restaurant = build(:restaurant, genres_restaurants:[])
+      restaurant.valid?
+      expect(restaurant.errors[:genres_restaurants]).to include("is too short (minimum is 1 character)")
+    end
   end
 end

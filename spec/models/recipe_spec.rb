@@ -1,27 +1,3 @@
-# class Recipe < ApplicationRecord
-#   belongs_to :user
-#   has_many :comments,                                  dependent: :destroy
-#   has_many :images,                                    dependent: :destroy
-#   has_many :instructions,                              dependent: :destroy
-#   has_many :likes,                                     dependent: :destroy
-
-#   has_many :ingredients_recipes
-#   has_many :ingredients, through: :ingredients_recipes
-
-#   has_many :categories_recipes
-#   has_many :categories, through: :categories_recipes
-
-#   accepts_nested_attributes_for :images, allow_destroy: true
-#   accepts_nested_attributes_for :instructions, allow_destroy: true
-#   accepts_nested_attributes_for :categories_recipes, allow_destroy: true
-#   accepts_nested_attributes_for :ingredients_recipes, allow_destroy: true
-
-#   validates :images, length: {maximum: 10, minimum: 1}
-#   validates :instructions, :categories_recipes, :ingredients_recipes, length: {minimum: 1}
-
-#   validates :name, :text, :serving, presence: :ture
-
-# end
 require 'rails_helper'
 describe Recipe do
   describe '#create' do
@@ -54,12 +30,26 @@ describe Recipe do
       expect(recipe.errors[:user]).to include("must exist")
     end
 
-    it "is invalid without a user" do
-      recipe = build(:recipe, images: nil)
-      expect(recipe).to be_valid
-      # recipe.valid?
-      # expect(recipe.errors[:]).to include("must exist")
+    it "is invalid without a image" do
+      recipe = build(:recipe, images:[])
+      recipe.valid?
+      expect(recipe.errors[:images]).to include("is too short (minimum is 1 character)")
     end
 
+    it "is invalid without a instruction" do
+      recipe = build(:recipe, instructions:[])
+      recipe.valid?
+      expect(recipe.errors[:instructions]).to include("is too short (minimum is 1 character)")
+    end
+    it "is invalid without a categories_recipe" do
+      recipe = build(:recipe, categories_recipes:[])
+      recipe.valid?
+      expect(recipe.errors[:categories_recipes]).to include("is too short (minimum is 1 character)")
+    end
+    it "is invalid without a ingredients_recipe" do
+      recipe = build(:recipe, ingredients_recipes:[])
+      recipe.valid?
+      expect(recipe.errors[:ingredients_recipes]).to include("is too short (minimum is 1 character)")
+    end
   end
 end
