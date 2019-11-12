@@ -65,6 +65,9 @@
                                 text-align: right;
                             }
                         }
+                        &__detail.other-detail {
+                            text-align: left;
+                        }
                         &__text {
                             min-width: 300px;
                             max-width: 600px;
