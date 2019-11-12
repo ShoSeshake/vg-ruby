@@ -1,3 +1,4 @@
+
 FactoryBot.define do
 
   factory :chat, class: Chat do

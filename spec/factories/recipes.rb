@@ -1,8 +1,9 @@
+
 FactoryBot.define do
 
-  factory :chat, class: Chat do
+  factory :recipe, class: Recipe do
     name              {Faker::Superhero.name}
-    serving            {round(10)}
+    serving            {1}
     note                {Faker::Music.band}
     user
   end

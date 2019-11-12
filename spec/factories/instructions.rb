@@ -1,3 +1,4 @@
+
 FactoryBot.define do
 
   factory :instruction, class: Instruction do

@@ -31,7 +31,8 @@ class User < ApplicationRecord
     validates :password_confirmation, length: { minimum: 7, maximum: 128}
     validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
     validates :name, :email, :password, :password_confirmation, presence: true
-    
+    validates :name, length: {maximum: 20}
+
     def following?(other_user)
       following_relationships.find_by(following_id: other_user.id)
     end

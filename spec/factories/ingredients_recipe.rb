@@ -1,3 +1,4 @@
+
 FactoryBot.define do
 
   factory :ingredients_recipe, class: IngredientsRecipe do
