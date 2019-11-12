@@ -1,4 +1,6 @@
 class ChatsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     user = User.find(params[:id])
     users = User.where('name LIKE(?)', "%#{params[:keyword]}%")

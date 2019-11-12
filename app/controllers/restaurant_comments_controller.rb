@@ -1,5 +1,6 @@
 class RestaurantCommentsController < ApplicationController
   before_action :set_restaurant
+  before_action :authenticate_user!
 
   def create
     @restaurant_comment = @restaurant.restaurant_comments.new(restaurant_comment_params)
