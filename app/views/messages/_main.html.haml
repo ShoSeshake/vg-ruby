@@ -1,5 +1,6 @@
 .chat__main__body#chat-main-body
-  = render partial:"messages/body", locals: { chat: chat }
+  -chat.messages.each do |message|
+    = render partial:"messages/body", locals: { m: message }
 .chat__main__form
   =form_for(current_user.messages.build(user_id: current_user.id),remote: true) do |f|
     .chat__main__form__box

@@ -1,22 +1,21 @@
--chat.messages.each do |m|
-  .chat__main__body__message.clearfix
-    -if m.user == current_user
-      .chat__main__body__message__box
-        .chat__main__body__message__box__detail
-          %span.message-user-name
-            =m.user.name
-          %span.message-time
-            =m.created_at.to_s(:datetime)
-        .chat__main__body__message__box__text
-          =m.content
-          =image_tag"#{m.url}",class:"chat__main__body__message__box__text__image"
-    -else
-      .chat__main__body__message__box.other-box
-        .chat__main__body__message__box__detail.other-detail
-          %span.message-user-name
-            =m.user.name
-          %span.message-time
-            =m.created_at.to_s(:datetime)
-        .chat__main__body__message__box__text.other-text
-          =m.content
-          =image_tag"#{m.url}",class:"chat__main__body__message__box__text__image"
+.chat__main__body__message.clearfix
+  -if m.user == current_user
+    .chat__main__body__message__box
+      .chat__main__body__message__box__detail
+        %span.message-user-name
+          =m.user.name
+        %span.message-time
+          =m.created_at.to_s(:datetime)
+      .chat__main__body__message__box__text
+        =m.content
+        =image_tag"#{m.url}",class:"chat__main__body__message__box__text__image"
+  -else
+    .chat__main__body__message__box.other-box
+      .chat__main__body__message__box__detail.other-detail
+        %span.message-user-name
+          =m.user.name
+        %span.message-time
+          =m.created_at.to_s(:datetime)
+      .chat__main__body__message__box__text.other-text
+        =m.content
+        =image_tag"#{m.url}",class:"chat__main__body__message__box__text__image"

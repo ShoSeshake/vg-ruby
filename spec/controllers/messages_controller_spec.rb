@@ -1,33 +1,29 @@
 require 'rails_helper'
 
 describe MessagesController do
-  let(:chat) { create(:chat) }
   let(:user) { create(:user) }
 
   describe '#index' do
-
     context 'log in' do
       before do
         login user
-        get :index, params: { chat_id: chat.id }
+        user.chats = create_list(:chat, 3)
+        get :index
       end
 
-      it 'assigns @message' do
-        expect(assigns(:message)).to be_a_new(Message)
+      it 'assigns @chats' do 
+        expect(assigns(:chats)).to eq user.chats
       end
-
-      it 'assigns @chat' do
-        expect(assigns(:chat)).to eq chat
-      end
-
+      
       it 'redners index' do
+        binding.pry       
         expect(response).to render_template :index
       end
     end
 
     context 'not log in' do
       before do
-        get :index, params: { chat_id: chat.id }
+        get :index
       end
 
       it 'redirects to new_user_session_path' do
