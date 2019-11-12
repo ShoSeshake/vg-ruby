@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :chats, only: [:new,:create] do
     namespace :api do
-      resources :messages, only: [:index]
+      resources :messages, only: [:index] 
+  
     end
   end
-  resources :messages, only:[:index,:show,:new,:create]
+  resources :messages, only:[:index,:show,:new,:create] do
+    collection do
+      get 'reload'
+    end
+  end
 
   resources :recipes do
     collection do
@@ -27,6 +32,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :recipes, only: [:index,:new]
+    
   end
   
   resources :relationships, only: [:create, :destroy]

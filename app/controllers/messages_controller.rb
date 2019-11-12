@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @chats = current_user.chats
   end
@@ -13,6 +13,15 @@ class MessagesController < ApplicationController
     else
       redirect_to messages_path
     end
+  end
+
+  def reload
+      @chat = Chat.find(params[:chat_id])
+      last_message_id = params[:message_id].to_i
+      @messages = @chat.messages.includes(:user).where("id > #{last_message_id}")
+      if (@messages.length != 0 )
+        render '/messages/reload.js.erb'
+      end
   end
 
   private

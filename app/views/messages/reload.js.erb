@@ -1,4 +1,5 @@
-$(".chat__main__body").append("<%= j(render partial: 'messages/message',locals: {m: @message}) %>")
-$('#new_message')[0].reset();
+<% @messages.each do |message| %>
+$(".chat__main__body").append("<%= escape_javascript(render partial: 'messages/message',locals: {m: message}) %>")
+<% end %>
 $('.chat__main__body').animate({ scrollTop: $('.chat__main__body')[0].scrollHeight });
 $('.message-<%= @chat.id %>').html("<%= @chat.show_last_message.truncate(30) %>");
