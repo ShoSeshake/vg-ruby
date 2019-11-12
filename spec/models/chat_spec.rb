@@ -14,7 +14,6 @@ describe Chat do
 
     it "is invalid without 2 chat_members" do
       chat = build(:chat, chat_members: [])
-      # expect(chat).to be_valid
       chat.valid?
       expect(chat.errors[:chat_members]).to include("is too short (minimum is 2 characters)")
     end
