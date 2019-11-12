@@ -7,6 +7,12 @@ FactoryBot.define do
     lunch_price_id     {1}
     dinner_price_id     {1}
     review             {1}
+    vegan_friendly_id    {1}
+    visited_time            {Faker::Quotes::Shakespeare.romeo_and_juliet_quote}
     url {File.open("#{Rails.root}/public/images/test_image.jpg")}
+    user
+    genres_restaurants {[
+      FactoryBot.build(:genres_restaurant, restaurant: nil)
+    ]}
   end
 end

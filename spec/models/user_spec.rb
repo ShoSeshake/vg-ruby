@@ -52,7 +52,6 @@ describe User do
     it "is invalid without a name that has more than 21 characters" do
       user = build(:user, name: "123456789012345678901")
       user.valid?
-      # expect(user).to be_valid
       expect(user.errors[:name]).to include("is too long (maximum is 20 characters)")
     end
 
