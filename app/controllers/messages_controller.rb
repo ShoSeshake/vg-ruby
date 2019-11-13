@@ -15,13 +15,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  def reload
-    @chat = Chat.find(params[:chat_id])
-    last_message_id = params[:message_id].to_i
-    @messages = @chat.messages.includes(:user).where("id > #{last_message_id}, user_id != #{current_user.id}")
-    # binding.pry
-  end
-
   private
   def message_params
     params.require(:message).permit(:content, :url,:chat_id).merge(user_id: current_user.id)

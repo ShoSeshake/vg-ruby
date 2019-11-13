@@ -2,6 +2,10 @@
   -chat.messages.each do |message|
     = render partial:"messages/message", locals: { m: message }
 .chat__main__form
+  =form_with(url: reload_messages_path, method: :get ,remote: :true) do |f|
+    =f.text_field :chat_id
+    =f.text_field :message_id
+    =f.submit 'post'
   =form_for(current_user.messages.build(user_id: current_user.id),remote: true) do |f|
     .chat__main__form__box
       =f.text_field :content, class:"chat__main__form__box__text", placeholder: 'type a message', autocomplete: "off"

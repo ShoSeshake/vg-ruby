@@ -6,14 +6,9 @@ Rails.application.routes.draw do
   resources :chats, only: [:new,:create] do
     namespace :api do
       resources :messages, only: [:index] 
-  
     end
   end
-  resources :messages, only:[:index,:show,:new,:create] do
-    collection do
-      get 'reload', defaults: { format: 'json' }
-    end
-  end
+  resources :messages, only:[:index,:show,:new,:create]
 
   resources :recipes do
     collection do
@@ -34,7 +29,7 @@ Rails.application.routes.draw do
     resources :recipes, only: [:index,:new]
     resources :messages, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
       collection do
-        get 'reload'
+        get 'reload', defaults: { format: 'js' }
       end
     end
   end

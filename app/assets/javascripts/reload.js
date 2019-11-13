@@ -39,7 +39,7 @@ $(function() {
                 $.ajax({
                         url: 'api/messages/reload',
                         type: 'get',
-                        dataType: 'scrypt',
+                        dataType: 'script',
                         data: {
                             message_id: last_message_id,
                             chat_id: chatId
@@ -61,6 +61,7 @@ $(function() {
                     // .fail(function() {
                     //     alert('メッセージが自動更新されませんでした');
                     // });
+
             }
         };
         setInterval(reloadMessages, 5000);
