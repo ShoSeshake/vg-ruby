@@ -11,8 +11,8 @@
 |ancestry|string|null:false,index:true|
 
 ### Association
-  has_many :categories_recipes
-  has_many :recipes, through: :categories_recipes
+-  has_many :categories_recipes
+-  has_many :recipes, through: :categories_recipes
 
 ## categories_recipes table
 |Column|Type|Options|
@@ -21,8 +21,8 @@
 |recipe_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :recipe
-  belongs_to :category
+-  belongs_to :recipe
+-  belongs_to :category
 
 
 ## chat_members table
@@ -32,8 +32,8 @@
 |chat_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :chat
-  belongs_to :user
+-  belongs_to :chat
+-  belongs_to :user
 
 
 ## chats table 
@@ -43,9 +43,9 @@
 
 
 ### Association
-  has_many :chat_members
-  has_many :users, through: :chat_members
-  has_many :messages, dependent: :destroy
+-  has_many :chat_members
+-  has_many :users, through: :chat_members
+-  has_many :messages, dependent: :destroy
 
 
 ## comment table
@@ -57,8 +57,8 @@
 |user_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :recipe
-  belongs_to :user
+-  belongs_to :recipe
+-  belongs_to :user
 
 
 ## genre table
@@ -67,8 +67,8 @@
 |genre|string||
 
 ### Association
-  has_many :genres_restaurants
-  has_many :restaurants, through: :genres_restaurants
+-  has_many :genres_restaurants
+-  has_many :restaurants, through: :genres_restaurants
 
 
 ## genres_restaurants table
@@ -78,8 +78,8 @@
 |restaurant_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :restaurant
-  belongs_to :genre
+-  belongs_to :restaurant
+-  belongs_to :genre
 
 
 ## images table
@@ -89,7 +89,7 @@
 |recipe_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :recipe
+-  belongs_to :recipe
 
 
 ## ingredients table
@@ -99,8 +99,8 @@
 |ancestry|string|index:true|
 
 ### Association
-  has_many :ingredients_recipes
-  has_many :recipes, through: :ingredients_recipes
+-  has_many :ingredients_recipes
+-  has_many :recipes, through: :ingredients_recipes
 
 ## ingredients_recipes table
 |Column|Type|Options|
@@ -110,8 +110,8 @@
 |ingredient_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :recipe
-  belongs_to :ingredient
+-  belongs_to :recipe
+-  belongs_to :ingredient
 
 ## instructions table
 |Column|Type|Options|
@@ -120,7 +120,7 @@
 |review|integer|null:false|
 |recipe_id|references|null: false, foreignkey:true|
 
-### Association
+### Associatio-n
 belongs_to :recipe
 
 
@@ -131,8 +131,8 @@ belongs_to :recipe
 |recipe_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :recipe
-  belongs_to :user
+-  belongs_to :recipe
+-  belongs_to :user
 
 
 ## messages table
@@ -144,8 +144,8 @@ belongs_to :recipe
 |user_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :user
-  belongs_to :chat
+-  belongs_to :user
+-  belongs_to :chat
 
 ## recipes table
 |Column|Type|Options|
@@ -155,15 +155,15 @@ belongs_to :recipe
 |user_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :user
-  has_many :comments,          dependent: :destroy
-  has_many :images,            dependent: :destroy
-  has_many :instructions,      dependent: :destroy
-  has_many :likes,             dependent: :destroy
-  has_many :ingredients_recipes
-  has_many :ingredients, through: :ingredients_recipes
-  has_many :categories_recipes
-  has_many :categories, through: :categories_recipes
+-  belongs_to :user
+-  has_many :comments,          dependent: :destroy
+-  has_many :images,            dependent: :destroy
+-  has_many :instructions,      dependent: :destroy
+-  has_many :likes,             dependent: :destroy
+-  has_many :ingredients_recipes
+-  has_many :ingredients, through: :ingredients_recipes
+-  has_many :categories_recipes
+-  has_many :categories, through: :categories_recipes
 
 
 ## relationships table
@@ -173,8 +173,8 @@ belongs_to :recipe
 |following_id|integer||
 
 ### Association
-  belongs_to :follower, class_name: "User"
-  belongs_to :following, class_name: "User"
+-  belongs_to :follower, class_name: "User"
+-  belongs_to :following, class_name: "User"
 
 
 ## restaurants_comments table
@@ -187,8 +187,8 @@ belongs_to :recipe
 |user_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :user
-  belongs_to :restaurant
+-  belongs_to :user
+-  belongs_to :restaurant
 
 ## restaurants table
 |Column|Type|Options|
@@ -208,11 +208,11 @@ belongs_to :recipe
 |user_id|references|null: false, foreignkey:true|
 
 ### Association
-  belongs_to :user
+-  belongs_to :user
 
-  has_many :restaurant_comments,   dependent: :destroy
-  has_many :genres_restaurants,    dependent: :destroy
-  has_many :genres, through: :genres_restaurants
+-  has_many :restaurant_comments,   dependent: :destroy
+-  has_many :genres_restaurants,    dependent: :destroy
+-  has_many :genres, through: :genres_restaurants
 
 
 ## users table
@@ -226,18 +226,18 @@ belongs_to :recipe
 |password_confirmation|string|null:false|
 
 ### Association
-    has_many :comments,              dependent: :destroy
-    has_many :recipes,               dependent: :destroy
-    has_many :likes,                 dependent: :destroy
-    has_many :restaurants,           dependent: :destroy
-    has_many :restaurant_comments,   dependent: :destroy
-    has_many :messages,              dependent: :destroy
+-  has_many :comments,              dependent: :destroy
+-  has_many :recipes,               dependent: :destroy
+-  has_many :likes,                 dependent: :destroy
+-  has_many :restaurants,           dependent: :destroy
+-  has_many :restaurant_comments,   dependent: :destroy
+-  has_many :messages,              dependent: :destroy
 
-    has_many :chat_members,          dependent: :destroy
-    has_many :chats, through: :chat_members
+-  has_many :chat_members,          dependent: :destroy
+-  has_many :chats, through: :chat_members
 
-    has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
-    has_many :followings, through: :following_relationships
+-  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+-  has_many :followings, through: :following_relationships
   
-    has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
-    has_many :followers, through: :follower_relationships
+-  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+-  has_many :followers, through: :follower_relationships
