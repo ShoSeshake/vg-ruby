@@ -1,154 +1,184 @@
-    .chat {
-        display: flex;
+.chat {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    &__sidebar {
+        color: $darkgreen;
         height: 100vh;
-        width: 100vw;
-        &__sidebar {
-            color: $darkgreen;
-            height: 100vh;
-            width: 300px;
-            background-color: rgba(20, 99, 25, 0.7);
-            font-weight: bold;
-            overflow: scroll;
-            &__title {
-                padding: 10px 10px 10px 100px;
-                height: 70px;
-                width: 190px;
-                font-size: 25px;
-                vertical-align: center;
-                word-break: break-all;
-                color: $white;
-                line-height: 70px;
-            }
-            &__menu {
-                padding: 10px 0 10px 20px;
+        width: 300px;
+        background-color: rgba(20, 99, 25, 0.7);
+        font-weight: bold;
+        overflow: scroll;
+        &__title {
+            padding: 10px 10px 10px 100px;
+            height: 70px;
+            width: 190px;
+            font-size: 25px;
+            vertical-align: center;
+            word-break: break-all;
+            color: $white;
+            line-height: 70px;
+        }
+        &__menu {
+            display: flex;
+            padding: 10px 0 10px 20px;
+            .chat-link {
+                display: block;
                 color: $white;
                 cursor: pointer;
-                &__name {
+            }
+            &__name {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            &__message {
+                font-size: 18px;
+            }
+            .edit-button {
+                margin: 10px 20px 0 0;
+                display: block;
+                color: white;
+                cursor: pointer;
+                .edit-icon {
                     font-size: 20px;
-                    margin-bottom: 10px;
-                }
-                &__message {
-                    font-size: 18px;
                 }
             }
-            &__menu:hover {
-                background-color: rgba(255, 255, 255, 0.5);
+        }
+        &__menu:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: $darkgreen;
+            .chat-link,
+            .edit-button {
                 color: $darkgreen;
             }
         }
-        &__main {
-            width: calc(100vw - 300px);
-            &__body {
-                height: calc(100vh - 100px);
-                margin-bottom: 100px;
-                overflow: scroll;
-                width: 100%;
-                &__message {
-                    padding: 10px 30px;
-                    &__box {
-                        float: right;
-                        &__detail {
-                            margin-bottom: 10px;
-                            font-size: 0;
-                            text-align: right;
-                            span.message-user-name {
-                                text-align: left;
-                                width: 140px;
-                                display: inline-block;
-                                font-size: 20px;
-                                font-weight: bold;
-                            }
-                            span.message-time {
-                                width: 200px;
-                                display: inline-block;
-                                font-size: 15px;
-                                text-align: right;
-                            }
-                        }
-                        &__detail.other-detail {
+    }
+    &__main {
+        width: calc(100vw - 300px);
+        &__body {
+            height: calc(100vh - 100px);
+            margin-bottom: 100px;
+            overflow: scroll;
+            width: 100%;
+            &__message {
+                padding: 10px 30px;
+                &__box {
+                    float: right;
+                    &__detail {
+                        margin-bottom: 10px;
+                        font-size: 0;
+                        text-align: right;
+                        span.message-user-name {
                             text-align: left;
-                        }
-                        &__text {
-                            min-width: 300px;
-                            max-width: 600px;
-                            word-break: break-all;
+                            width: 140px;
                             display: inline-block;
-                            color: $darkgreen;
-                            background-color: $white;
-                            border: 1px solid $green;
-                            padding: 20px;
-                            border-radius: 10px;
-                            &__image {
-                                display: block;
-                                max-height: 200px;
-                                max-width: 200px;
-                                padding-top: 10px;
-                            }
+                            font-size: 20px;
+                            font-weight: bold;
                         }
-                        &__text.other-text {
-                            background-color: #fafafa;
+                        span.message-time {
+                            width: 200px;
+                            display: inline-block;
+                            font-size: 15px;
+                            text-align: right;
                         }
                     }
-                    .other-box {
-                        float: left;
+                    &__detail.other-detail {
+                        text-align: left;
+                    }
+                    &__text {
+                        min-width: 300px;
+                        max-width: 600px;
+                        word-break: break-all;
+                        display: inline-block;
+                        color: $darkgreen;
+                        background-color: $white;
+                        border: 1px solid $green;
+                        padding: 20px;
+                        border-radius: 10px;
+                        &__image {
+                            display: block;
+                            max-height: 200px;
+                            max-width: 200px;
+                            padding-top: 10px;
+                        }
+                    }
+                    &__text.other-text {
+                        background-color: #fafafa;
                     }
                 }
+                .other-box {
+                    float: left;
+                }
             }
-            &__form {
-                width: 100%;
-                height: 100px;
-                position: fixed;
-                bottom: 0;
-                background-color: $darkgreen;
-                &__box {
-                    display: flex;
-                    padding: 20px 30px 25px;
-                    position: relative;
-                    &__text {
+        }
+        &__form {
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            bottom: 0;
+            background-color: $darkgreen;
+            &__box {
+                display: flex;
+                padding: 20px 30px 25px;
+                position: relative;
+                &__text {
+                    color: $darkgreen;
+                    background-color: white;
+                    border-radius: 4px;
+                    padding: 10px 0;
+                    padding-left: 40px;
+                    font-size: 20px;
+                    line-height: 20px;
+                    border: 1px solid $green;
+                    display: block;
+                    box-sizing: border-box;
+                    height: 45px;
+                    width: 70%;
+                    margin-right: 10px;
+                }
+                &__image {
+                    position: absolute;
+                    top: 30px;
+                    left: 35px;
+                    .icon {
+                        font-size: 25px;
                         color: $darkgreen;
-                        background-color: white;
-                        border-radius: 4px;
-                        padding: 10px 0;
-                        padding-left: 40px;
-                        font-size: 20px;
-                        line-height: 20px;
-                        border: 1px solid $green;
-                        display: block;
-                        box-sizing: border-box;
-                        height: 45px;
-                        width: 70%;
-                        margin-right: 10px;
                     }
-                    &__image {
-                        position: absolute;
-                        top: 30px;
-                        left: 35px;
-                        .icon {
-                            font-size: 25px;
-                            color: $darkgreen;
-                        }
-                        .hidden {
-                            display: none;
-                        }
+                    .hidden {
+                        display: none;
                     }
-                    &__send {
-                        color: $darkgreen;
-                        background-color: white;
-                        border-radius: 4px;
-                        padding: 10px 10px;
-                        font-size: 20px;
-                        line-height: 20px;
-                        border: 1px solid $green;
-                        display: block;
-                        box-sizing: border-box;
-                        height: 45px;
-                        width: 100px;
-                    }
-                    &__send:hover {
-                        background-color: $darkgreen;
-                        color: white;
-                    }
+                }
+                &__send {
+                    color: $darkgreen;
+                    background-color: white;
+                    border-radius: 4px;
+                    padding: 10px 10px;
+                    font-size: 20px;
+                    line-height: 20px;
+                    border: 1px solid $green;
+                    display: block;
+                    box-sizing: border-box;
+                    height: 45px;
+                    width: 100px;
+                }
+                &__send:hover {
+                    background-color: $darkgreen;
+                    color: white;
                 }
             }
         }
     }
+}
+
+#background-edit {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+#chat-edit-container {
+    display: block;
+}

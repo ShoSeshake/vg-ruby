@@ -1,0 +1,28 @@
+#background-edit
+#chat-edit-container
+  .chat__all
+    .chat__all__text
+      Please choose your friend who you would like to talk to.
+      %br
+      %br
+      You can only talk to you frined who follow each other.
+    =form_for chat, method: :patch do |f|
+      .chat__all__name
+        Name:
+      =f.text_field :name,id:"chat_name", value:"#{chat.name}"
+      .chat__all__name
+        Member:
+      %input{type:"text", id:"friend-search-edit"}
+      #friend_result-edit
+      #append_field-edit
+        -chat.chat_members.each do |c|
+          -unless c.user == current_user
+            .member-box.existing_user{id:"chat-user-#{c.user.id}", "data-user":c.user.id}
+              .member-box__delete-edit
+                ×
+              =c.user.name
+              .edit_hidden_box
+                %input{type:"checkbox", value:"1", name:"chat[chat_members_attributes][][_destroy]", class:"chat-member-checkbox"}
+                %input{type:"hidden",value:c.id, name:"chat[chat_members_attributes][][id]" }
+                %input{type:"hidden",name:"chat[chat_members_attributes][][user_id]",id:"user_ids_#{c.user.id}", value:c.user.id, class:"hidden-user-form"}
+      =f.submit 'CREATE', id:"chat-create"

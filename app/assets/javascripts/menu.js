@@ -72,5 +72,6 @@ $(function() {
         $('#ingredient-list').fadeOut(500);
         $('.ingredient__child').empty('');
         $('.ingredient__child').hide();
+        $("#append_field").empty();
     })
 })
