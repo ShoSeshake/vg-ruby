@@ -1,9 +1,14 @@
 .menu-btn#menu-btn
   = fa_icon 'bars', class: 'icons'
+%label.safari-menu-btn#menu-btn{for:"menu-safari"}
+  = fa_icon 'bars', class: 'icons'
 .menu#modal-menu
+%input{type:"checkbox",class:"hidden",id:"menu-safari"}
 %ul.menu__bar#modal-menu-bar
   %li.menu__bar__box#menu-back
     <
+  %label.menu__bar__box.safari{for:"menu-safari"}
+    ＜
   =link_to root_path do
     %li.menu__bar__box
       TOP PAGE

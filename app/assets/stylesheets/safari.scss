@@ -2,6 +2,31 @@
 
 _::-webkit-full-page-media,
 _:future,
- :root #new_user {
+ :root .safari {
+    display: inherit;
+}
+
+_::-webkit-full-page-media,
+_:future,
+ :root #new_user,
+.safari-menu-btn,
+.user-hidden-menu,
+.recipe-hidden-menu,
+.restaurant-hidden-menu,
+.chat-hidden-menu {
     display: block;
+}
+
+_::-webkit-full-page-media,
+_:future,
+ :root #menu-back {
+    display: none;
+}
+
+#menu-safari {
+    display: none;
+}
+
+#menu-safari:checked+#modal-menu-bar {
+    left: 0;
 }

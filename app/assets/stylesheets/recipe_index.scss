@@ -11,7 +11,8 @@ body {}
     z-index: -3000;
 }
 
-.menu-btn {
+.menu-btn,
+.safari-menu-btn {
     position: absolute;
     font-size: 50px;
     top: 20px;
@@ -19,6 +20,10 @@ body {}
     color: $darkgreen;
     cursor: pointer;
     z-index: 2;
+}
+
+.safari-menu-btn {
+    display: none;
 }
 
 .menu {
@@ -338,4 +343,8 @@ body {}
             border: 2px solid $darkgreen;
         }
     }
+}
+
+.safari {
+    display: none;
 }
