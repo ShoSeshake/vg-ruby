@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :messages, only:[:index,:show,:new,:create] do
     collection do
-      get 'reload'
+      get 'reload', defaults: { format: 'json' }
     end
   end
 
@@ -32,7 +32,11 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :recipes, only: [:index,:new]
-    
+    resources :messages, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
+      collection do
+        get 'reload'
+      end
+    end
   end
   
   resources :relationships, only: [:create, :destroy]

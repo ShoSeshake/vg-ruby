@@ -16,14 +16,10 @@ class MessagesController < ApplicationController
   end
 
   def reload
-      @chat = Chat.find(params[:chat_id])
-      last_message_id = params[:message_id].to_i
-      @messages = @chat.messages.includes(:user).where("id > #{last_message_id}","user_id != #{current_user.id}")
-      if (@messages.length != 0 )
-        render '/messages/reload.js.erb'
-      else
-        exit
-      end
+    @chat = Chat.find(params[:chat_id])
+    last_message_id = params[:message_id].to_i
+    @messages = @chat.messages.includes(:user).where("id > #{last_message_id}, user_id != #{current_user.id}")
+    # binding.pry
   end
 
   private
