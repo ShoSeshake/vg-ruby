@@ -170,15 +170,88 @@
     }
 }
 
-#background-edit {
+#chat-delete-btn {
+    color: $darkgreen;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 20px;
+    border: 1px solid $green;
+    display: block;
+    width: 360px;
+    margin: 20px auto;
+    box-sizing: border-box;
+    height: 45px;
+    cursor: pointer;
+    &:hover {
+        color: white;
+        background-color: rgb(231, 52, 52);
+        border: none;
+    }
+}
+
+#background-edit,
+#background-edit-delete {
     top: 0;
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 10;
+}
+
+#background-edit-delete {
+    display: none;
+    z-index: 50;
 }
 
 #chat-edit-container {
     display: block;
+}
+
+#chat-edit-container-delete {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    padding: 30px;
+    width: 600px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 40vh;
+    z-index: 60;
+    .chat-delete {
+        width: 400px;
+        margin: 30px auto 0;
+        z-index: 100;
+        border-radius: 20px;
+        background-color: $white;
+        color: $darkgreen;
+        font-weight: bold;
+        line-height: 20px;
+        font-size: 20px;
+        text-align: center;
+        &__confirmation {
+            margin: 100px auto 0;
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+            a.chat-link {
+                display: block;
+                color: $darkgreen;
+                &:hover {
+                    color: rgb(231, 52, 52);
+                    text-decoration: underline;
+                }
+            }
+            &__cancel:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
 }

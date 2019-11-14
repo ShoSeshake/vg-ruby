@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root to: 'recipes#index'
   
   resources :users, only: [:show]
-  resources :chats, only: [:new,:create,:edit,:update] do
+  resources :chats, only: [:new,:create,:edit,:update,:destroy] do
     namespace :api do
       resources :messages, only: [:index] 
     end
   end
-  resources :messages, only:[:index,:show,:new,:create]
+  resources :messages, only:[:index,:create]
 
   resources :recipes do
     collection do

@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_chat, only: [:edit,:update]
+  before_action :set_chat, only:[:edit,:update,:destroy]
+  before_action :user_check, only:[:edit,:update,:destroy]
 
   def new
     user = User.find(params[:id])
@@ -35,6 +36,14 @@ class ChatsController < ApplicationController
     end
   end
 
+  def destroy
+    if @chat.destroy
+      redirect_to messages_path
+    else
+      redirect_to messages_path
+    end
+  end
+
   private
   def chat_params
     params.require(:chat).permit(:name,
@@ -57,5 +66,9 @@ class ChatsController < ApplicationController
 
   def set_chat
     @chat = Chat.find(params[:id])
+  end
+
+  def user_check
+    redirect_to messages_path unless @chat.users.include?(current_user)
   end
 end

@@ -89,4 +89,19 @@ $(function() {
         $('#chat-edit-container').remove();
         $('#background-edit').remove();
     })
+
+    $(document).on('click', '#chat-delete-btn', function() {
+        $('#background-edit-delete').fadeIn(500);
+        $('#chat-edit-container-delete').fadeIn(500);
+    })
+
+    $(document).on('click', '#background-edit-delete', function() {
+        $('#background-edit-delete').fadeOut(500);
+        $('#chat-edit-container-delete').fadeOut(500);
+    })
+
+    $(document).on('click', '.chat-delete__confirmation__cancel', function() {
+        $('#background-edit-delete').fadeOut(500);
+        $('#chat-edit-container-delete').fadeOut(500);
+    })
 });

@@ -26,3 +26,20 @@
                 %input{type:"hidden",value:c.id, name:"chat[chat_members_attributes][][id]" }
                 %input{type:"hidden",name:"chat[chat_members_attributes][][user_id]",id:"user_ids_#{c.user.id}", value:c.user.id, class:"hidden-user-form"}
       =f.submit 'CREATE', id:"chat-create"
+      #chat-delete-btn
+        DELETE
+#background-edit-delete
+#chat-edit-container-delete
+  .chat-delete
+    Are you sure that
+    %br
+    %br
+    you would like to 
+    %br
+    %br
+    delete this chatroom?
+    .chat-delete__confirmation
+      =link_to chat_path(chat), method: :delete, class:"chat-link" do
+        YES
+      .chat-delete__confirmation__cancel
+        NO
