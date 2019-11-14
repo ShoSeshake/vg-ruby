@@ -4,29 +4,28 @@ $(function() {
     var recipeIngredient = $("#search-ingredient-append");
 
     function listIngredients(ing) {
-        var html = `<div class='ingredient-list' data-id="${ing.id}" data-name="${ing.name}">
+        var html = `<div class='result-ingredient' data-id="${ing.id}" data-name="${ing.name}">
                       ${ing.name}
                   </div>`
         searchResult.append(html);
     }
 
     function appendErrMsgToHTML(msg) {
-        var html = `<div class="error-message">${ msg }
+        var html = `<div class="error-message-search">${ msg }
               </div>`
         searchResult.append(html);
     }
 
     function appendIngredient(ing) {
-        var html = `<div class='flex-box ing-form'>
-                  <input type="hidden" name="recipe[ingredients_recipes_attributes][][ingredient_id]" id="recipe_ingredients_recipes_ingredient_id" value="${ ing.id }"/>
-                  <div class='delete-btn'>
-                  ×
-                  </div>
-                  <div class='ingredients-box'>
-                  ${ing.name}
-                  </div>
-                  <input class="quantity-field" type="text" name="recipe[ingredients_recipes_attributes][][quantity]" id="recipe_ingredients_recipes_quantity" autocomplete="off" maxlength="10"/>
-                  </div>`
+        var html = `<div class='search-ingredient-box'>
+                      <input type="hidden" name="q[ingredients_recipes_ingredient_id_in][]" value="${ ing.id }"/>
+                      <div class='search-ingredient-box__delete'>
+                        ×
+                      </div>
+                      <div class='search-ingredient-box__name'>
+                        ${ing.name}
+                      </div>
+                    </div>`
         recipeIngredient.append(html);
     }
 
@@ -58,8 +57,7 @@ $(function() {
             searchResult.hide();
         }
     });
-    $(document).on("click", ".ingredient-list", function() {
-        $('#quantity-box').css({ 'opacity': '1' })
+    $(document).on("click", ".result-ingredient", function() {
         searchResult.hide();
         searchField.val('');
         var ing = {};
@@ -67,23 +65,7 @@ $(function() {
         ing.name = $(this).data("name");
         appendIngredient(ing);
     })
-    $(document).on("click", ".delete-btn", function() {
+    $(document).on("click", ".search-ingredient-box__delete", function() {
         $(this).parent().remove();
-        if ($('.ing-form').length == 0) {
-            $('#quantity-box').css({ 'opacity': '0' })
-        }
-    });
-
-    $(document).on("click", ".edit-delete-btn", function() {
-        var hiddenBox = $(this).siblings('.edit_hidden_box');
-        var quantity = $('#recipe_ingredients_recipes_quantity')
-        var checkbox = hiddenBox.find(".ing-checkbox");
-        checkbox.prop('checked', true);
-        hiddenBox.append(quantity);
-        $('#recipe-ingredient').prepend(hiddenBox);
-        $(this).parent().remove();
-        if ($('.ing-form').length == 0) {
-            $('#quantity-box').css({ 'opacity': '0' })
-        }
     });
 });
