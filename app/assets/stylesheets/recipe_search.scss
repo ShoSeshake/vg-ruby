@@ -16,7 +16,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    height: 100vh;
+    height: calc(100vh - 100px);
     width: 300px;
     padding: 0 10px;
     background-color: rgba(20, 99, 25, 0.7);
@@ -50,6 +50,9 @@
             color: white;
             font-size: 20px;
             margin-bottom: 10px;
+            // &:last-child {
+            //     margin-bottom: 60px;
+            // }
         }
         &__list {
             font-size: 16px;
@@ -144,7 +147,8 @@
                     text-align: center;
                     line-height: 20px;
                     &:hover {
-                        background-color: white;
+                        background-color: rgb(231, 52, 52);
+                        color: white;
                     }
                 }
                 &__name {
@@ -173,6 +177,37 @@
         &:focus {
             border: 2px solid $darkgreen;
             box-sizing: border-box;
+        }
+    }
+}
+
+.search-sidebar-btn-box {
+    padding: 0 10px;
+    position: fixed;
+    background-color: rgba(20, 99, 25, 0.7);
+    z-index: 1;
+    width: 280px;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    .search-btn {
+        color: $darkgreen;
+        background-color: white;
+        border-radius: 4px;
+        padding: 10px 10px;
+        font-size: 20px;
+        line-height: 20px;
+        border: 1px solid $green;
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+        box-sizing: border-box;
+        height: 45px;
+        font-weight: bold;
+        &:hover {
+            background-color: $green;
+            color: white;
+            border: none;
         }
     }
 }
