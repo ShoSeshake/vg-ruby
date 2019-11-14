@@ -1,0 +1,1 @@
+$(".search-recipe__recipes__box").html("<% @recipes.each do |recipe| %><%= j(render partial: 'shared/recipe',locals: {r: recipe}) %><% end %>")

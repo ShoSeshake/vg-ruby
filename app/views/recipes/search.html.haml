@@ -6,7 +6,6 @@
       .search-recipe__recipes__box
         -@recipes.each do |r|  
           = render partial:"shared/recipe", locals: { r: r }
-
 = search_form_for(@q, url: search_api_recipes_path, id:"search-form",remote:"true") do |f|
   .search-sidebar
     .search-sidebar__name

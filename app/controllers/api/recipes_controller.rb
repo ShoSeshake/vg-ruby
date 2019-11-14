@@ -16,14 +16,9 @@ class Api::RecipesController < ApplicationController
   end
 
   def search
-    if params[:q].present?
       @q = Recipe.ransack(search_params)
       # @recipes = @q.result.includes(:categories,:categories_recipes).references(:categories,:categories_recipes)
-    else
-      params[:q] = { sorts: 'id desc' }
-      @q = Recipe.ransack(params[:q])
-      @recipes = Recipe.all
-    end
+      @recipes = @q.result
   end
 
   private
