@@ -17,8 +17,7 @@ class Api::RecipesController < ApplicationController
 
   def search
       @q = Recipe.ransack(search_params)
-      # @recipes = @q.result.includes(:categories,:categories_recipes).references(:categories,:categories_recipes)
-      @recipes = @q.result
+      @recipes = @q.result(distinct: true)
   end
 
   private
