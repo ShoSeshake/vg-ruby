@@ -2,9 +2,9 @@ class Like < ApplicationRecord
   belongs_to :recipe
   belongs_to :user
   
-  # ransacker :likes_count do
-  #   query = '(SELECT COUNT(likes.item_id) FROM likes where likes.item_id = items.id GROUP BY likes.item_id)'
-  #   Arel.sql(query)
-  # end
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.recipe_id) FROM likes where likes.recipe_id = recipes.id GROUP BY likes.recipe_id)'
+    Arel.sql(query)
+  end
 
 end

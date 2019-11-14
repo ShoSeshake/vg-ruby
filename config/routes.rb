@@ -26,7 +26,11 @@ Rails.application.routes.draw do
   end
   
   namespace :api do
-    resources :recipes, only: [:index,:new]
+    resources :recipes, only: [:index,:new] do
+      collection do
+        get 'search'
+      end
+    end   
     resources :messages, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
       collection do
         get 'reload', defaults: { format: 'js' }

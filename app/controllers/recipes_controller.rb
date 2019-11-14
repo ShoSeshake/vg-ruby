@@ -52,7 +52,14 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.order("created_at DESC")
+    if params[:q].present?
+      @q = Recipe.ransack(search_params)
+      @recipes = @q.result
+    else
+      params[:q] = { sorts: 'id desc' }
+      @q = Recipe.ransack(params[:q])
+      @recipes = Recipe.order("created_at DESC")
+    end
   end
 
   private
