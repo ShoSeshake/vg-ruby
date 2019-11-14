@@ -1,14 +1,14 @@
 $(function() {
 
     function appendUser(user) {
-        var html = `<div class='search_result_name' data-id="${ user.id }" data-name="${ user.name }">
+        var html = `<div class='search_result_name-edit' data-id="${ user.id }" data-name="${ user.name }">
                     ${user.name}
                 </div>`
         $("#friend_result-edit").append(html);
     }
 
     function appendErrMsgToHTML(msg) {
-        var html = `<div class="error-message">${ msg }
+        var html = `<div class="error-message-chat">${ msg }
             </div>`
         $("#friend_result-edit").append(html);
     }
@@ -16,9 +16,9 @@ $(function() {
     function appendMember(member) {
         var html = `<div class='member-box existing_user' id="chat-user-${ member.id }"  data-user="${member.id}">
                     <div class="member-box__delete">×</div>
-                  <input type="hidden" value=${ member.id } name="chat[chat_members_attributes][][user_id]" id="user_ids_${member.id}" class="hidden-user-form">
-                  ${member.name}
-                  </div>`
+                    <input type="hidden" value=${ member.id } name="chat[chat_members_attributes][][user_id]" id="user_ids_${member.id}" class="hidden-user-form">
+                    ${member.name}
+                    </div>`
         $("#append_field-edit").append(html);
     }
 
@@ -26,7 +26,7 @@ $(function() {
         var keyword = $("#friend-search-edit").val()
         var user_id = $('#current_user_id').val();
         var users = $('.existing_user');
-        var userids = []
+        var userids = [];
         users.each(function() {
             id = $(this).data('user');
             userids.push(id);
@@ -63,7 +63,7 @@ $(function() {
         }
     });
 
-    $(document).on("click", ".search_result_name", function() {
+    $(document).on("click", ".search_result_name-edit", function() {
         $("#friend_result-edit").hide();
         $("#friend-search-edit").val('');
         var user = {};
@@ -72,7 +72,8 @@ $(function() {
         appendMember(user);
     })
 
-    $(document).on("click", ".member-box__delete", function() {
+    $(document).on("click", ".member-box__delete-edit", function() {
+
         $(this).parent().remove();
     });
 

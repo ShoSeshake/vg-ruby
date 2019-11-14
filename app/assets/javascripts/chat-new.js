@@ -12,7 +12,7 @@ $(function() {
     }
 
     function appendErrMsgToHTML(msg) {
-        var html = `<div class="error-message">${ msg }
+        var html = `<div class="error-message-chat">${ msg }
               </div>`
         searchResult.append(html);
     }

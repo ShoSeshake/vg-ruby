@@ -236,15 +236,21 @@ body {}
             width: 360px;
             height: 50vh;
             background-color: #fafafa;
-            .search_result_name {
+            .search_result_name,
+            .search_result_name-edit {
                 text-align: left;
                 padding: 10px;
                 font-size: 17px;
                 cursor: pointer;
+                &:hover {
+                    color: white;
+                    background-color: $darkgreen;
+                }
             }
-            .search_result_name:hover {
-                color: white;
-                background-color: $darkgreen;
+            .error-message-chat {
+                text-align: left;
+                padding: 10px;
+                font-size: 17px;
             }
         }
         #append_field,
