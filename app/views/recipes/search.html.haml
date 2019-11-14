@@ -1,11 +1,3 @@
-.container
-  .search-recipe
-    .search-recipe__top
-      .search-recipe__top__btn
-    .search-recipe__recipes
-      .search-recipe__recipes__box
-        -@recipes.each do |r|  
-          = render partial:"shared/recipe", locals: { r: r }
 = search_form_for(@q, url: search_api_recipes_path, id:"search-form",remote:"true") do |f|
   .search-sidebar
     .search-sidebar__name
@@ -29,16 +21,24 @@
       %input{type:"text",id:"search-ingredient-form",class:"search-form"}
       #search-ingredient-result
       #search-ingredient-append
-    .search-sidebar__box
-      %span.search-sidebar__box__title
-        REVIEW
-      .search-sidebar__box__review
-        %select.search-form
-          -n=0
-          -10.times do
-            -n+=1
-            %option{value:n}
-              more than 
-              =n
+    -# .search-sidebar__box
+    -#   %span.search-sidebar__box__title
+    -#     REVIEW
+    -#   .search-sidebar__box__review
+    -#     %select.search-form
+    -#       -n=0
+    -#       -10.times do
+    -#         -n+=1
+    -#         %option{value:n}
+    -#           more than 
+    -#           =n
   .search-sidebar-btn-box
     =f.submit 'SEARCH',class:"search-btn"
+.container
+  .search-recipe
+    .search-recipe__top
+      .search-recipe__top__btn
+    .search-recipe__recipes
+      .search-recipe__recipes__box
+        -@recipes.each do |r|  
+          = render partial:"shared/recipe", locals: { r: r }
