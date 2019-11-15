@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :messages, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
       collection do
         get 'reload', defaults: { format: 'js' }
+        get 'previous', defaults: { format: 'js' }
       end
     end
   end

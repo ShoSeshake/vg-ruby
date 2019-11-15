@@ -1,0 +1,4 @@
+$(".chat__main__body__old-messages").after("<% @messages.reverse_each do |message| %><%= escape_javascript(render partial: 'messages/message',locals: {m: message}) %><% end %>")
+<% if @messages.length < 10 %>
+$('.chat__main__body__old-messages').remove()
+<% end %>

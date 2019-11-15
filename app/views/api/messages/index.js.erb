@@ -1,2 +1,2 @@
-$(".chat__main").html("<%= j(render partial: 'messages/main',locals: {chat: @chat}) %>")
+$(".chat__main").html("<%= j(render partial: 'messages/main',locals: {chat: @chat,messages: @messages}) %>")
 $('.chat__main__body').scrollTop($('.chat__main__body')[0].scrollHeight);

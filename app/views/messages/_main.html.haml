@@ -1,5 +1,9 @@
 .chat__main__body#chat-main-body
-  -chat.messages.each do |message|
+  -if chat.messages.length > 10
+    .chat__main__body__old-messages
+      .chat__main__body__old-messages__btn#pre-messages
+        Previous messages
+  -messages.reverse_each do |message|
     = render partial:"messages/message", locals: { m: message }
 .chat__main__form
   =form_for(current_user.messages.build(user_id: current_user.id),remote: true) do |f|
