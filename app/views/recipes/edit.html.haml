@@ -34,7 +34,7 @@
               = i.file_field :url, multiple: true, type: 'file', name: "recipe[images_attributes][][url]", class: "dropbox--fileform", id: "item-drop-zone"
       .form-title
         Title
-      =f.text_field :name 
+      =f.text_field :name ,required:"required"
       #category-modal
         .category-list
           =f.fields_for :categories_recipe do |c|
@@ -61,7 +61,7 @@
           .form-title
             Serving for
           .form-box
-            =f.number_field :serving
+            =f.number_field :serving,required:"required"
       .flex-box
         #ing-box
           .form-title
@@ -78,7 +78,7 @@
               .edit-delete-btn{"data-ing":"#{i_r.id}"} ×
               .ingredients-box
                 =i_r.ingredient.name
-              %input{class:"quantity-field", type:"text", name:"recipe[ingredients_recipes_attributes][][quantity]", id:"recipe_ingredients_recipes_quantity",value:"#{i_r.quantity}"}
+              %input{class:"quantity-field", type:"text", name:"recipe[ingredients_recipes_attributes][][quantity]", id:"recipe_ingredients_recipes_quantity",value:"#{i_r.quantity}",required:"required"}
               .edit_hidden_box
                 %input{type:"hidden", name:"recipe[ingredients_recipes_attributes][][ingredient_id]", id:"recipe_ingredients_recipes_ingredient_id", value:"#{i_r.ingredient_id}"}
                 %input{type:"checkbox", value:"1", name:"recipe[ingredients_recipes_attributes][][_destroy]", class:"ing-checkbox"}
@@ -94,7 +94,7 @@
                 %br
                 %input{type:"text",readonly:"readonly" ,name:"recipe[instructions_attributes][][position]", value:instruction.position, class:"instruction-number__form"}
                 \.
-              %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text"}
+              %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text",required:"required"}
                 =instruction.text
               .edit_hidden_box
                 %input{type:"checkbox", value:"1", name:"recipe[instructions_attributes][][_destroy]", class:"instruction-checkbox"}
@@ -104,5 +104,5 @@
       .form-title
         Note
       .form-box
-        =f.text_area :text
+        =f.text_area :text,required:"required"
       = f.submit 'POST',class:"submit-btn"

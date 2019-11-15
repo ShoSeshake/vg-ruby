@@ -159,15 +159,15 @@
         =form_for [@restaurant, @restaurant_comment], method: :post do |f|
           %span.comment-title
             Title :
-          =f.text_field :title
+          =f.text_field :title,required:"required"
           %span.comment-title
             Text :
-          =f.text_area :text
+          =f.text_area :text,required:"required"
           .restaurant-show__form__box
             .restaurant-show__form__box__visit
               %span.comment-title
                 Visited Time :
-              =f.text_field :visited_time
+              =f.text_field :visited_time,required:"required"
             .restaurant-show__form__box__review
               %span.comment-title
                 Review :

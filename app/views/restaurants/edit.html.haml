@@ -4,7 +4,7 @@
       .flex-box
         .form-title
           Name
-          =f.text_field :name
+          =f.text_field :name,required:"required"
         .form-title
           Genre
           .genre-btn
@@ -48,19 +48,19 @@
       .flex-box
         .form-title
           Visited Time
-          =f.text_field :visited_time
+          =f.text_field :visited_time,required:"required"
         .form-title
           Photo
-          =f.label :url,class:"photo-btn" do
+          =f.label :url,class:"photo-btn",required:"required" do
             Upload Photo
-            = f.file_field :url
+            = f.file_field :url,required:"required"
       .form-title
         Text
-      =f.text_area :text
+      =f.text_area :text,required:"required"
       .flex-box
         .form-title
           Vegan Friendly
-          = f.collection_select :vegan_friendly_id, VeganFriendly.all, :id, :name,{prompt:"---"}
+          = f.collection_select :vegan_friendly_id, VeganFriendly.all, :id, :name,{prompt:"---",required:"required"}
         .form-title
           Review
           .restaurant__review
@@ -73,5 +73,5 @@
             -newNumber.times do
               -n+=1
               =fa_icon 'apple', class:"icon-apple", "data-id":(n + number)
-          =f.hidden_field :review
+          =f.hidden_field :review,required:"required"
       =f.submit 'POST', class:"submit-btn"  

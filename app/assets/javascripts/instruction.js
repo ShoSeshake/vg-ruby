@@ -8,7 +8,7 @@ $(function() {
                             <div class="ins-delete-btn">×</div><br>
                             <input type="text" readonly="readonly" value=${newNumber+1} name="recipe[instructions_attributes][][position]" class="instruction-number__form"> .
                         </div>
-                        <textarea class="instruction-text" name="recipe[instructions_attributes][][text]" id="recipe_instructions_attributes_0_text"></textarea>
+                        <textarea class="instruction-text" name="recipe[instructions_attributes][][text]" id="recipe_instructions_attributes_0_text" required="required"></textarea>
                     </div>`
         $('#instruction_box').append(html);
     })

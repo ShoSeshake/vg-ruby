@@ -9,7 +9,7 @@
     =form_for chat, method: :patch do |f|
       .chat__all__name
         Name:
-      =f.text_field :name,id:"chat_name", value:"#{chat.name}"
+      =f.text_field :name,id:"chat_name", value:"#{chat.name}",required:"required"
       .chat__all__name
         Member:
       %input{type:"text", id:"friend-search-edit"}

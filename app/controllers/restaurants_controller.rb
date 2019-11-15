@@ -22,7 +22,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
-      redirect_to new_recipe_path
+      redirect_to new_restaurant_path
     end
   end
 

@@ -12,10 +12,10 @@
               %br
               by drag and drop, or just click.
             = fa_icon 'camera', class: 'mark fa-3x camera-image'
-            =i.file_field :url, multiple: true, type: 'file', name: "recipe[images_attributes][][url]", class: "dropbox--fileform", id: "item-drop-zone"
+            =i.file_field :url, multiple: true, type: 'file', name: "recipe[images_attributes][][url]", class: "dropbox--fileform", id: "item-drop-zone",required:"required"
       .form-title
         Title
-      =f.text_field :name 
+      =f.text_field :name ,required:"required"
       =f.fields_for :categories_recipes do |c|
         #category-modal
           .category-list
@@ -34,7 +34,7 @@
             .form-title
               Serving for
             .form-box
-              =f.number_field :serving
+              =f.number_field :serving,required:"required"
         .flex-box
           #ing-box
             .form-title
@@ -54,13 +54,13 @@
             .instruction-number
               .ins-delete-btn ×
               %br
-              %input{type:"text",readonly:"readonly" ,name:"recipe[instructions_attributes][][position]", value:1, class:"instruction-number__form"}
+              %input{type:"text",readonly:"readonly" ,name:"recipe[instructions_attributes][][position]", value:1, class:"instruction-number__form",required:"required"}
               \.
-            %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text"}
+            %textarea{name:"recipe[instructions_attributes][][text]",class:"instruction-text",required:"required"}
       .add-button
         Add more instructions
       .form-title
         Note
       .form-box
-        =f.text_area :text
+        =f.text_area :text,required:"required"
       = f.submit 'POST',class:"submit-btn"
