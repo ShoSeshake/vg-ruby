@@ -20,6 +20,9 @@
         margin-bottom: 10px;
         margin-top: 10px;
         box-sizing: border-box;
+        &:focus {
+            border: 2px solid $darkgreen;
+        }
     }
     input {
         height: 45px;
@@ -28,20 +31,16 @@
         height: 200px;
         font-size: 16px;
     }
-    input:focus,
-    textarea:focus {
-        border: 2px solid $darkgreen;
-    }
     .submit-btn {
         width: 70%;
         margin: 20px auto 0;
         color: $darkgreen;
         border-radius: 4px;
-    }
-    .submit-btn:hover {
-        color: white;
-        background-color: $darkgreen;
-        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color: $darkgreen;
+            cursor: pointer;
+        }
     }
     .form-title {
         width: 45%;
@@ -83,17 +82,17 @@
             input {
                 display: none;
             }
-        }
-        &__select:nth-child(even) {
-            margin-left: 60px;
-        }
-        &__select:hover {
-            color: white;
-            background-color: rgb(87, 152, 87);
-        }
-        &__select.checked {
-            color: white;
-            background-color: rgb(15, 53, 24);
+            &:nth-child(even) {
+                margin-left: 60px;
+            }
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
+            &.checked {
+                color: white;
+                background-color: rgb(15, 53, 24);
+            }
         }
         .genre-selected {
             display: block;
@@ -109,10 +108,10 @@
             font-size: 20px;
             line-height: 20px;
             cursor: pointer;
-        }
-        .genre-selected:hover {
-            color: white;
-            background-color: $darkgreen;
+            &:hover {
+                color: white;
+                background-color: $darkgreen;
+            }
         }
     }
 }
@@ -170,11 +169,10 @@
     text-align: center;
     margin-top: 10px;
     cursor: pointer;
-}
-
-.genre-btn:hover {
-    color: white;
-    background-color: $darkgreen;
+    &:hover {
+        color: white;
+        background-color: $darkgreen;
+    }
 }
 
 #restaurant_url {
@@ -197,9 +195,8 @@
     margin-top: 10px;
     text-align: center;
     cursor: pointer;
-}
-
-.photo-btn:hover {
-    color: white;
-    background-color: $darkgreen;
+    &:hover {
+        color: white;
+        background-color: $darkgreen;
+    }
 }

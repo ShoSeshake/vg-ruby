@@ -25,20 +25,19 @@
         padding: 10px 0 10px 20px;
         color: $darkgreen;
         cursor: pointer;
-    }
-    &__menu:hover {
-        color: $white;
-        background-color: $darkgreen;
+        &:hover {
+            color: $white;
+            background-color: $darkgreen;
+        }
     }
     .hidden-user-recipe,
     .hidden-user-review {
         background-color: rgba(255, 255, 255, 0.4);
         display: none;
-    }
-    .hidden-user-recipe:hover,
-    .hidden-user-review:hover {
-        color: $white;
-        background-color: $darkgreen;
+        &:hover {
+            color: $white;
+            background-color: $darkgreen;
+        }
     }
 }
 

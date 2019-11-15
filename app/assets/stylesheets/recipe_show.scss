@@ -127,9 +127,9 @@
                 display: inline-block;
                 width: 80%;
             }
-        }
-        &__box:last-child {
-            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 15px;
+            }
         }
         &__box.grey {
             color: rgb(189, 189, 189);
@@ -249,10 +249,10 @@
                 border: 1px solid $green;
                 margin-bottom: 10px;
                 box-sizing: border-box;
-            }
-            .comment-form:focus {
-                border: 2px solid $darkgreen;
-                box-sizing: border-box;
+                &:focus {
+                    border: 2px solid $darkgreen;
+                    box-sizing: border-box;
+                }
             }
         }
         .comment-btn {
@@ -269,10 +269,10 @@
             font-size: 20px;
             line-height: 20px;
             cursor: pointer;
-        }
-        .comment-btn:hover {
-            color: white;
-            background-color: $darkgreen;
+            &:hover {
+                color: white;
+                background-color: $darkgreen;
+            }
         }
     }
 }
@@ -308,10 +308,9 @@
             a.restaurant-link {
                 display: block;
                 color: $darkgreen;
-            }
-            a.recipe-link:hover,
-            a.restaurant-link:hover {
-                text-decoration: underline;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
             &__cancel:hover {
                 text-decoration: underline;
@@ -363,12 +362,12 @@
             padding-top: 5px;
             text-align: right;
         }
-    }
-    &__box:nth-child(even) {
-        margin: 0 auto;
-    }
-    &__box:last-child {
-        margin-bottom: 100px;
+        &:nth-child(even) {
+            margin: 0 auto;
+        }
+        &:last-child {
+            margin-bottom: 100px;
+        }
     }
     &__cancel {
         font-size: 30px;

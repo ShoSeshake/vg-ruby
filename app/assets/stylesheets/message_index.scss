@@ -44,13 +44,13 @@
                     font-size: 20px;
                 }
             }
-        }
-        &__menu:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: $darkgreen;
-            .chat-link,
-            .edit-button {
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.5);
                 color: $darkgreen;
+                .chat-link,
+                .edit-button {
+                    color: $darkgreen;
+                }
             }
         }
     }
@@ -178,10 +178,10 @@
                     box-sizing: border-box;
                     height: 45px;
                     width: 100px;
-                }
-                &__send:hover {
-                    background-color: $darkgreen;
-                    color: white;
+                    &:hover {
+                        background-color: $darkgreen;
+                        color: white;
+                    }
                 }
             }
         }

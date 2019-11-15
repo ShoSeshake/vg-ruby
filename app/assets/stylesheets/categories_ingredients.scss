@@ -10,9 +10,9 @@
         padding: 10px 20px;
         &__link {
             color: $darkgreen;
-        }
-        &__link:hover {
-            text-decoration: underline;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     &__recipes {

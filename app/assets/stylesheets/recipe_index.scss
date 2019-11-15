@@ -50,10 +50,10 @@
         padding: 10px 0 10px 20px;
         color: $lightgreen;
         cursor: pointer;
-    }
-    &__box:hover {
-        background-color: $lightgreen;
-        color: $darkgreen;
+        &:hover {
+            background-color: $lightgreen;
+            color: $darkgreen;
+        }
     }
     .user-hidden-menu,
     .recipe-hidden-menu,
@@ -119,13 +119,13 @@
             line-height: 20px;
             cursor: pointer;
             color: $darkgreen;
-        }
-        &__parent:nth-child(even) {
-            margin-right: 50px;
-        }
-        &__parent:hover {
-            color: white;
-            background-color: rgb(87, 152, 87);
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
+            &:nth-child(even) {
+                margin-right: 50px;
+            }
         }
     }
 }
@@ -149,10 +149,10 @@
             line-height: 20px;
             cursor: pointer;
             color: $darkgreen;
-        }
-        &__parent:hover {
-            color: white;
-            background-color: rgb(87, 152, 87);
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
         }
     }
     .ingredient__child {
@@ -177,10 +177,10 @@
             line-height: 20px;
             cursor: pointer;
             color: $darkgreen;
-        }
-        &__list:hover {
-            color: white;
-            background-color: rgb(87, 152, 87);
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
         }
     }
 }
@@ -310,9 +310,9 @@
             font-size: 20px;
             color: $darkgreen;
             right: 0;
-        }
-        &__link:hover {
-            text-decoration: underline;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     &__box {

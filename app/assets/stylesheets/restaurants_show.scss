@@ -84,9 +84,9 @@
             width: auto;
             a {
                 color: $darkgreen;
-            }
-            a:hover {
-                text-decoration: underline;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
         &__icons {
@@ -97,9 +97,9 @@
             .icon {
                 display: inline-block;
                 cursor: pointer;
-            }
-            .icon:hover {
-                color: grey;
+                &:hover {
+                    color: grey;
+                }
             }
             a.restaurant-link {
                 color: $darkgreen;
@@ -134,9 +134,9 @@
         font-size: 16px;
         &__link {
             color: $darkgreen;
-        }
-        &__link:hover {
-            text-decoration: underline;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     &__choice {
@@ -154,10 +154,10 @@
             text-align: center;
             font-size: 20px;
             cursor: pointer;
-        }
-        &__box:hover {
-            background-color: $darkgreen;
-            color: white;
+            &:hover {
+                background-color: $darkgreen;
+                color: white;
+            }
         }
     }
     &__detail {
@@ -177,9 +177,9 @@
             margin-bottom: 10px;
             a {
                 color: $darkgreen;
-            }
-            a:hover {
-                text-decoration: underline;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -215,9 +215,9 @@
                 a {
                     color: $darkgreen;
                     font-size: 18px;
-                }
-                a:hover {
-                    text-decoration: underline;
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
             span.review_title {
@@ -236,10 +236,10 @@
             font-size: 20px;
             line-height: 20px;
             cursor: pointer;
-        }
-        &__form-btn:hover {
-            color: white;
-            background-color: $darkgreen;
+            &:hover {
+                color: white;
+                background-color: $darkgreen;
+            }
         }
     }
     &__form {
@@ -286,6 +286,10 @@
             margin-bottom: 10px;
             box-sizing: border-box;
             margin-top: 10px;
+            &:focus {
+                border: 2px solid $darkgreen;
+                box-sizing: border-box;
+            }
         }
         input {
             height: 45px;
@@ -293,19 +297,14 @@
         textarea {
             height: 150px;
         }
-        input:focus,
-        textarea:focus {
-            border: 2px solid $darkgreen;
-            box-sizing: border-box;
-        }
         #comment-btn {
             width: 70%;
             margin: 0 auto 20px;
             cursor: pointer;
-        }
-        #comment-btn:hover {
-            background-color: $darkgreen;
-            color: white;
+            &:hover {
+                background-color: $darkgreen;
+                color: white;
+            }
         }
     }
     .icon-apple-red {
