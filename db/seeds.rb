@@ -52,36 +52,36 @@
 
 # # user create
 
-# 20.times do |n|
-#   n += number
-#   # email = "sample#{n}@sample.com"
-#   email = Faker::Internet.email
-#   password = "12345678"
-#   name = Faker::FunnyName.name
-#   User.create!(name: name,
-#                 email: email,
-#                password: password,
-#                password_confirmation: password,
-#                prefecture_id: rand(1..47),
-#                country_id: rand(1..197)
-#                )
-# end
+30.times do |n|
+  n += number
+  # email = "sample#{n}@sample.com"
+  email = Faker::Internet.email
+  password = "12345678"
+  name = Faker::FunnyName.name
+  User.create!(name: name,
+                email: email,
+               password: password,
+               password_confirmation: password,
+               prefecture_id: rand(1..47),
+               country_id: rand(1..197)
+               )
+end
 
 
 # # follow for test user
 
-# users = (User.all.length - 2)
-# users.times do |n|
-#   n+=2
-#   Relationship.create!(
-#     follower_id: 1,
-#     following_id: n
-#   )
-#   Relationship.create!(
-#     follower_id: n,
-#     following_id: 1
-#   )
-# end
+users = (User.all.length - 2)
+users.times do |n|
+  n+=2
+  Relationship.create!(
+    follower_id: 1,
+    following_id: n
+  )
+  Relationship.create!(
+    follower_id: n,
+    following_id: 1
+  )
+end
 
 # users = (User.all.length - 2)
 # recipes = Recipe.all.length
