@@ -1,12 +1,8 @@
 $(function() {
     var vfModal = $('#vf-level-modal');
-    var deleteBtn = $('#delete-btn');
     var vfBtn = $('.restaurant-show__box__level');
     vfBtn.on('click', function() {
-        vfModal.fadeIn(500);
-    })
-    vfModal.on('click', function() {
-        vfModal.fadeOut(500);
+        vfModal.toggle();
     })
     var detailBtn = $('#detail-btn');
     var commentBtn = $('#comment-btn');

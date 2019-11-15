@@ -26,6 +26,25 @@
     border: 1px dashed $darkgreen;
     color: $darkgreen;
     box-sizing: border-box;
+    position: relative;
+    &:hover {
+        border: 1px solid $darkgreen;
+    }
+    &:before {
+        content: "";
+        z-index: 1;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        transition: all 0.5s ease-in;
+    }
+    &:hover:before {
+        width: 100%;
+    }
     &__left {
         margin: 0 20px;
         height: 200px;
@@ -71,9 +90,4 @@
             right: 10px;
         }
     }
-}
-
-.restaurants__box:hover {
-    opacity: 0.7;
-    border: 1px solid $darkgreen;
 }

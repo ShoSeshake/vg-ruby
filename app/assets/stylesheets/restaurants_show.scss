@@ -123,6 +123,7 @@
         &__level {
             width: 50%;
             cursor: pointer;
+            display: relative;
         }
     }
     &__genres {
@@ -326,9 +327,8 @@
 }
 
 #vf-level-modal {
+    margin-top: -100px;
     display: none;
-    right: 20px;
-    bottom: 0px;
     padding: 20px;
     position: absolute;
     background-color: #fafafa;

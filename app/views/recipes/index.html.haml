@@ -7,11 +7,11 @@
         =fa_icon 'angle-double-right'
     .index_recipe__box
       -@recipes.each do |r|
-        =link_to recipe_path(r) do
-          .index_recipe__box__card
-            .index_recipe__box__card__name
-              =r.name
-            =image_tag "#{r.images.first.url}", alt:r.name, class:"index_recipe__box__card__image"
+        =link_to recipe_path(r),class:"recipe-card-link index-card" do
+          .recipe-card
+            =image_tag "#{r.images.first.url}", alt:r.name, class:"recipe-card__image"
+            .recipe-card__name
+              =r.name.truncate(24)
   .index_restaurant
     .index_restaurant__title
       New Reviews
@@ -20,9 +20,9 @@
         =fa_icon 'angle-double-right'
     .index_restaurant__box
       -@restaurants.each do |r|
-        =link_to restaurant_path(r) do
-          .index_restaurant__box__card
-            .index_restaurant__box__card__name
-              =r.name
-            =image_tag "#{r.url}", alt:r.name, class:"index_restaurant__box__card__image"
+        =link_to restaurant_path(r),class:"recipe-card-link index-card"  do
+          .restaurant-card
+            =image_tag "#{r.url}", alt:r.name, class:"restaurant-card__image"
+            .restaurant-card__name
+              =r.name.truncate(24)
 

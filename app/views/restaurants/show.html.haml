@@ -46,44 +46,56 @@
       .restaurant-show__box__level
         %span.restaurant-title
           Vegan Friendly Level :
-        -(4- @restaurant.vegan_friendly.id).times do
+        -(5- @restaurant.vegan_friendly.id).times do
           =fa_icon 'apple', class:"icon-apple-red"
         -@restaurant.vegan_friendly.id.times do
           =fa_icon 'apple', class:"icon-apple-grey"
-    #vf-level-modal
-      #delete-btn ×
-      .vf-level__box
-        .vf-level__box__icons
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-grey"
-          =fa_icon 'apple', class:"icon-apple-grey"
-          =fa_icon 'apple', class:"icon-apple-grey"
-        .vf-level__box__text
-          Vegetarian
-      .vf-level__box
-        .vf-level__box__icons
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-grey"
-          =fa_icon 'apple', class:"icon-apple-grey"
-        .vf-level__box__text
-          They have vegan menu as well
-      .vf-level__box
-        .vf-level__box__icons
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-grey"
-        .vf-level__box__text
-          They can change some dishes to vegan
-      .vf-level__box
-        .vf-level__box__icons
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-red"
-          =fa_icon 'apple', class:"icon-apple-red"
-        .vf-level__box__text
-          Completely vegan
+        #vf-level-modal
+          #delete-btn ×
+          .vf-level__box
+            .vf-level__box__icons
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-grey"
+              =fa_icon 'apple', class:"icon-apple-grey"
+              =fa_icon 'apple', class:"icon-apple-grey"
+            .vf-level__box__text
+              Vegetarian-Friendly
+          .vf-level__box
+            .vf-level__box__icons
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-grey"
+              =fa_icon 'apple', class:"icon-apple-grey"
+              =fa_icon 'apple', class:"icon-apple-grey"
+            .vf-level__box__text
+              Vegetarian (But Not Vegan-Friendly)
+          .vf-level__box
+            .vf-level__box__icons
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-grey"
+              =fa_icon 'apple', class:"icon-apple-grey"
+            .vf-level__box__text
+              Vegetarian
+          .vf-level__box
+            .vf-level__box__icons
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-grey"
+            .vf-level__box__text
+              Vegan-friendly
+          .vf-level__box
+            .vf-level__box__icons
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+              =fa_icon 'apple', class:"icon-apple-red"
+            .vf-level__box__text
+              Vegan
     .restaurant-show__genres
       %span.restaurant-title
         Genre :

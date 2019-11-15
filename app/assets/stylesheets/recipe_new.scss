@@ -25,14 +25,12 @@
         width: 100%;
         margin-bottom: 10px;
         box-sizing: border-box;
+        &:focus {
+            border: 2px solid $darkgreen;
+        }
     }
     input {
         height: 45px;
-    }
-    input:focus,
-    textarea:focus {
-        border: 2px solid $darkgreen;
-        box-sizing: border-box;
     }
     #recipe_text {
         height: 200px;
@@ -42,11 +40,11 @@
         margin: 0 auto;
         color: $darkgreen;
         border-radius: 4px;
-    }
-    .submit-btn:hover {
-        color: white;
-        background-color: $darkgreen;
-        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color: $darkgreen;
+            cursor: pointer;
+        }
     }
 }
 
