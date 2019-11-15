@@ -26,8 +26,6 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
-      @recipe.images = []
-      @recipe.images.build
       redirect_to new_recipe_path
     end
   end

@@ -21,4 +21,14 @@ class Recipe < ApplicationRecord
 
   validates :name, :text, :serving, presence: :ture
 
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.recipe_id) FROM likes where likes.recipe_id = recipes.id GROUP BY likes.recipe_id)'
+    Arel.sql(query)
+  end
+
+  ransacker :comments_count do
+    query = '(SELECT COUNT(comments.recipe_id) FROM comments where comments.recipe_id = recipes.id GROUP BY comments.recipe_id)'
+    Arel.sql(query)
+  end
+
 end

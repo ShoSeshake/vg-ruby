@@ -8,7 +8,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def new
-    @ingredients = Ingredient.where("name LIKE(?)", "%#{params[:keyword]}%").where.not(ancestry: nil)
+    @ingredients = Ingredient.where("name LIKE(?)", "#{params[:keyword]}%").where.not(ancestry: nil)
     respond_to do |format|
       format.json
       format.html
@@ -34,13 +34,8 @@ class Api::RecipesController < ApplicationController
   def average_review(recipes,params_score)
     sorted_recipes = []
     recipes.each do |recipe|
-      total_score = 0
       if recipe.comments.present?
-        recipe.comments.each do |comment|
-          comment.review
-          total_score += comment.review
-        end
-        recipe_average = (total_score / recipe.comments.length)
+        recipe_average = recipe.comments.average(:review)
         sorted_recipes << recipe if recipe_average >= params_score.to_i
       end
     end
