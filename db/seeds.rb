@@ -52,8 +52,7 @@
 
 # # user create
 
-30.times do |n|
-  n += number
+30.times do 
   # email = "sample#{n}@sample.com"
   email = Faker::Internet.email
   password = "12345678"
