@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
   def new
     user = User.find(params[:id])
     existing_users = User.find(params[:user_ids]) if params[:user_ids]
-    users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    users = User.where('name LIKE(?)', "#{params[:keyword]}%")
     @users = follow_exchange(user,users)
     @users = @users - existing_users if params[:user_ids]
     respond_to do |format|

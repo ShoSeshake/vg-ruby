@@ -229,12 +229,13 @@ body {}
         }
         #friend_result,
         #friend_result-edit {
+            overflow: scroll;
             left: 150px;
             position: absolute;
             z-index: 10;
             display: none;
             width: 360px;
-            height: 50vh;
+            height: 40vh;
             background-color: #fafafa;
             .search_result_name,
             .search_result_name-edit {
