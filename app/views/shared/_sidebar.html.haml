@@ -10,7 +10,7 @@
       .sidebar__name.short
         =@user.name
   .sidebar__menu#user-page-recipe
-    RECIPE
+    RECIPES
   .sidebar__menu.hidden-user-recipe#user-recipes
     -if @user == current_user
       MY RECIPES
@@ -22,7 +22,7 @@
   .sidebar__menu.hidden-user-recipe#user-comments
     COMMENTED RECIPES
   .sidebar__menu#user-page-review
-    REVIEW
+    REVIEWS
   .sidebar__menu.hidden-user-review#users-review-btn
     -if @user == current_user
       MY REVIEWS
@@ -31,6 +31,12 @@
       's REVIEWS
   .sidebar__menu.hidden-user-review#commented-review-btn
     COMMENTED REVIEWS
+  -# .sidebar__menu
+  -#   FRIENDS
+  -# .sidebar__menu
+  -#   FOLLOWING
+  -# .sidebar__menu
+  -#   FOLLOWER
   -if (@user != current_user && user_signed_in?)
     .sidebar__menu#user-follow
       -if current_user.following?(@user)

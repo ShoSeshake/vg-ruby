@@ -1,0 +1,290 @@
+.menu-btn,
+.safari-menu-btn {
+    position: absolute;
+    font-size: 50px;
+    top: 20px;
+    left: 20px;
+    color: $darkgreen;
+    cursor: pointer;
+    z-index: 2;
+    &:hover {
+        color: $green;
+    }
+}
+
+.safari-menu-btn {
+    display: none;
+}
+
+.menu {
+    display: none;
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.menu__bar {
+    position: absolute;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: $darkgreen;
+    overflow: scroll;
+    font-weight: bold;
+    z-index: 20;
+    &__box {
+        padding: 10px 0 10px 20px;
+        color: $lightgreen;
+        cursor: pointer;
+        &:hover {
+            background-color: $lightgreen;
+            color: $darkgreen;
+        }
+    }
+    .user-hidden-menu,
+    .recipe-hidden-menu,
+    .restaurant-hidden-menu,
+    .chat-hidden-menu {
+        display: none;
+        background-color: rgb(32, 73, 42);
+    }
+    .user-hidden-menu:hover,
+    .recipe-hidden-menu:hover,
+    .restaurant-hidden-menu:hover,
+    .chat-hidden-menu:hover {
+        background-color: $lightgreen;
+        color: $darkgreen;
+    }
+}
+
+#dark-background {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 30;
+}
+
+#category-list,
+#ingredient-list,
+#genre-list {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 400px;
+    padding: 30px;
+    width: 600px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 80vh;
+    z-index: 40;
+    .category__all,
+    .genre__all {
+        &__title {
+            width: 100%;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        &__parent {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            color: $darkgreen;
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
+            &:nth-child(even) {
+                margin-right: 50px;
+            }
+        }
+    }
+}
+
+#ingredient-list {
+    .ingredient__all {
+        width: 250px;
+        &__title {
+            width: 100%;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        &__parent {
+            display: block;
+            text-align: center;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            color: $darkgreen;
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
+        }
+    }
+    .ingredient__child {
+        position: fixed;
+        display: none;
+        margin-left: 300px;
+        padding: 25px;
+        height: 70vh;
+        width: 250px;
+        border-radius: 5px;
+        background-color: rgb(168, 220, 168);
+        overflow: scroll;
+        &__list {
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            color: $darkgreen;
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
+        }
+    }
+}
+
+#chat-list {
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 400px;
+    padding: 30px;
+    width: 600px;
+    border-radius: 20px;
+    background-color: $white;
+    color: $darkgreen;
+    font-weight: bold;
+    overflow: scroll;
+    height: 80vh;
+    z-index: 40;
+    .chat__all {
+        margin-top: 30px;
+        &__text {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        &__name {
+            margin: 0 auto;
+            font-size: 20px;
+            width: 360px;
+            text-align: left;
+        }
+        #chat_name,
+        #friend-search,
+        #friend-search-edit,
+        #chat-create {
+            color: $darkgreen;
+            background-color: white;
+            border-radius: 4px;
+            padding: 10px 10px;
+            font-size: 20px;
+            line-height: 20px;
+            border: 1px solid $green;
+            display: block;
+            width: 360px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            height: 45px;
+            &:focus {
+                border: 2px solid $darkgreen;
+                box-sizing: border-box;
+            }
+        }
+        #chat-create:hover {
+            color: white;
+            background-color: $darkgreen;
+        }
+        #chat_name {
+            margin-bottom: 20px;
+        }
+        #friend_result,
+        #friend_result-edit {
+            overflow: scroll;
+            left: 150px;
+            position: absolute;
+            z-index: 10;
+            display: none;
+            width: 360px;
+            height: 40vh;
+            background-color: #fafafa;
+            .search_result_name,
+            .search_result_name-edit {
+                text-align: left;
+                padding: 10px;
+                font-size: 17px;
+                cursor: pointer;
+                &:hover {
+                    color: white;
+                    background-color: $darkgreen;
+                }
+            }
+            .error-message-chat {
+                text-align: left;
+                padding: 10px;
+                font-size: 17px;
+            }
+        }
+        #append_field,
+        #append_field-edit {
+            min-height: 300px;
+            margin-bottom: 20px;
+            .member-box {
+                border-bottom: 1px solid $darkgreen;
+                position: relative;
+                margin: 20px auto;
+                font-size: 20px;
+                height: 50px;
+                width: 60%;
+                line-height: 50px;
+                text-align: right;
+                &__delete,
+                &__delete-edit {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    font-weight: bold;
+                    margin: 10px 0 0 10px;
+                    height: 25px;
+                    width: 25px;
+                    line-height: 25px;
+                    border-radius: 50%;
+                    text-align: center;
+                    font-weight: bold;
+                    color: $darkgreen;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

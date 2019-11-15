@@ -2,7 +2,7 @@ $(function() {
     var vfModal = $('#vf-level-modal');
     var vfBtn = $('.restaurant-show__box__level');
     vfBtn.on('click', function() {
-        vfModal.toggle();
+        vfModal.fadeToggle();
     })
     var detailBtn = $('#detail-btn');
     var commentBtn = $('#comment-btn');
