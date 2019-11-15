@@ -1,4 +1,4 @@
-=link_to recipe_path(r.id) do
+=link_to recipe_path(r.id),class:"recipe-card-link" do
   .recipe-card
     =image_tag "#{r.images.first.url}", alt:r.name, class:"recipe-card__image"
     .recipe-card__name
