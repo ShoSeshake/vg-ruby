@@ -2,13 +2,10 @@
     width: 700px;
     &__recipes {
         padding: 20px 0;
-        // height: 800px;
         width: 700px;
         &__box {
-            // height: 90vh;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(4, 1fr);
             gap: 12px 12px;
         }
     }
