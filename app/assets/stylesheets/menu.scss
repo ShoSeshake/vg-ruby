@@ -10,6 +10,9 @@
     &:hover {
         color: $green;
     }
+    &:active {
+        color: $lightgreen;
+    }
 }
 
 .safari-menu-btn {
