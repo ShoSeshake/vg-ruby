@@ -50,13 +50,10 @@
     .chat-hidden-menu {
         display: none;
         background-color: rgb(32, 73, 42);
-    }
-    .user-hidden-menu:hover,
-    .recipe-hidden-menu:hover,
-    .restaurant-hidden-menu:hover,
-    .chat-hidden-menu:hover {
-        background-color: $lightgreen;
-        color: $darkgreen;
+        &:hover {
+            background-color: $lightgreen;
+            color: $darkgreen;
+        }
     }
 }
 
