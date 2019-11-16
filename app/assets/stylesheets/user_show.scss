@@ -8,3 +8,23 @@
 .user__restaurants {
     overflow: scroll;
 }
+
+.user {
+    width: calc(100vw - 300px);
+    overflow: scroll;
+    height: 100vh;
+    &__recipes {
+        width: 900px;
+        margin: 40px auto 30px;
+        &__box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px 12px;
+        }
+    }
+    &__restaurants {
+        margin: 30px auto;
+        padding: 20px 0;
+        width: 700px;
+    }
+}
