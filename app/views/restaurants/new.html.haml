@@ -1,51 +1,26 @@
 .container
   .restaurants-new
     =form_for @restaurant, method: :post do |f|
-      .flex-box
-        .form-title
-          Name
-          =f.text_field :name,required:"required"
-        .form-title
-          Genre
-          .genre-btn
-            Select Genre
-      =f.fields_for :genres_restaurants do |g|
-        #genre-modal
-          .genre-list
-            -@genres.each do |genre|
-              .genre-list__select
-                %input{type:"checkbox", name: "restaurant[genres_restaurants_attributes][][genre_id]", value:genre.id, class:"genre-checkbox",multiple:"true"}
-                =genre.genre
-            .genre-selected SELECT
-      .form-title
-        Website
-      =f.text_field :hp
-      .flex-box
-        .form-title
-          Prefecture
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"---"}
-        .form-title
-          Telephone
-          =f.telephone_field :telephone, maxlength:"11"
-      .form-title
-        Address
-      =f.text_field :address
-      .flex-box
-        .form-title
-          Price Lunch
-          = f.collection_select :lunch_price_id, LunchPrice.all, :id, :name,{prompt:"---"}
-        .form-title
-          Price Dinner
-          = f.collection_select :dinner_price_id, DinnerPrice.all, :id, :name,{prompt:"---"}
-      .flex-box
-        .form-title
-          Visited Time
-          =f.text_field :visited_time,required:"required"
-        .form-title
-          Photo
+      .restaurants-new__main
+        .restaurants-new__main__left
+        .restaurants-new__main__right
+          .form-title
+            Name
+          =f.text_field :name,class:"readonly",required:"required"
+          .form-title
+            Location
+          =f.text_field :prefecture_id,class:"readonly",required:"required"
+          .form-title
+            Photo
           =f.label :url,class:"photo-btn",required:"required" do
             Upload Photo
             = f.file_field :url,required:"required"
+          .form-title
+            Price Range
+          = f.collection_select :lunch_price_id, LunchPrice.all, :id, :name,{prompt:"---"}
+          .form-title
+            Visited Time
+          =f.text_field :visited_time,required:"required"
       .form-title
         Text
       =f.text_area :text,required:"required"
@@ -60,4 +35,12 @@
               -n+=1
               =fa_icon 'apple', class:"icon-apple", "data-id":n
           =f.hidden_field :review,required:"required"
-      =f.submit 'POST', class:"submit-btn"  
+      =f.submit 'POST', class:"submit-btn"
+    -# =form_with url: search_restaurants_path, method: :get, local: false do |f|
+    -#   .guru-restautant-search
+    -#     Find a Restaurant
+    -#     =link_to "https://api.gnavi.co.jp/api/scope/", target:"_blank" do
+    -#       =image_tag "https://api.gnavi.co.jp/api/img/credit/api_155_20.gif",class:"guru-logo",alt:"グルメ情報検索サイト　ぐるなび",style:"width:155px; height:20px; border:0;"
+    -#   =f.text_field :name,placeholder:"type a name"
+    -#   =f.submit 'SEARCH', id:"restaurant-search-btn"
+    -#   #gurunavi-result
