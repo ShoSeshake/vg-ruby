@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
 
   resources :restaurants do
+    collection do
+      get 'search'
+    end
     resources :restaurant_comments, only: [:create]
   end
   
