@@ -30,6 +30,7 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    # binding.pry
     if @restaurant.update(edit_params)
       redirect_to restaurant_path(@restaurant)
     else

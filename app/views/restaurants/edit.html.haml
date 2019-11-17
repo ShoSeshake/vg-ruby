@@ -1,15 +1,20 @@
 .container
   .restaurants-new
-    =form_for @restaurant, method: :post do |f|
+    =form_for @restaurant, method: :patch do |f|
       .restaurants-new__main
         .restaurants-new__main__left
           .form-title
             Photo
-          = f.fields_for :photos do |i|
+          = f.fields_for :photo do |i|
             =i.label :url,for: nil,class:"photo-btn",required:"required" do
               Upload Photo
               =i.file_field :url, multiple: true, type: 'file', name:"restaurant[photos_attributes][][url]",id:"restaurant_url",required:"required"
-            .restaurants-new__main__left__box
+          .restaurants-new__main__left__box
+            -@restaurant.photos.each do |photo|
+              .upload-photo
+                =link_to '#', class:"upload-photo__delete", id:"photo-delete-edit","data-img":photo.id, "data-url":photo.url do
+                  ×
+                =image_tag "#{photo.url}",class:"upload-photo__image"
         .restaurants-new__main__right
           .form-title
             Name
@@ -19,7 +24,7 @@
           =f.text_field :location,class:"readonly",required:"required",readonly:"readonly"
           .form-title
             Price Range
-          = f.collection_select :price_id, Price.all, :id, :name,{prompt:"---"}
+          = f.collection_select :price_id, Price.all, :id, :name,{prompt:"---",required:"required"}
           .form-title
             Visited Time
           =f.text_field :visited_time,required:"required"

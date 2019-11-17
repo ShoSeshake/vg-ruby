@@ -44,19 +44,14 @@ $(function() {
                               <img alt="" src="${loadedImageUri}" class="upload-photo__image">
                               </div>`;
                     $(".restaurants-new__main__left__box").append(html);
-                    // if (count < 10) {
-                    //     var num = input.files.length
-                    //     num += edit_num
-                    //     deleteWidth1(num)
-                    //     dropBox.before(html);
-                    //     if (count == 9) {
-                    //         camera.css('display', `block`)
-                    //         innerText.css('display', `none`)
-                    //     }
+                    if (count == 10) {
+                        $('.photo-btn').css({
+                            'pointer-events': 'none'
+                        })
 
-                    // } else if (count > 10) {
-                    //     return false
-                    // }
+                    } else if (count > 10) {
+                        return false
+                    }
 
                 }
                 reader.readAsDataURL(input.files[index])
@@ -66,11 +61,11 @@ $(function() {
 
     // inputタグに変化があれば発火
     $(document).on("change", "#restaurant_url", function() {
-        // count = $('.upload-item').length
+        count = $('.upload-photo').length
         var edit_num = 0
-            // if ($('.pict-delete-edit').length) {
-            //     edit_num = $('.pict-delete-edit').length
-            // }
+        if ($('#pict-delete-edit').length) {
+            edit_num = $('#pict-delete-edit').length
+        }
         readURL(this, list, edit_num);
         appendFile(list);
 
@@ -95,50 +90,32 @@ $(function() {
             appendFile(list)
         }
 
-        // count -= 1
-        // maxspace = 4
-        // deleteWidth1(count)
-        // if (count == maxspace) {
-        //     camera.css('display', `block`)
-        //     innerText.css('display', `none`)
-        // } else if (count == 9) {
-        //     camera.css('display', `block`)
-        //     innerText.css('display', `none`)
-        //     dropBox.css('display', `inline-block`)
-        // } else {
-        //     camera.css('display', `none`)
-        //     innerText.css('display', `block`)
-        // }
+        count -= 1
+        if (count == 9) {
+            $('.photo-btn').css({
+                'pointer-events': 'inherit'
+            })
+        }
     })
 
-    // // edit - 削除ボタンがクリックされたら発火
-    // $(document).on("click", "#pict-delete-edit", function(e) {
-    //     e.preventDefault();
-    //     var target = $(e.target);
-    //     var id = target.data('img');
-    //     var url = target.data('url');
-    //     var html = `<div class="edit_hidden_box">
-    //                   <input name="recipe[images_attributes][][_destroy]" value=1 checked="checked">
-    //                   <input name="recipe[images_attributes][][id]" value="${id}">
-    //                   <input name="recipe[images_attributes][][url]" value="${url}">
-    //               </div>`
-    //     $('#item-append-target').prepend(html);
-    //     count = $('.upload-item').length
-    //     target.parent().remove();
+    // edit - 削除ボタンがクリックされたら発火
+    $(document).on("click", "#photo-delete-edit", function(e) {
+        e.preventDefault();
+        var target = $(e.target);
+        var id = target.data('img');
+        var url = target.data('url');
+        var html = `<div class="edit_hidden_box">
+                      <input name="restaurant[photos_attributes][][_destroy]" value=1 checked="checked">
+                      <input name="restaurant[photos_attributes][][id]" value="${id}">
+                      <input name="restaurant[photos_attributes][][url]" value="${url}">
+                  </div>`
+        $('.restaurants-new__main__left').prepend(html);
+        count = $('.upload-photo').length
+        target.parent().remove();
 
-    //     count -= 1
-    //     maxspace = 4
-    //     deleteWidth1(count)
-    //     if (count == maxspace) {
-    //         camera.css('display', `block`)
-    //         innerText.css('display', `none`)
-    //     } else if (count == 9) {
-    //         camera.css('display', `block`)
-    //         innerText.css('display', `none`)
-    //         dropBox.css('display', `inline-block`)
-    //     } else {
-    //         camera.css('display', `none`)
-    //         innerText.css('display', `block`)
-    //     }
-    // })
+        count -= 1
+        if (count == 9) {
+            $('.photo-btn').css({ 'pointer-events': 'inherit' })
+        }
+    })
 });
