@@ -1,7 +1,7 @@
 20.times do |n|
   email = "test#{n}@test.com"
   password = "12345678"
-  name = Faker::JapaneseMedia::OnePiece.character
+  name = "Test Account #{n}"
   User.create!(name: name,
                 email: email,
                password: password,
