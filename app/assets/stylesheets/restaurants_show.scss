@@ -396,6 +396,28 @@
             position: absolute;
             right: 50px;
             font-size: 30px;
+            cursor: pointer;
+        }
+        &__box {
+            width: 600px;
+            padding: 20px;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            background-color: #fafafa;
+            a {
+                display: block;
+                color: $darkgreen;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
+}
+
+span.detail_title {
+    display: block;
+    font-size: 20px;
+    color: $green;
+    margin-bottom: 10px;
 }

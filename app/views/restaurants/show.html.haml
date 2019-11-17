@@ -100,8 +100,8 @@
             .vf-level__box__text
               Vegan
     .restaurant-show__choice
-      =form_with url: search_api_restaurants_path, method: :get, local: false,id:"g-detail_form" do |f|
-        =f.hidden_field :id,value:@restaurant.gurunavi_id
+      =form_with url: detail_api_restaurants_path, method: :get, local: false,id:"g-detail_form" do |f|
+        =f.hidden_field :id, value:@restaurant.gurunavi_id
         =f.submit 'Restaurant Detail', id:"detail-btn",class:"restaurant-show__choice__box"
       .restaurant-show__choice__box#comment-btn
         Comments
@@ -172,4 +172,3 @@
         YES
       .delete-modal__box__confirmation__cancel
         NO
-= render "api/restaurants/detail" 

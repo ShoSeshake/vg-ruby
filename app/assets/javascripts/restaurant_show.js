@@ -23,4 +23,14 @@ $(function() {
         commentForm.fadeIn(500);
         formBtn.parent().hide();
     })
+    $(document).on('click', '.detail-modal__container__close', function() {
+        $('.detail-modal').remove();
+    })
+})
+$(function() {
+    var subs = $('.rest-sub-photo');
+    subs.on('click', function() {
+        var src = $(this).data('photo')
+        $('.restaurant-photo').attr('src', src)
+    });
 })
