@@ -6,16 +6,6 @@
     font-weight: bold;
     overflow: scroll;
     height: 80vh;
-    &__main {
-        width: 100%;
-        display: flex;
-        &__left {
-            width: 50%;
-        }
-        &__right {
-            width: 50%;
-        }
-    }
     input,
     textarea {
         color: $darkgreen;
@@ -37,13 +27,6 @@
     input {
         height: 45px;
     }
-    input.readonly {
-        background-color: $white;
-        border: none;
-        &:focus {
-            border: none;
-        }
-    }
     textarea {
         height: 200px;
         font-size: 16px;
@@ -64,74 +47,75 @@
     }
 }
 
-// #genre-modal {
-//     display: none;
-//     top: 0;
-//     left: 0;
-//     position: fixed;
-//     width: 100vw;
-//     height: 100vh;
-//     background-color: rgba(0, 0, 0, 0.6);
-//     z-index: 50;
-//     padding-top: 80px;
-//     .genre-list {
-//         width: 700px;
-//         margin: 0 auto;
-//         z-index: 100;
-//         padding: 30px;
-//         border-radius: 20px;
-//         background-color: $white;
-//         color: $darkgreen;
-//         font-weight: bold;
-//         height: 80vh;
-//         overflow: scroll;
-//         &__select {
-//             display: inline-block;
-//             width: 45%;
-//             text-align: center;
-//             border-radius: 4px;
-//             background-color: white;
-//             margin-bottom: 10px;
-//             padding: 10px 0;
-//             font-size: 20px;
-//             line-height: 20px;
-//             cursor: pointer;
-//             input {
-//                 display: none;
-//             }
-//             &:nth-child(even) {
-//                 margin-left: 60px;
-//             }
-//             &:hover {
-//                 color: white;
-//                 background-color: rgb(87, 152, 87);
-//             }
-//             &.checked {
-//                 color: white;
-//                 background-color: rgb(15, 53, 24);
-//             }
-//         }
-//         .genre-selected {
-//             display: block;
-//             margin: 20px auto 0;
-//             background-color: white;
-//             text-align: center;
-//             font-weight: bold;
-//             color: $darkgreen;
-//             border-radius: 4px;
-//             width: 60%;
-//             border: 1px solid $green;
-//             padding: 10px 0;
-//             font-size: 20px;
-//             line-height: 20px;
-//             cursor: pointer;
-//             &:hover {
-//                 color: white;
-//                 background-color: $darkgreen;
-//             }
-//         }
-//     }
-// }
+#genre-modal {
+    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 50;
+    padding-top: 80px;
+    .genre-list {
+        width: 700px;
+        margin: 0 auto;
+        z-index: 100;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: $white;
+        color: $darkgreen;
+        font-weight: bold;
+        height: 80vh;
+        overflow: scroll;
+        &__select {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            border-radius: 4px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            input {
+                display: none;
+            }
+            &:nth-child(even) {
+                margin-left: 60px;
+            }
+            &:hover {
+                color: white;
+                background-color: rgb(87, 152, 87);
+            }
+            &.checked {
+                color: white;
+                background-color: rgb(15, 53, 24);
+            }
+        }
+        .genre-selected {
+            display: block;
+            margin: 20px auto 0;
+            background-color: white;
+            text-align: center;
+            font-weight: bold;
+            color: $darkgreen;
+            border-radius: 4px;
+            width: 60%;
+            border: 1px solid $green;
+            padding: 10px 0;
+            font-size: 20px;
+            line-height: 20px;
+            cursor: pointer;
+            &:hover {
+                color: white;
+                background-color: $darkgreen;
+            }
+        }
+    }
+}
+
 #restaurant_prefecture_id,
 #restaurant_vegan_friendly_id,
 .restaurant__review,
@@ -214,66 +198,5 @@
     &:hover {
         color: white;
         background-color: $darkgreen;
-    }
-}
-
-#new_restaurant {
-    // display: none;
-}
-
-#restaurant-search-btn {
-    margin: 0 auto;
-    width: 60%;
-    &:hover {
-        color: white;
-        background-color: $darkgreen;
-    }
-}
-
-#gurunavi-result {
-    width: 100%;
-    overflow: scroll;
-}
-
-.guru-restautant-search {
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.guru-card {
-    border-radius: 8px;
-    margin-top: 30px;
-    background-color: white;
-    padding: 20px;
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    &__left {
-        margin-right: 20px;
-    }
-    &__center {
-        width: 100%;
-        line-height: 25px;
-        &__link {
-            color: $darkgreen;
-            overflow: hidden;
-            display: block;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-    &__right {
-        margin-left: 20px;
-        color: $green;
-        height: 80px;
-        width: 60px;
-        font-size: 60px;
-        line-height: 80px;
-        cursor: pointer;
-        &:hover {
-            color: $darkgreen;
-        }
     }
 }
