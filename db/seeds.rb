@@ -1,6 +1,6 @@
 require './db/seeds/category.rb'
 require './db/seeds/ingredient.rb'
-require './db/seeds/genre.rb'
+# require './db/seeds/genre.rb'
 require './db/seeds/user.rb'
 require './db/seeds/follow.rb'
-require './db/seeds/message.rb'
+# require './db/seeds/message.rb'

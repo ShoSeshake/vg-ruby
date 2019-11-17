@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_140235) do
+ActiveRecord::Schema.define(version: 2019_11_17_055822) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -55,21 +55,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_140235) do
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "genre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genres_restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "genre_id", null: false
-    t.bigint "restaurant_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["genre_id"], name: "index_genres_restaurants_on_genre_id"
-    t.index ["restaurant_id"], name: "index_genres_restaurants_on_restaurant_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -128,6 +113,14 @@ ActiveRecord::Schema.define(version: 2019_11_10_140235) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "url", null: false
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_photos_on_restaurant_id"
+  end
+
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "serving", null: false
@@ -165,17 +158,13 @@ ActiveRecord::Schema.define(version: 2019_11_10_140235) do
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "gurunavi_id", null: false
     t.text "text", null: false
-    t.integer "lunch_price_id"
-    t.integer "dinner_price_id"
+    t.integer "location", null: false
+    t.integer "price_id", null: false
     t.integer "review", null: false
     t.string "visited_time", null: false
-    t.string "url"
-    t.string "hp"
-    t.string "address"
-    t.string "telephone"
     t.integer "vegan_friendly_id", null: false
-    t.integer "prefecture_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -204,8 +193,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_140235) do
   add_foreign_key "chat_members", "users"
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
-  add_foreign_key "genres_restaurants", "genres"
-  add_foreign_key "genres_restaurants", "restaurants"
   add_foreign_key "images", "recipes"
   add_foreign_key "ingredients_recipes", "ingredients"
   add_foreign_key "ingredients_recipes", "recipes"
@@ -214,6 +201,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_140235) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "messages", "users"
+  add_foreign_key "photos", "restaurants"
   add_foreign_key "recipes", "users"
   add_foreign_key "restaurant_comments", "restaurants"
   add_foreign_key "restaurant_comments", "users"

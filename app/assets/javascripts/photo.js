@@ -40,7 +40,7 @@ $(function() {
                 reader.onload = function(e) {
                     var loadedImageUri = e.target.result;
                     var html = `<div class="upload-photo">
-                              <a class="upload-photo__delete" href="#" data-pict="${file.name}" id="pict-delete">×</a>
+                              <a class="upload-photo__delete" href="#" data-pict="${file.name}" id="photo-delete">×</a>
                               <img alt="" src="${loadedImageUri}" class="upload-photo__image">
                               </div>`;
                     $(".restaurants-new__main__left__box").append(html);
@@ -57,7 +57,6 @@ $(function() {
                     // } else if (count > 10) {
                     //     return false
                     // }
-
 
                 }
                 reader.readAsDataURL(input.files[index])
@@ -77,40 +76,40 @@ $(function() {
 
     });
 
-    // // new - 削除ボタンがクリックされたら発火
-    // $(document).on("click", "#pict-delete", function(e) {
-    //     e.preventDefault();
-    //     var target = $(e.target);
-    //     var pict_name = target.data('pict');
-    //     target.parent().remove();
-    //     if (document.querySelector('input[type=file]').files.length == 1) {
-    //         $('input[type="file"]').val(null);
-    //         list.clearData();
-    //     } else {
-    //         $.each(list.files, function(index, file) {
-    //             if (file.name == pict_name) {
-    //                 list.items.remove(index);
-    //                 return false
-    //             }
-    //         })
-    //         appendFile(list)
-    //     }
+    // new - 削除ボタンがクリックされたら発火
+    $(document).on("click", "#photo-delete", function(e) {
+        e.preventDefault();
+        var target = $(e.target);
+        var pict_name = target.data('pict');
+        target.parent().remove();
+        if (document.querySelector('input[type=file]').files.length == 1) {
+            $('input[type="file"]').val(null);
+            list.clearData();
+        } else {
+            $.each(list.files, function(index, file) {
+                if (file.name == pict_name) {
+                    list.items.remove(index);
+                    return false
+                }
+            })
+            appendFile(list)
+        }
 
-    //     count -= 1
-    //     maxspace = 4
-    //     deleteWidth1(count)
-    //     if (count == maxspace) {
-    //         camera.css('display', `block`)
-    //         innerText.css('display', `none`)
-    //     } else if (count == 9) {
-    //         camera.css('display', `block`)
-    //         innerText.css('display', `none`)
-    //         dropBox.css('display', `inline-block`)
-    //     } else {
-    //         camera.css('display', `none`)
-    //         innerText.css('display', `block`)
-    //     }
-    // })
+        // count -= 1
+        // maxspace = 4
+        // deleteWidth1(count)
+        // if (count == maxspace) {
+        //     camera.css('display', `block`)
+        //     innerText.css('display', `none`)
+        // } else if (count == 9) {
+        //     camera.css('display', `block`)
+        //     innerText.css('display', `none`)
+        //     dropBox.css('display', `inline-block`)
+        // } else {
+        //     camera.css('display', `none`)
+        //     innerText.css('display', `block`)
+        // }
+    })
 
     // // edit - 削除ボタンがクリックされたら発火
     // $(document).on("click", "#pict-delete-edit", function(e) {

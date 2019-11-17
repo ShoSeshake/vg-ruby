@@ -40,6 +40,11 @@ Rails.application.routes.draw do
         get 'previous', defaults: { format: 'js' }
       end
     end
+    resources :restaurants, except: [:index, :new,:create,:show,:edit,:update,:destroy] do
+      collection do
+        get 'search'
+      end
+    end
   end
   
   resources :relationships, only: [:create, :destroy]

@@ -6,14 +6,19 @@
                 email: email,
                password: password,
                password_confirmation: password,
-               prefecture_id: round(1..47),
-               country_id: round(1..197)
+               prefecture_id: rand(1..47),
+               country_id: rand(1..197)
                )
 end
-40.times do
+18.times do |n|
+  n+=2
   number = User.all.length
   Relationship.create!(
-    follower_id: round(1..number),
-    following_id: round(1..number)
+    follower_id: 1,
+    following_id: n
+  )
+  Relationship.create!(
+    follower_id: n,
+    following_id: 1
   )
 end

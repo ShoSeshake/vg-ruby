@@ -1,0 +1,1 @@
+$("#gurunavi-result").html("<% @restaurants.each do |restaurant|%><%= j(render partial: 'api/restaurants/guru-search',locals: {restaurant: restaurant}) %><% end %>")

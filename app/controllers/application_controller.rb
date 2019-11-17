@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   def menubar
     @categories = Category.all
     @ingredients = Ingredient.all.where(ancestry: nil)
-    @genres = Genre.all
   end
 
 end

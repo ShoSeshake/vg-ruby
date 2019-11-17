@@ -21,17 +21,39 @@
                 border-radius: 4px;
                 background-color: white;
                 border: 1px solid $green;
+                display: flex;
+                overflow: scroll;
+                width: 310px;
                 .upload-photo {
+                    background-color: #fafafa;
+                    margin: 0 10px;
                     position: relative;
-                    width: 240px;
-                    height: 240px;
+                    min-width: 240px;
+                    min-height: 238px;
                     &__delete {
                         position: absolute;
+                        display: block;
+                        color: white;
+                        top: 5px;
+                        right: 5px;
+                        height: 15px;
+                        width: 15px;
+                        background-color: rgb(172, 46, 46);
+                        border-radius: 50%;
+                        line-height: 15px;
+                        text-align: center;
+                        z-index: 5;
+                        border: white solid 1px;
                     }
                     &__image {
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        margin: auto auto;
                         position: absolute;
-                        width: 240px;
-                        height: 240px;
+                        max-width: 220px;
+                        max-height: 220px;
                     }
                 }
             }
@@ -156,11 +178,9 @@
 //         }
 //     }
 // }
-#restaurant_prefecture_id,
+#restaurant_price_id,
 #restaurant_vegan_friendly_id,
-.restaurant__review,
-#restaurant_lunch_price_id,
-#restaurant_dinner_price_id {
+.restaurant__review {
     color: $darkgreen;
     background-color: white;
     border-radius: 4px;
@@ -176,8 +196,7 @@
     margin-top: 10px;
 }
 
-#restaurant_lunch_price_id,
-#restaurant_dinner_price_id {
+#restaurant_price_id {
     letter-spacing: 3px;
 }
 
@@ -193,28 +212,27 @@
     }
 }
 
-.genre-btn {
-    color: $darkgreen;
-    background-color: white;
-    border-radius: 4px;
-    padding: 10px 10px;
-    font-size: 20px;
-    line-height: 25px;
-    border: 1px solid $green;
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    height: 45px;
-    text-align: center;
-    margin-top: 10px;
-    cursor: pointer;
-    &:hover {
-        color: white;
-        background-color: $darkgreen;
-    }
-}
-
+// .genre-btn {
+//     color: $darkgreen;
+//     background-color: white;
+//     border-radius: 4px;
+//     padding: 10px 10px;
+//     font-size: 20px;
+//     line-height: 25px;
+//     border: 1px solid $green;
+//     display: block;
+//     width: 100%;
+//     margin-bottom: 10px;
+//     box-sizing: border-box;
+//     height: 45px;
+//     text-align: center;
+//     margin-top: 10px;
+//     cursor: pointer;
+//     &:hover {
+//         color: white;
+//         background-color: $darkgreen;
+//     }
+// }
 #restaurant_url {
     display: none;
 }
@@ -242,7 +260,7 @@
 }
 
 #new_restaurant {
-    // display: none;
+    display: none;
 }
 
 #restaurant-search-btn {

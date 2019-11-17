@@ -1,0 +1,14 @@
+.guru-card
+  .guru-card__left
+    =image_tag "#{restaurant[:image]}",class:"guru-card__left__box__image"
+  .guru-card__center
+    Name:
+    =restaurant[:name]
+    %br
+    Location:
+    =restaurant[:prefcecture]
+    =link_to "#{restaurant[:url]}", target:"_blank",class:"guru-card__center__link" do
+      URL:
+      =restaurant[:url]
+  .guru-card__right{"data-id":restaurant[:id],"data-area":restaurant[:prefecture],"data-name":restaurant[:name]}
+    =fa_icon 'check-circle-o', class:"check-icon"

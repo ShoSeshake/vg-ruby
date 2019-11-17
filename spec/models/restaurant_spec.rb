@@ -36,22 +36,10 @@ describe Restaurant do
       expect(restaurant.errors[:vegan_friendly_id]).to include("can't be blank")
     end
 
-    it "is invalid without a url" do
-      restaurant = build(:restaurant, url: nil)
-      restaurant.valid?
-      expect(restaurant.errors[:url]).to include("can't be blank")
-    end
-
     it "is invalid without a visited_time" do
       restaurant = build(:restaurant, visited_time: nil)
       restaurant.valid?
       expect(restaurant.errors[:visited_time]).to include("can't be blank")
-    end
-
-    it "is invalid without a genres_restaurant" do
-      restaurant = build(:restaurant, genres_restaurants:[])
-      restaurant.valid?
-      expect(restaurant.errors[:genres_restaurants]).to include("is too short (minimum is 1 character)")
     end
   end
 end
