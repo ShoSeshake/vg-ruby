@@ -9,8 +9,32 @@
     &__main {
         width: 100%;
         display: flex;
+        margin-bottom: 20px;
         &__left {
             width: 50%;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            height: 330px;
+            &__box {
+                height: 240px;
+                box-sizing: border-box;
+                border-radius: 4px;
+                background-color: white;
+                border: 1px solid $green;
+                .upload-photo {
+                    position: relative;
+                    width: 240px;
+                    height: 240px;
+                    &__delete {
+                        position: absolute;
+                    }
+                    &__image {
+                        position: absolute;
+                        width: 240px;
+                        height: 240px;
+                    }
+                }
+            }
         }
         &__right {
             width: 50%;

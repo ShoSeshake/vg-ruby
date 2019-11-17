@@ -47,7 +47,7 @@ class RestaurantsController < ApplicationController
   end
   
   def search
-    array = { keyid: "0aa4a30e7eedf40433427f8c38d99341",
+    array = { keyid: ENV['GNAVI_KEY'],
                 lang: "en",
                 name: params[:name]}
     require 'net/http'
