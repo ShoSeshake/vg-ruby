@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_055822) do
     t.string "name", null: false
     t.string "gurunavi_id", null: false
     t.text "text", null: false
-    t.integer "location", null: false
+    t.string "location", null: false
     t.integer "price_id", null: false
     t.integer "review", null: false
     t.string "visited_time", null: false

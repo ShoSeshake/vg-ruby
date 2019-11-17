@@ -5,46 +5,49 @@
     .detail-modal__container__box
       %span.detail_title
         Name:
-      =hash[:name][:name]
+      =hash[0][:name][:name]
     .detail-modal__container__box
       %span.detail_title
         PR:
-      =simple_format(hash[:sales_points][:pr_long])
+      -if hash[0][:sales_points][:pr_long].present?
+        =simple_format(hash[0][:sales_points][:pr_long])
+      -elsif hash[0][:sales_points][:pr_short].present?
+        =simple_format(hash[0][:sales_points][:pr_short])
     .detail-modal__container__box
       %span.detail_title 
         Business Hours:
-      =simple_format(hash[:business_hour])
+      =simple_format(hash[0][:business_hour])
     .detail-modal__container__box
       %span.detail_title 
         Holiday:
-      =hash[:holiday]
+      =hash[0][:holiday]
     .detail-modal__container__box
       %span.detail_title
         Website:
-      =link_to "#{hash[:url]}" do
-        =hash[:url]
+      =link_to "#{hash[0][:url]}" do
+        =hash[0][:url]
     .detail-modal__container__box
       %span.detail_title
         Tel:
-      =hash[:contacts][:tel]
+      =hash[0][:contacts][:tel]
     .detail-modal__container__box
       %span.detail_title 
         Address:
-      =hash[:contacts][:address]
+      =hash[0][:contacts][:address]
     .detail-modal__container__box
       %span.detail_title
         Access:
-      =hash[:access]
+      =hash[0][:access]
     .detail-modal__container__box
       %span.detail_title
         Budget:
-      =hash[:budget]
+      =hash[0][:budget]
     .detail-modal__container__box
       %span.detail_title
         Category:
-      -hash[:categories][:category_name_s].each do |c|
+      -hash[0][:categories][:category_name_s].each do |c|
         =c
         \/
     .gurunavi
-      =link_to "https://api.gnavi.co.jp/api/scope/", target:"_blank"
+      =link_to "https://api.gnavi.co.jp/api/scope/", target:"_blank" do
         =image_tag "https://api.gnavi.co.jp/api/img/credit/api_180_60.gif",alt:"グルメ情報検索サイト　ぐるなび",style:"width:180px; height:60px; border:0;"
