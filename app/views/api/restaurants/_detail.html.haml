@@ -10,9 +10,9 @@
       %span.detail_title
         PR:
       -if hash[0][:sales_points][:pr_long].present?
-        =simple_format(hash[0][:sales_points][:pr_long])
+        =simple_format("#{hash[0][:sales_points][:pr_long]}")
       -elsif hash[0][:sales_points][:pr_short].present?
-        =simple_format(hash[0][:sales_points][:pr_short])
+        =simple_format("#{hash[0][:sales_points][:pr_short]}")
     .detail-modal__container__box
       %span.detail_title 
         Business Hours:

@@ -1,59 +1,28 @@
 .container
   .restaurants-new
-    =form_for @restaurant, method: :patch do |f|
-      .flex-box
-        .form-title
-          Name
-          =f.text_field :name,required:"required"
-        .form-title
-          Genre
-          .genre-btn
-            Select Genre
-      =f.fields_for :genres_restaurant do |g|
-        #genre-modal
-          .genre-list
-            -@genres.each do |genre|
-              -if @restaurant.genres.include?(genre)
-                -g_r = GenresRestaurant.find_by(genre_id: genre.id, restaurant_id:@restaurant.id)
-                .genre-list__select.checked
-                  =genre.genre
-                  %input{type:"checkbox", name: "restaurant[genres_restaurants_attributes][][genre_id]", value:genre.id, class:"edit-genre-checked",multiple:"true", checked:"checked"}
-                  %input{type:"checkbox", value:"1", name:"restaurant[genres_restaurants_attributes][][_destroy]", class:"genre-checkbox"}
-                  %input{type:"hidden",value:g_r.id, name:"restaurant[genres_restaurants_attributes][][id]" }
-              -else
-                .genre-list__select
-                  %input{type:"checkbox", name: "restaurant[genres_restaurants_attributes][][genre_id]", value:genre.id, class:"genre-checkbox",multiple:"true"}
-                  =genre.genre
-            .genre-selected SELECT
-      .form-title
-        Website
-      =f.text_field :hp
-      .flex-box
-        .form-title
-          Prefecture
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"---"}
-        .form-title
-          Telephone
-          =f.telephone_field :telephone, maxlength:"11"
-      .form-title
-        Address
-      =f.text_field :address
-      .flex-box
-        .form-title
-          Price Lunch
-          = f.collection_select :lunch_price_id, LunchPrice.all, :id, :name,{prompt:"---"}
-        .form-title
-          Price Dinner
-          = f.collection_select :dinner_price_id, DinnerPrice.all, :id, :name,{prompt:"---"}
-      .flex-box
-        .form-title
-          Visited Time
+    =form_for @restaurant, method: :post do |f|
+      .restaurants-new__main
+        .restaurants-new__main__left
+          .form-title
+            Photo
+          = f.fields_for :photos do |i|
+            =i.label :url,for: nil,class:"photo-btn",required:"required" do
+              Upload Photo
+              =i.file_field :url, multiple: true, type: 'file', name:"restaurant[photos_attributes][][url]",id:"restaurant_url",required:"required"
+            .restaurants-new__main__left__box
+        .restaurants-new__main__right
+          .form-title
+            Name
+          =f.text_field :name,class:"readonly",required:"required",readonly:"readonly"
+          .form-title
+            Location
+          =f.text_field :location,class:"readonly",required:"required",readonly:"readonly"
+          .form-title
+            Price Range
+          = f.collection_select :price_id, Price.all, :id, :name,{prompt:"---"}
+          .form-title
+            Visited Time
           =f.text_field :visited_time,required:"required"
-        .form-title
-          Photo
-          =f.label :url,class:"photo-btn",required:"required" do
-            Upload Photo
-            = f.file_field :url,required:"required"
       .form-title
         Text
       =f.text_area :text,required:"required"
@@ -74,4 +43,9 @@
               -n+=1
               =fa_icon 'apple', class:"icon-apple", "data-id":(n + number)
           =f.hidden_field :review,required:"required"
-      =f.submit 'POST', class:"submit-btn"  
+          =f.hidden_field :gurunavi_id
+      =f.submit 'POST', class:"submit-btn"
+      .gurunavi
+        Supported by
+        =link_to "https://api.gnavi.co.jp/api/scope/",target:"_blank" do
+          ぐるなびWebService 
