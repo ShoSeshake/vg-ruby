@@ -35,6 +35,28 @@
             max-height: 300px;
         }
     }
+    &__subs {
+        padding: 20px;
+        width: 600x;
+        height: 64px;
+        display: flex;
+        background: #fafafa;
+        &__sub {
+            position: relative;
+            min-width: 64px;
+            min-height: 64px;
+            .rest-sub-photo {
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto auto;
+                position: absolute;
+                max-width: 64px;
+                max-height: 64px;
+            }
+        }
+    }
     &__review {
         border-radius: 8px;
         background: #fafafa;
@@ -53,7 +75,7 @@
             color: grey;
         }
     }
-    &__price {
+    &__flex {
         width: auto;
         border-radius: 8px;
         background: #fafafa;
@@ -62,11 +84,10 @@
         margin-bottom: 10px;
         display: flex;
         letter-spacing: 1px;
-        ;
-        &__lunch {
+        &__price {
             width: 100%;
         }
-        &__dinner {
+        &__location {
             width: 100%;
         }
     }
@@ -350,4 +371,9 @@
             padding-bottom: 5px;
         }
     }
+}
+
+.gurunavi {
+    text-align: right;
+    margin: 10px;
 }

@@ -49,10 +49,6 @@ $(function() {
         $('#dark-background').fadeIn(500);
         $('#category-list').fadeIn(500);
     })
-    $('#menu-genre').on('click', function() {
-        $('#dark-background').fadeIn(500);
-        $('#genre-list').fadeIn(500);
-    })
     $('#menu-ingredient').on('click', function() {
         $('#dark-background').fadeIn(500);
         $('#ingredient-list').fadeIn(500);
@@ -68,7 +64,6 @@ $(function() {
         $('#dark-background').fadeOut(500);
         $('#category-list').fadeOut(500);
         $('#chat-list').fadeOut(500);
-        $('#genre-list').fadeOut(500);
         $('#ingredient-list').fadeOut(500);
         $('.ingredient__child').empty('');
         $('.ingredient__child').hide();

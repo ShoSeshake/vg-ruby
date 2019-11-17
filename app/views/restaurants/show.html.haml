@@ -3,7 +3,11 @@
     .restaurant-show__name
       =@restaurant.name
     .restaurant-show__photo
-      =image_tag "#{@restaurant.url}", class:"restaurant-photo"
+      =image_tag "#{@restaurant.photos.first.url}", class:"restaurant-photo"
+    .restaurant-show__subs
+      -@restaurant.photos.each do |photo|
+        .restaurant-show__subs__sub
+          =image_tag "#{photo.url}",class:"rest-sub-photo","data-photo":"#{photo.url}"
     .restaurant-show__review
       .restaurant-show__review__name
         %span.restaurant-title
@@ -13,17 +17,15 @@
           =fa_icon 'apple', class:"icon-apple-red"
         -(10- @restaurant.review).times do
           =fa_icon 'apple', class:"icon-apple-grey"
-    .restaurant-show__price
-      .restaurant-show__price__lunch
-        -if@restaurant.lunch_price
-          %span.restaurant-title
-            Lunch :
-          =@restaurant.lunch_price.name
-      .restaurant-show__price__dinner
-        -if @restaurant.dinner_price
-          %span.restaurant-title
-            Dinner :
-          =@restaurant.dinner_price.name
+    .restaurant-show__flex
+      .restaurant-show__flex__price
+        %span.restaurant-title
+          Price :
+        =@restaurant.price.name
+      .restaurant-show__flex__location
+        %span.restaurant-title
+          Location :
+        =@restaurant.location
     .restaurant-show__text
       =simple_format(@restaurant.text)
       .restaurant-show__text__user
@@ -97,38 +99,30 @@
               =fa_icon 'apple', class:"icon-apple-red"
             .vf-level__box__text
               Vegan
-    .restaurant-show__genres
-      %span.restaurant-title
-        Genre :
-      %br
-      -@restaurant.genres.each do |g|
-        =link_to genre_path(g),class:"restaurant-show__genres__link" do
-          =g.genre
-        \/
     .restaurant-show__choice
       .restaurant-show__choice__box#detail-btn
         Restaurant Detail
       .restaurant-show__choice__box#comment-btn
         Comments
-    .restaurant-show__detail
-      -if (@restaurant.prefecture || @restaurant.address)
-        .restaurant-show__detail__address
-          %span.restaurant-title
-            Address :
-          =@restaurant.address
-          \,
-          =@restaurant.prefecture.name
-      -if @restaurant.telephone
-        .restaurant-show__detail__tel
-          %span.restaurant-title
-            Telephone :
-          =@restaurant.telephone
-      -if @restaurant.hp
-        .restaurant-show__detail__website
-          %span.restaurant-title
-            Website :
-          =link_to "#{@restaurant.hp}" do
-            =@restaurant.hp
+    -# .restaurant-show__detail
+    -#   -if (@restaurant.prefecture || @restaurant.address)
+    -#     .restaurant-show__detail__address
+    -#       %span.restaurant-title
+    -#         Address :
+    -#       =@restaurant.address
+    -#       \,
+    -#       =@restaurant.prefecture.name
+    -#   -if @restaurant.telephone
+    -#     .restaurant-show__detail__tel
+    -#       %span.restaurant-title
+    -#         Telephone :
+    -#       =@restaurant.telephone
+    -#   -if @restaurant.hp
+    -#     .restaurant-show__detail__website
+    -#       %span.restaurant-title
+    -#         Website :
+    -#       =link_to "#{@restaurant.hp}" do
+    -#         =@restaurant.hp
     .restaurant-show__comment
       -@restaurant.restaurant_comments.each do |c|
         .restaurant-show__comment__box
@@ -178,6 +172,10 @@
                     =fa_icon 'apple', class:"icon-apple-review","data-id":n
           =f.hidden_field :review
           =f.submit 'COMMENT', id:"comment-btn"
+    .gurunavi
+      Supported by
+      =link_to "https://api.gnavi.co.jp/api/scope/",target:"_blank" do
+        ぐるなびWebService 
 .delete-modal
   .delete-modal__box
     Are you sure that

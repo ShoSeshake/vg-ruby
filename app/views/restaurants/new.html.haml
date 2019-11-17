@@ -39,6 +39,10 @@
           =f.hidden_field :review,required:"required"
           =f.hidden_field :gurunavi_id
       =f.submit 'POST', class:"submit-btn"
+      .gurunavi
+        Supported by
+        =link_to "https://api.gnavi.co.jp/api/scope/",target:"_blank" do
+          ぐるなびWebService 
     =form_with url: search_api_restaurants_path, method: :get, local: false,id:"g-serach_form" do |f|
       .guru-restautant-search
         Find a Restaurant

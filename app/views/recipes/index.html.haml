@@ -22,7 +22,7 @@
       -@restaurants.each do |r|
         =link_to restaurant_path(r),class:"recipe-card-link index-card"  do
           .restaurant-card
-            =image_tag "#{r.url}", alt:r.name, class:"restaurant-card__image"
+            =image_tag "#{r.photos.first.url}", alt:r.name, class:"restaurant-card__image"
             .restaurant-card__name
               =r.name.truncate(24)
 
