@@ -94,15 +94,16 @@
   -if @recipe.comments.present?
     -@recipe.comments.each do |c|
       .comment-modal__box
-        .comment-modal__box__name
-          =c.user.name
-          %span.comment-modal__box__name__review
-            -c.review.times do
-              =fa_icon 'leaf', class:"icon"
-        .comment-modal__box__text
-          =simple_format(c.text)
-        .comment-modal__box__time
-          =c.created_at.to_s(:datetime)
+        .comment-modal__box__card
+          .comment-modal__box__card__name
+            =c.user.name
+            %span.comment-modal__box__card__name__review
+              -c.review.times do
+                =fa_icon 'leaf', class:"icon"
+          .comment-modal__box__card__text
+            =simple_format(c.text)
+          .comment-modal__box__card__time
+            =c.created_at.to_s(:datetime)
   -else
     .comment-modal__no-comment
       No comments 

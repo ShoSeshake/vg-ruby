@@ -332,47 +332,54 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 50;
-    padding: 50px 300px 0;
     overflow: scroll;
     &__box {
-        position: relative;
-        width: 300px;
-        z-index: 100;
-        border-radius: 20px;
-        background-color: $white;
-        color: $darkgreen;
-        font-weight: bold;
-        padding: 30px 30px;
-        line-height: 20px;
-        font-size: 20px;
-        &__name {
-            padding-bottom: 5px;
-            border-bottom: 1px dashed $darkgreen;
-            &__review {
-                color: rgb(35, 136, 35);
-                display: block;
+        width: 100%;
+        &__card {
+            display: inline-block;
+            position: relative;
+            margin: 20px 300px;
+            width: 300px;
+            z-index: 100;
+            border-radius: 20px;
+            background-color: $white;
+            color: $darkgreen;
+            font-weight: bold;
+            padding: 30px 30px;
+            line-height: 20px;
+            font-size: 20px;
+            &__name {
+                text-align: left;
+                padding-bottom: 5px;
+                border-bottom: 1px dashed $darkgreen;
+                &__review {
+                    color: rgb(35, 136, 35);
+                    display: block;
+                    text-align: right;
+                    font-size: 13px;
+                }
+            }
+            &__text {
+                text-align: left;
+                margin: 10px;
+                font-size: 17px;
+            }
+            &__time {
+                font-size: 15px;
+                border-top: 1px dashed $darkgreen;
+                padding-top: 5px;
                 text-align: right;
-                font-size: 13px;
             }
         }
-        &__text {
-            margin: 10px;
-            font-size: 17px;
-        }
-        &__time {
-            font-size: 15px;
-            border-top: 1px dashed $darkgreen;
-            padding-top: 5px;
-            text-align: right;
-        }
         &:nth-child(even) {
-            margin: 0 auto;
+            text-align: right;
         }
         &:last-child {
             margin-bottom: 100px;
         }
     }
     &__cancel {
+        margin: 20px;
         font-size: 30px;
         font-weight: bold;
         color: $white;
@@ -390,5 +397,11 @@
         padding: 30px 30px;
         line-height: 20px;
         font-size: 20px;
+    }
+}
+
+@media (max-width:1000px) {
+    .comment-modal__box__card {
+        margin: 20px 0;
     }
 }
