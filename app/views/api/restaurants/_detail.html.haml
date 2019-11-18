@@ -24,7 +24,7 @@
     .detail-modal__container__box
       %span.detail_title
         Website:
-      =link_to "#{hash[0][:url]}" do
+      =link_to "#{hash[0][:url]}",target:"_blank" do
         =hash[0][:url]
     .detail-modal__container__box
       %span.detail_title
@@ -41,7 +41,8 @@
     .detail-modal__container__box
       %span.detail_title
         Budget:
-      =hash[0][:budget]
+      ¥
+      =hash[0][:budget].to_s(:delimited)
     .detail-modal__container__box
       %span.detail_title
         Category:
