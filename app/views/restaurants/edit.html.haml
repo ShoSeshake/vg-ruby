@@ -6,9 +6,9 @@
           .form-title
             Photo
           = f.fields_for :photo do |i|
-            =i.label :url,for: nil,class:"photo-btn",required:"required" do
+            =i.label :url,for: nil,class:"photo-btn" do
               Upload Photo
-              =i.file_field :url, multiple: true, type: 'file', name:"restaurant[photos_attributes][][url]",id:"restaurant_url",required:"required"
+              =i.file_field :url, multiple: true, type: 'file', name:"restaurant[photos_attributes][][url]",id:"restaurant_url"
           .restaurants-new__main__left__box
             -@restaurant.photos.each do |photo|
               .upload-photo
