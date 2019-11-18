@@ -61,26 +61,6 @@
 -  belongs_to :user
 
 
-## genre table
-|Column|Type|Options|
-|------|----|-------|
-|genre|string||
-
-### Association
--  has_many :genres_restaurants
--  has_many :restaurants, through: :genres_restaurants
-
-
-## genres_restaurants table
-|Column|Type|Options|
-|------|----|-------|
-|genre_id|references|null: false, foreignkey:true|
-|restaurant_id|references|null: false, foreignkey:true|
-
-### Association
--  belongs_to :restaurant
--  belongs_to :genre
-
 
 ## images table
 |Column|Type|Options|
@@ -147,6 +127,17 @@ belongs_to :recipe
 -  belongs_to :user
 -  belongs_to :chat
 
+
+## photos table
+|Column|Type|Options|
+|------|----|-------|
+|url|string|null:false|
+|restaurant_id|references|null: false, foreignkey:true|
+
+### Association
+-  belongs_to :restaurant
+
+
 ## recipes table
 |Column|Type|Options|
 |------|----|-------|
@@ -195,24 +186,19 @@ belongs_to :recipe
 |------|----|-------|
 |name|string|null:false,index:true|
 |text|text|null:false|
-|lunch_price_id|integer||
-|dinner_price_id|integer||
+|price_id|integer||
 |review|integer|null:false|
 |visited_time|string|null:false|
-|url|string|null:false|
-|hp|string||
-|address|string||
-|telephone|string||
+|location|string||
+|gurunavi_id|string||
 |vegan_friendly_id|integer|null:false|
-|prefecture_id|integer||
 |user_id|references|null: false, foreignkey:true|
 
 ### Association
 -  belongs_to :user
 
 -  has_many :restaurant_comments,   dependent: :destroy
--  has_many :genres_restaurants,    dependent: :destroy
--  has_many :genres, through: :genres_restaurants
+-  has_many :photos,    dependent: :destroy
 
 
 ## users table
