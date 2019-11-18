@@ -36,6 +36,24 @@ describe Restaurant do
       expect(restaurant.errors[:vegan_friendly_id]).to include("can't be blank")
     end
 
+    it "is invalid without a location" do
+      restaurant = build(:restaurant, location: nil)
+      restaurant.valid?
+      expect(restaurant.errors[:location]).to include("can't be blank")
+    end
+
+    it "is invalid without a price_id" do
+      restaurant = build(:restaurant, price_id: nil)
+      restaurant.valid?
+      expect(restaurant.errors[:price_id]).to include("can't be blank")
+    end
+
+    it "is invalid without a photo" do
+      restaurant = build(:restaurant, photos: [])
+      restaurant.valid?
+      expect(restaurant.errors[:photos]).to include("is too short (minimum is 1 character)")
+    end
+
     it "is invalid without a visited_time" do
       restaurant = build(:restaurant, visited_time: nil)
       restaurant.valid?

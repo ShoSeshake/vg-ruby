@@ -15,8 +15,7 @@ describe MessagesController do
         expect(assigns(:chats)).to eq user.chats
       end
       
-      it 'redners index' do
-        binding.pry       
+      it 'redners index' do     
         expect(response).to render_template :index
       end
     end
