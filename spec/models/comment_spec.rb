@@ -6,13 +6,13 @@ describe Comment do
       expect(comment).to be_valid
     end
 
-    it "is valid with a content, without a text" do
+    it "is invalid  without a text" do
       comment = build(:comment, text: nil)
       comment.valid?
       expect(comment.errors[:text]).to include("can't be blank")
     end
 
-    it "is valid with a content, without a review" do
+    it "is invalid  without a review" do
       comment = build(:comment, review: nil)
       comment.valid?
       expect(comment.errors[:review]).to include("can't be blank")

@@ -6,7 +6,7 @@ describe Image do
       expect(image).to be_valid
     end
 
-    it "is valid with a content, without an url" do
+    it "is invalid without an url" do
       image = build(:image, url: nil)
       image.valid?
       expect(image.errors[:url]).to include("can't be blank")
