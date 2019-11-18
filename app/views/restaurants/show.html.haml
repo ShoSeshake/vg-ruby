@@ -48,10 +48,10 @@
       .restaurant-show__box__level
         %span.restaurant-title
           Vegan Friendly Level :
-        -(5- @restaurant.vegan_friendly.id).times do
-          =fa_icon 'apple', class:"icon-apple-grey"
         -@restaurant.vegan_friendly.id.times do
           =fa_icon 'apple', class:"icon-apple-red"
+        -(5- @restaurant.vegan_friendly.id).times do
+          =fa_icon 'apple', class:"icon-apple-grey"
         #vf-level-modal
           #delete-btn ×
           .vf-level__box
