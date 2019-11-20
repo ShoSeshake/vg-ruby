@@ -82,7 +82,7 @@
             &__message {
                 padding: 10px 30px;
                 &__box {
-                    float: right;
+                    text-align: right;
                     &__detail {
                         margin-bottom: 10px;
                         font-size: 0;
@@ -105,7 +105,8 @@
                         text-align: left;
                     }
                     &__text {
-                        min-width: 300px;
+                        text-align: left;
+                        min-width: 360px;
                         max-width: 600px;
                         word-break: break-all;
                         display: inline-block;
@@ -115,6 +116,7 @@
                         padding: 20px;
                         border-radius: 10px;
                         &__image {
+                            margin: 0 auto;
                             display: block;
                             max-height: 200px;
                             max-width: 200px;
@@ -126,7 +128,7 @@
                     }
                 }
                 .other-box {
-                    float: left;
+                    text-align: left;
                 }
             }
         }
@@ -141,18 +143,10 @@
                 padding: 20px 30px 25px;
                 position: relative;
                 &__text {
-                    color: $darkgreen;
-                    background-color: white;
-                    border-radius: 4px;
-                    padding: 10px 0;
+                    @include form();
                     padding-left: 40px;
-                    font-size: 20px;
-                    line-height: 20px;
-                    border: 1px solid $green;
-                    display: block;
-                    box-sizing: border-box;
-                    height: 45px;
                     width: 70%;
+                    margin-left: 0;
                     margin-right: 10px;
                 }
                 &__image {
@@ -168,21 +162,8 @@
                     }
                 }
                 &__send {
-                    color: $darkgreen;
-                    background-color: white;
-                    border-radius: 4px;
-                    padding: 10px 10px;
-                    font-size: 20px;
-                    line-height: 20px;
-                    border: 1px solid $green;
-                    display: block;
-                    box-sizing: border-box;
-                    height: 45px;
+                    @include btn();
                     width: 100px;
-                    &:hover {
-                        background-color: $darkgreen;
-                        color: white;
-                    }
                 }
             }
         }
