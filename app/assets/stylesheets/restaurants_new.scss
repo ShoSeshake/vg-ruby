@@ -64,24 +64,9 @@
     }
     input,
     textarea {
-        color: $darkgreen;
-        background-color: white;
-        border-radius: 4px;
-        padding: 10px 10px;
-        font-size: 20px;
-        line-height: 20px;
-        border: 1px solid $green;
-        display: block;
+        @include form();
         width: 100%;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        box-sizing: border-box;
-        &:focus {
-            border: 2px solid $darkgreen;
-        }
-    }
-    input {
-        height: 45px;
+        margin: 10px 0;
     }
     input.readonly {
         background-color: $white;
@@ -149,25 +134,11 @@
 }
 
 .photo-btn {
-    color: $darkgreen;
-    background-color: white;
-    border-radius: 4px;
-    padding: 10px 10px;
-    font-size: 20px;
-    line-height: 25px;
-    border: 1px solid $green;
-    display: block;
+    @include btn();
+    border: $green 1px solid;
     width: 100%;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    height: 45px;
-    margin-top: 10px;
+    margin: 10px 0;
     text-align: center;
-    cursor: pointer;
-    &:hover {
-        color: white;
-        background-color: $darkgreen;
-    }
 }
 
 #new_restaurant {

@@ -6,12 +6,11 @@
     z-index: 1;
     border-right: 2px solid $darkgreen;
     font-weight: bold;
-    box-sizing: border-box;
     overflow: scroll;
     &__name {
         padding: 10px 10px 10px 100px;
         height: 70px;
-        width: 190px;
+        height: 100px;
         font-size: 25px;
         border-bottom: 2px dashed $darkgreen;
         vertical-align: center;
@@ -41,28 +40,15 @@
 }
 
 #dark-background-follow {
-    display: none;
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    @include dark-background();
     z-index: 30;
 }
 
 .follow-confirmation {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 400px;
+    @include modal();
     padding: 40px;
     width: 500px;
     border-radius: 20px;
-    background-color: $white;
-    color: $darkgreen;
-    font-weight: bold;
-    overflow: scroll;
     height: 25vh;
     z-index: 40;
     text-align: center;
