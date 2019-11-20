@@ -22,20 +22,18 @@
     top: 0;
     bottom: 0;
     height: calc(100vh - 100px);
-    width: 300px;
+    width: 280px;
     padding: 0 10px;
     background-color: rgba(20, 99, 25, 0.7);
     z-index: 1;
     font-weight: bold;
-    box-sizing: border-box;
     overflow: scroll;
     &__name {
         padding: 30px 0px 20px 90px;
         height: 50px;
-        width: 190px;
         font-size: 20px;
-        vertical-align: center;
         word-break: break-all;
+        height: 100px;
         #select-order {
             color: $white;
             background-color: transparent;
@@ -90,7 +88,7 @@
             .search-category-name {
                 padding-left: 20px;
                 position: relative;
-                margin-right: 10px;
+                margin-right: 5px;
                 &:before {
                     content: "";
                     display: block;
@@ -162,23 +160,11 @@
     #ingredient-search {
         position: relative;
     }
-    .search-form,
-    .search-btn {
-        color: $darkgreen;
-        background-color: white;
-        border-radius: 4px;
-        padding: 10px 10px;
-        font-size: 20px;
-        line-height: 20px;
-        border: 1px solid $green;
-        display: block;
+    .search-form {
+        @include form();
         width: 100%;
-        margin: 10px 0 20px;
-        box-sizing: border-box;
-        height: 45px;
         &:focus {
-            border: 2px solid $darkgreen;
-            box-sizing: border-box;
+            border: none;
         }
     }
 }
@@ -193,22 +179,11 @@
     left: 0;
     height: 100px;
     .search-btn {
-        color: $darkgreen;
-        background-color: white;
-        border-radius: 4px;
-        padding: 10px 10px;
-        font-size: 20px;
-        line-height: 20px;
-        border: 1px solid $green;
-        display: block;
-        width: 100%;
-        margin-top: 30px;
-        box-sizing: border-box;
-        height: 45px;
+        @include btn();
         font-weight: bold;
+        width: 100%;
+        margin: 30px 0 20px;
         &:hover {
-            background-color: $green;
-            color: white;
             border: none;
         }
     }
