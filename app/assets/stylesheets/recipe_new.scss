@@ -14,20 +14,9 @@
     height: 80vh;
     input,
     textarea {
-        color: $darkgreen;
-        background-color: white;
-        border-radius: 4px;
-        padding: 10px 10px;
-        font-size: 20px;
-        line-height: 20px;
-        border: 1px solid $green;
-        display: block;
+        @include form();
         width: 100%;
         margin-bottom: 10px;
-        box-sizing: border-box;
-        &:focus {
-            border: 2px solid $darkgreen;
-        }
     }
     input {
         height: 45px;
@@ -36,15 +25,13 @@
         height: 200px;
     }
     .submit-btn {
+        @include btn();
         width: 70%;
         margin: 0 auto;
-        color: $darkgreen;
-        border-radius: 4px;
-        &:hover {
-            color: white;
-            background-color: $darkgreen;
-            cursor: pointer;
-        }
+    }
+    .instruction-text {
+        height: 100px;
+        font-size: 15px;
     }
 }
 
@@ -85,15 +72,9 @@
 }
 
 #category-modal {
-    display: none;
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 50;
+    @include dark-background();
     padding-top: 80px;
+    z-index: 50;
     .category-list {
         width: 700px;
         margin: 0 auto;
@@ -132,23 +113,11 @@
             }
         }
         .category-selected {
-            display: block;
-            margin: 20px auto 0;
-            background-color: white;
-            text-align: center;
-            font-weight: bold;
-            color: $darkgreen;
-            border-radius: 4px;
-            width: 60%;
-            border: 1px solid $green;
+            @include btn();
             padding: 10px 0;
-            font-size: 20px;
-            line-height: 20px;
-            cursor: pointer;
-        }
-        .category-selected:hover {
-            color: white;
-            background-color: $darkgreen;
+            margin: 20px auto 0;
+            text-align: center;
+            width: 60%;
         }
     }
 }
@@ -333,27 +302,9 @@
     cursor: pointer;
 }
 
-.instruction-text {
-    height: 100px;
-    font-size: 15px;
-}
-
 .add-button {
-    display: block;
+    @include btn();
     margin: 20px auto 0;
-    background-color: white;
     text-align: center;
-    font-weight: bold;
-    color: $darkgreen;
-    border-radius: 4px;
     width: 60%;
-    border: 1px solid $green;
-    padding: 10px 0;
-    font-size: 20px;
-    line-height: 20px;
-    cursor: pointer;
-    &:hover {
-        color: white;
-        background-color: $darkgreen;
-    }
 }
