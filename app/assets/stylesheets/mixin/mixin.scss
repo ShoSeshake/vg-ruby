@@ -23,7 +23,35 @@
     display: none;
 }
 
+@mixin form() {
+    color: $darkgreen;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 20px;
+    border: 1px solid $green;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 45px;
+    &:focus {
+        border: 2px solid $darkgreen;
+    }
+}
+
 @mixin btn() {
+    color: $darkgreen;
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    font-size: 20px;
+    line-height: 20px;
+    border: 1px solid $darkgreen;
+    display: block;
+    box-sizing: border-box;
+    height: 45px;
+    cursor: pointer;
     &:hover {
         color: white;
         background-color: $darkgreen;

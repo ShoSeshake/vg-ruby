@@ -11,10 +11,8 @@
         overflow: scroll;
         &__title {
             padding: 10px 10px 10px 100px;
-            height: 70px;
-            width: 190px;
+            height: 100px;
             font-size: 25px;
-            vertical-align: center;
             word-break: break-all;
             color: $white;
             line-height: 70px;
@@ -192,18 +190,9 @@
 }
 
 #chat-delete-btn {
-    color: $darkgreen;
-    background-color: white;
-    border-radius: 4px;
-    padding: 10px 10px;
-    font-size: 20px;
-    line-height: 20px;
-    border: 1px solid $green;
-    display: block;
+    @include btn();
     width: 360px;
     margin: 20px auto;
-    box-sizing: border-box;
-    height: 45px;
     cursor: pointer;
     &:hover {
         color: white;
@@ -214,11 +203,8 @@
 
 #background-edit,
 #background-edit-delete {
-    top: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    @include dark-background();
+    display: block;
     z-index: 10;
 }
 
@@ -228,22 +214,12 @@
 }
 
 #chat-edit-container {
+    @include modal();
     display: block;
     text-align: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto auto;
     padding: 30px;
     width: 600px;
     border-radius: 20px;
-    background-color: $white;
-    color: $darkgreen;
-    font-weight: bold;
-    overflow: scroll;
-    height: 80vh;
     z-index: 40;
     .chat__all {
         margin-top: 30px;
@@ -258,28 +234,15 @@
             text-align: left;
         }
         #chat_name,
-        #friend-search-edit,
-        #chat-create {
-            color: $darkgreen;
-            background-color: white;
-            border-radius: 4px;
-            padding: 10px 10px;
-            font-size: 20px;
-            line-height: 20px;
-            border: 1px solid $green;
-            display: block;
+        #friend-search-edit {
+            @include form();
             width: 360px;
             margin: 0 auto;
-            box-sizing: border-box;
-            height: 45px;
-            &:focus {
-                border: 2px solid $darkgreen;
-                box-sizing: border-box;
-            }
         }
-        #chat-create:hover {
-            color: white;
-            background-color: $darkgreen;
+        #chat-create {
+            @include btn();
+            width: 360px;
+            margin: 0 auto;
         }
         #chat_name {
             margin-bottom: 20px;
@@ -310,7 +273,7 @@
             }
         }
         #append_field-edit {
-            min-height: 180px;
+            min-height: 100px;
             margin-bottom: 20px;
             .member-box {
                 border-bottom: 1px solid $darkgreen;
@@ -344,21 +307,11 @@
 }
 
 #chat-edit-container-delete {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto auto;
+    @include modal ();
     padding: 30px;
     width: 600px;
     border-radius: 20px;
-    background-color: $white;
-    color: $darkgreen;
-    font-weight: bold;
-    overflow: scroll;
-    height: 40vh;
+    height: 45vh;
     z-index: 60;
     .chat-delete {
         width: 400px;
