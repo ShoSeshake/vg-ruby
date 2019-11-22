@@ -172,20 +172,10 @@
         }
         #chat_name,
         #friend-search,
-        #friend-search-edit,
         #chat-create {
-            color: $darkgreen;
-            background-color: white;
-            border-radius: 4px;
-            padding: 10px 10px;
-            font-size: 20px;
-            line-height: 20px;
-            border: 1px solid $green;
-            display: block;
+            @include form();
             width: 360px;
             margin: 0 auto;
-            box-sizing: border-box;
-            height: 45px;
             &:focus {
                 border: 2px solid $darkgreen;
                 box-sizing: border-box;
@@ -198,18 +188,18 @@
         #chat_name {
             margin-bottom: 20px;
         }
-        #friend_result,
-        #friend_result-edit {
+        #friend_result {
             overflow: scroll;
-            left: 150px;
             position: absolute;
             z-index: 10;
             display: none;
             width: 360px;
             height: 40vh;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
             background-color: #fafafa;
-            .search_result_name,
-            .search_result_name-edit {
+            .search_result_name {
                 text-align: left;
                 padding: 10px;
                 font-size: 17px;
@@ -225,9 +215,8 @@
                 font-size: 17px;
             }
         }
-        #append_field,
-        #append_field-edit {
-            min-height: 300px;
+        #append_field {
+            min-height: 200px;
             margin-bottom: 20px;
             .member-box {
                 border-bottom: 1px solid $darkgreen;

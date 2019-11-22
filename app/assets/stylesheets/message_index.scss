@@ -230,12 +230,14 @@
         }
         #friend_result-edit {
             overflow: scroll;
-            left: 150px;
             position: absolute;
             z-index: 10;
             display: none;
             width: 360px;
             height: 40vh;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
             background-color: #fafafa;
             .search_result_name-edit {
                 text-align: left;
@@ -254,7 +256,7 @@
             }
         }
         #append_field-edit {
-            min-height: 100px;
+            min-height: 120px;
             margin-bottom: 20px;
             .member-box {
                 border-bottom: 1px solid $darkgreen;
