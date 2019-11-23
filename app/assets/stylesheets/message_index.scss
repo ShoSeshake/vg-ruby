@@ -172,6 +172,7 @@
 
 #chat-delete-btn {
     @include btn();
+    border: 1px solid $green;
     width: 360px;
     margin: 20px auto;
     cursor: pointer;
@@ -222,6 +223,7 @@
         }
         #chat-create {
             @include btn();
+            border: 1px solid $green;
             width: 360px;
             margin: 0 auto;
         }
