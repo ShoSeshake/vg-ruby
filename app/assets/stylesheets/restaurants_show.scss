@@ -38,7 +38,7 @@
     &__subs {
         padding: 20px;
         width: 600x;
-        height: 64px;
+        height: 104px;
         display: flex;
         background: #fafafa;
         &__sub {
@@ -339,6 +339,7 @@
 
 .detail-modal {
     @include dark-background();
+    display: block;
     z-index: 50;
     &__container {
         position: relative;
