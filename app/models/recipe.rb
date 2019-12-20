@@ -19,7 +19,7 @@ class Recipe < ApplicationRecord
   validates :images, length: {maximum: 10, minimum: 1}
   validates :instructions, :categories_recipes, :ingredients_recipes, length: {minimum: 1}
 
-  validates :name, :text, :serving, presence: :ture
+  validates :name, :text, :serving, presence: :true
 
   ransacker :likes_count do
     query = '(SELECT COUNT(likes.recipe_id) FROM likes where likes.recipe_id = recipes.id GROUP BY likes.recipe_id)'
